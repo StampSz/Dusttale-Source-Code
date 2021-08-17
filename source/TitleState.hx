@@ -404,7 +404,7 @@ class TitleState extends MusicBeatState
 		{
 	
 			case 2:
-				createCoolText(['WassabiSoja', 'Gooble', 'Nathan S', 'Lemonemy', 'StampS,', 'Icey', 'UndependableNight', 'TroupeMasterSebi']);
+				createCoolText(['WassabiSoja', 'Gooble', 'Nathan S', 'Lemonemy', 'StampS,', 'Icey', 'UndependableNight', 'Goldsebi']);
 
 			case 4:
 				deleteCoolText();
