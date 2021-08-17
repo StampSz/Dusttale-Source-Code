@@ -47,6 +47,9 @@ class MainMenuState extends MusicBeatState
 	var camFollow:FlxObject;
 	public static var finishedFunnyMove:Bool = false;
 
+	public static var bg:FlxSprite;
+	public static var object:FlxSprite;
+
 	override function create()
 	{
 		#if windows
@@ -61,13 +64,20 @@ class MainMenuState extends MusicBeatState
 
 		persistentUpdate = persistentDraw = true;
 
-		var bg:FlxSprite = new FlxSprite(-100).loadGraphic(Paths.image('menuBG'));
+
+		bg = new FlxSprite(-20, 45);
+		bg.frames = Paths.getSparrowAtlas('bg');
+		bg.animation.addByPrefix('bg', 'bg0', 24, true);
+		bg.antialiasing = true;
+		bg.active = true;
 		bg.scrollFactor.x = 0;
-		bg.scrollFactor.y = 0.10;
+		bg.scrollFactor.y = 0;
 		bg.setGraphicSize(Std.int(bg.width * 1.1));
 		bg.updateHitbox();
 		bg.screenCenter();
-		bg.antialiasing = true;
+
+        bg.animation.play('bg');
+
 		add(bg);
 
 		camFollow = new FlxObject(0, 0, 1, 1);
@@ -88,7 +98,7 @@ class MainMenuState extends MusicBeatState
 		menuItems = new FlxTypedGroup<FlxSprite>();
 		add(menuItems);
 
-		var tex = Paths.getSparrowAtlas('FNF_main_menu_assets');
+		var tex = Paths.getSparrowAtlas('start_screen');
 
 		for (i in 0...optionShit.length)
 		{
@@ -108,8 +118,6 @@ class MainMenuState extends MusicBeatState
 						finishedFunnyMove = true; 
 						changeItem();
 					}});
-			else
-				menuItem.y = 60 + (i * 160);
 		}
 
 		firstStart = false;
