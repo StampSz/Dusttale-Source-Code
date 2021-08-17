@@ -2151,6 +2151,8 @@ class PlayState extends MusicBeatState
 				// phillyCityLights.members[curLight].alpha -= (Conductor.crochet / 1000) * FlxG.elapsed;
 		}
 
+		
+
 		super.update(elapsed);
 
 		scoreTxt.text = Ratings.CalculateRanking(songScore,songScoreDef,nps,maxNPS,accuracy);
@@ -2441,8 +2443,8 @@ class PlayState extends MusicBeatState
 						camFollow.y = dad.getMidpoint().y - 430;
 						camFollow.x = dad.getMidpoint().x - 100;
 					case 'sans':
-						camFollow.y = dad.getMidpoint().y + 0;
-						camFollow.x = dad.getMidpoint().x + 300;
+						camFollow.y = dad.getMidpoint().y - 50;
+						camFollow.x = dad.getMidpoint().x + 200;
 					
 				}
 

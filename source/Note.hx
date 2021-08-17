@@ -146,7 +146,7 @@ class Note extends FlxSprite
 								animation.addByPrefix('greenhold', 'green hold piece');
 								animation.addByPrefix('redhold', 'red hold piece');
 								animation.addByPrefix('bluehold', 'blue hold piece');
-						
+
 								setGraphicSize(Std.int(width * 0.7));
 								updateHitbox();
 								antialiasing = true;
@@ -178,6 +178,7 @@ class Note extends FlxSprite
 		// THIS DOESN'T FUCKING FLIP THE NOTE, CONTRIBUTERS DON'T JUST COMMENT THIS OUT JESUS
 		if (FlxG.save.data.downscroll && sustainNote) 
 			flipY = true;
+
 
 		if (isSustainNote && prevNote != null)
 		{
