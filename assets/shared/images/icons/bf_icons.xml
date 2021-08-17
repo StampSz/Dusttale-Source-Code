@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="bf_icons.png">
+	<!-- Created with Adobe Animate version 21.0.4.39603 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="loosing_bf0000" x="0" y="0" width="349" height="211" frameX="0" frameY="-4" frameWidth="353" frameHeight="219"/>
+	<SubTexture name="loosing_bf0001" x="0" y="0" width="349" height="211" frameX="-5" frameY="-8" frameWidth="353" frameHeight="219"/>
+	<SubTexture name="loosing_bf0002" x="0" y="0" width="349" height="211" frameX="0" frameY="-4" frameWidth="353" frameHeight="219"/>
+	<SubTexture name="loosing_bf0003" x="0" y="0" width="349" height="211" frameX="-5" frameY="0" frameWidth="353" frameHeight="219"/>
+	<SubTexture name="loosing_bf0004" x="0" y="0" width="349" height="211" frameX="0" frameY="-4" frameWidth="353" frameHeight="219"/>
+	<SubTexture name="normal_bf0000" x="349" y="0" width="368" height="176" frameX="0" frameY="-22" frameWidth="368" frameHeight="199"/>
+	<SubTexture name="normal_bf0001" x="349" y="0" width="368" height="176" frameX="0" frameY="-22" frameWidth="368" frameHeight="199"/>
+	<SubTexture name="normal_bf0002" x="0" y="211" width="347" height="184" frameX="-10" frameY="-15" frameWidth="368" frameHeight="199"/>
+	<SubTexture name="normal_bf0003" x="0" y="211" width="347" height="184" frameX="-10" frameY="-15" frameWidth="368" frameHeight="199"/>
+	<SubTexture name="normal_bf0004" x="347" y="211" width="337" height="199" frameX="-15" frameY="0" frameWidth="368" frameHeight="199"/>
+	<SubTexture name="normal_bf0005" x="347" y="211" width="337" height="199" frameX="-15" frameY="0" frameWidth="368" frameHeight="199"/>
+	<SubTexture name="winning_bf0000" x="0" y="410" width="382" height="181" frameX="0" frameY="-18" frameWidth="382" frameHeight="199"/>
+	<SubTexture name="winning_bf0001" x="0" y="410" width="382" height="181" frameX="0" frameY="-18" frameWidth="382" frameHeight="199"/>
+	<SubTexture name="winning_bf0002" x="382" y="410" width="352" height="193" frameX="-15" frameY="-6" frameWidth="382" frameHeight="199"/>
+	<SubTexture name="winning_bf0003" x="382" y="410" width="352" height="193" frameX="-15" frameY="-6" frameWidth="382" frameHeight="199"/>
+	<SubTexture name="winning_bf0004" x="0" y="603" width="337" height="199" frameX="-22" frameY="0" frameWidth="382" frameHeight="199"/>
+	<SubTexture name="winning_bf0005" x="0" y="603" width="337" height="199" frameX="-22" frameY="0" frameWidth="382" frameHeight="199"/>
+</TextureAtlas>
