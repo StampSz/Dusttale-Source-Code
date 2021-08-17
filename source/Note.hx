@@ -161,7 +161,7 @@ class Note extends FlxSprite
 				x += swagWidth * 0;
 				animation.play('purpleScroll');
 			case 1:
-				x += swagWidth * 1;
+				x += swagWidth * 1;			
 				animation.play('blueScroll');
 			case 2:
 				x += swagWidth * 2;
@@ -222,11 +222,17 @@ class Note extends FlxSprite
 
 
 				if(FlxG.save.data.scrollSpeed != 1)
-					prevNote.scale.y *= Conductor.stepCrochet / 100 * 1.5 * FlxG.save.data.scrollSpeed;
+				{
+					prevNote.scale.y *= Conductor.stepCrochet / 100 * 2.8 * FlxG.save.data.scrollSpeed;
+					prevNote.alpha = 0.6;
+				}
 				else
-					prevNote.scale.y *= Conductor.stepCrochet / 100 * 1.5 * PlayState.SONG.speed;
+				{
+					prevNote.scale.y *= Conductor.stepCrochet / 100 * 2.8 * PlayState.SONG.speed;
+					prevNote.alpha = 0.6;
 				prevNote.updateHitbox();
 				// prevNote.setGraphicSize();
+				}
 			}
 		}
 	}
