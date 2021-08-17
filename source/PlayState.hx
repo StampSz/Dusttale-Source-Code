@@ -1077,8 +1077,8 @@ class PlayState extends MusicBeatState
 
 		//kr text
 		kr = new FlxSprite(0, 0).loadGraphic(Paths.image('KR'));
-		kr.setPosition(61.25, 91);
-	
+		kr.setPosition(-83.75, 90.45);
+		kr.scrollFactor.set();
 		kr.antialiasing = true;
 		kr.visible = false;
 		add(kr);
@@ -2151,7 +2151,7 @@ class PlayState extends MusicBeatState
 				// phillyCityLights.members[curLight].alpha -= (Conductor.crochet / 1000) * FlxG.elapsed;
 		}
 
-		
+
 
 		super.update(elapsed);
 
@@ -4046,6 +4046,8 @@ class PlayState extends MusicBeatState
 	{
 		super.beatHit();
 
+
+
 		if (generatedMusic)
 		{
 			notes.sort(FlxSort.byY, (PlayStateChangeables.useDownscroll ? FlxSort.ASCENDING : FlxSort.DESCENDING));
@@ -4099,6 +4101,7 @@ class PlayState extends MusicBeatState
 			}
 	
 		}
+
 
 		iconP1.setGraphicSize(Std.int(iconP1.width + 30));
 		iconP2.setGraphicSize(Std.int(iconP2.width + 30));
