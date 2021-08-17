@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="bg.png">
+	<!-- Created with Adobe Animate version 21.0.4.39603 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="bg0000" x="0" y="0" width="1288" height="720"/>
+	<SubTexture name="bg0001" x="1288" y="0" width="1288" height="720"/>
+	<SubTexture name="bg0002" x="2576" y="0" width="1288" height="720"/>
+	<SubTexture name="bg0003" x="3864" y="0" width="1288" height="720"/>
+	<SubTexture name="bg0004" x="5152" y="0" width="1288" height="720"/>
+	<SubTexture name="bg0005" x="6440" y="0" width="1288" height="720"/>
+	<SubTexture name="bg0006" x="0" y="720" width="1288" height="720"/>
+	<SubTexture name="bg0007" x="1288" y="720" width="1288" height="720"/>
+	<SubTexture name="bg0008" x="2576" y="720" width="1288" height="720"/>
+	<SubTexture name="bg0009" x="3864" y="720" width="1288" height="720"/>
+	<SubTexture name="bg0010" x="5152" y="720" width="1288" height="720"/>
+	<SubTexture name="bg0011" x="6440" y="720" width="1288" height="720"/>
+	<SubTexture name="bg0012" x="0" y="1440" width="1288" height="720"/>
+	<SubTexture name="bg0013" x="1288" y="1440" width="1288" height="720"/>
+	<SubTexture name="bg0014" x="2576" y="1440" width="1288" height="720"/>
+	<SubTexture name="bg0015" x="3864" y="1440" width="1288" height="720"/>
+	<SubTexture name="bg0016" x="5152" y="1440" width="1288" height="720"/>
+	<SubTexture name="bg0017" x="6440" y="1440" width="1288" height="720"/>
+	<SubTexture name="bg0018" x="0" y="2160" width="1288" height="720"/>
+	<SubTexture name="bg0019" x="1288" y="2160" width="1288" height="720"/>
+	<SubTexture name="bg0020" x="2576" y="2160" width="1288" height="720"/>
+	<SubTexture name="bg0021" x="3864" y="2160" width="1288" height="720"/>
+	<SubTexture name="bg0022" x="5152" y="2160" width="1288" height="720"/>
+	<SubTexture name="bg0023" x="6440" y="2160" width="1288" height="720"/>
+	<SubTexture name="bg0024" x="0" y="2880" width="1288" height="720"/>
+	<SubTexture name="bg0025" x="1288" y="2880" width="1288" height="720"/>
+	<SubTexture name="bg0026" x="2576" y="2880" width="1288" height="720"/>
+	<SubTexture name="bg0027" x="3864" y="2880" width="1288" height="720"/>
+	<SubTexture name="bg0028" x="5152" y="2880" width="1288" height="720"/>
+	<SubTexture name="bg0029" x="6440" y="2880" width="1288" height="720"/>
+	<SubTexture name="bg0030" x="0" y="3600" width="1288" height="720"/>
+	<SubTexture name="bg0031" x="1288" y="3600" width="1288" height="720"/>
+	<SubTexture name="bg0032" x="2576" y="3600" width="1288" height="720"/>
+	<SubTexture name="bg0033" x="3864" y="3600" width="1288" height="720"/>
+	<SubTexture name="bg0034" x="5152" y="3600" width="1288" height="720"/>
+	<SubTexture name="bg0035" x="6440" y="3600" width="1288" height="720"/>
+	<SubTexture name="bg0036" x="0" y="4320" width="1288" height="720"/>
+	<SubTexture name="bg0037" x="1288" y="4320" width="1288" height="720"/>
+	<SubTexture name="bg0038" x="2576" y="4320" width="1288" height="720"/>
+	<SubTexture name="bg0039" x="3864" y="4320" width="1288" height="720"/>
+	<SubTexture name="bg0040" x="5152" y="4320" width="1288" height="720"/>
+	<SubTexture name="bg0041" x="6440" y="4320" width="1288" height="720"/>
+	<SubTexture name="bg0042" x="0" y="5040" width="1288" height="720"/>
+	<SubTexture name="bg0043" x="1288" y="5040" width="1288" height="720"/>
+	<SubTexture name="bg0044" x="2576" y="5040" width="1288" height="720"/>
+	<SubTexture name="bg0045" x="3864" y="5040" width="1288" height="720"/>
+	<SubTexture name="bg0046" x="5152" y="5040" width="1288" height="720"/>
+	<SubTexture name="bg0047" x="6440" y="5040" width="1288" height="720"/>
+</TextureAtlas>
