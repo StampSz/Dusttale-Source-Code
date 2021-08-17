@@ -150,11 +150,11 @@ class Character extends FlxSprite
 				animation.addByPrefix('swingDOWN', 'swingDown0', 24);
 				animation.addByPrefix('swingUP', 'swingUp0', 24);
 
-				addOffset("idle", -20, 10);
-				addOffset("singUP", -26, 10);
-				addOffset("singRIGHT", 0, 17);
-				addOffset("singLEFT", -40, 10);
-				addOffset("singDOWN", -20, 20);
+				addOffset("idle");
+				addOffset("singUP");
+				addOffset("singRIGHT");
+				addOffset("singLEFT");
+				addOffset("singDOWN");
 
 				playAnim('idle');
 			case 'spooky':
@@ -302,7 +302,7 @@ class Character extends FlxSprite
 				animation.addByPrefix('hey', 'BF HEY', 24, false);
 
 				animation.addByPrefix('firstDeath', "BF dies", 24, false);
-				animation.addByPrefix('deathLoop', "BF Dead Loop", 24, false);
+				animation.addByPrefix('deathLoop', "BF Dead Loop", 24, true);
 				animation.addByPrefix('deathConfirm', "BF Dead confirm", 24, false);
 
 				animation.addByPrefix('scared', 'BF idle shaking', 24);

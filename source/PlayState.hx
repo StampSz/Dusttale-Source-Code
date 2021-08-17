@@ -190,6 +190,8 @@ class PlayState extends MusicBeatState
 	var phillyTrain:FlxSprite;
 	var trainSound:FlxSound;
 
+	var kr:FlxSprite;
+
 	var limo:FlxSprite;
 	var grpLimoDancers:FlxTypedGroup<BackgroundDancer>;
 	var fastCar:FlxSprite;
@@ -898,6 +900,7 @@ class PlayState extends MusicBeatState
 				dad.x = 150;
 				dad.y -= 50;
 				camPos.set(dad.getGraphicMidpoint().x + 300, dad.getGraphicMidpoint().y);
+
 		}
 
 
@@ -1072,8 +1075,18 @@ class PlayState extends MusicBeatState
 		// healthBar
 		add(healthBar);
 
+		//kr text
+		kr = new FlxSprite(0, 0).loadGraphic(Paths.image('KR'));
+		kr.setPosition(61.25, 91);
+	
+		kr.antialiasing = true;
+		kr.visible = false;
+		add(kr);
+
+
+
 		// Add Kade Engine watermark
-		kadeEngineWatermark = new FlxText(4,healthBarBG.y + 50,0,SONG.song + " - " + CoolUtil.difficultyFromInt(storyDifficulty) + (Main.watermarks ? " | KE " + MainMenuState.kadeEngineVer : ""), 16);
+		kadeEngineWatermark = new FlxText(4,healthBarBG.y + 50,0,SONG.song + " - " + CoolUtil.difficultyFromInt(storyDifficulty) + (Main.watermarks ? " | DUSTTALE " + MainMenuState.kadeEngineVer : ""), 16);
 		kadeEngineWatermark.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE,FlxColor.BLACK);
 		kadeEngineWatermark.scrollFactor.set();
 		add(kadeEngineWatermark);
@@ -2427,7 +2440,13 @@ class PlayState extends MusicBeatState
 					case 'senpai-angry':
 						camFollow.y = dad.getMidpoint().y - 430;
 						camFollow.x = dad.getMidpoint().x - 100;
+					case 'sans':
+						camFollow.y = dad.getMidpoint().y + 0;
+						camFollow.x = dad.getMidpoint().x + 300;
+					
 				}
+
+				
 
 				if (dad.curCharacter == 'mom')
 					vocals.volume = 1;
@@ -2462,6 +2481,8 @@ class PlayState extends MusicBeatState
 						camFollow.y = boyfriend.getMidpoint().y - 200;
 					case 'schoolEvil':
 						camFollow.x = boyfriend.getMidpoint().x - 200;
+						camFollow.y = boyfriend.getMidpoint().y - 200;
+					case 'judgementhall':
 						camFollow.y = boyfriend.getMidpoint().y - 200;
 				}
 			}
@@ -3102,6 +3123,7 @@ class PlayState extends MusicBeatState
 				remove(currentTimingShown);
 
 			currentTimingShown = new FlxText(0,0,0,"0ms");
+			currentTimingShown.visible = false; //because this is too ugly UGH
 			timeShown = 0;
 			switch(daRating)
 			{
@@ -3840,6 +3862,9 @@ class PlayState extends MusicBeatState
 
 	function HealthDrain():Void
 	{
+		kr.visible = true;
+			
+
         iconP1Prefix = 'bfKR';
 		grpIcons.remove(iconP1);
 		iconP1 = new HealthIcon('bfKR', false);
@@ -3847,18 +3872,41 @@ class PlayState extends MusicBeatState
 		iconP1.flipX = true;
      	iconP1.cameras = [camHUD];
       	grpIcons.add(iconP1);
-        healthBar.createFilledBar(0xFF999999, 0xFFFF0099);
+        healthBar.createFilledBar(0xFF999999, 0xFFf23dc8);
 		boyfriend.playAnim('singUPmiss', true);
 		FlxG.sound.play(Paths.sound("bone"), 1);
 		boyfriend.playAnim('singUPmiss', true);
-		new FlxTimer().start(0.3, function(tmr:FlxTimer)
+		new FlxTimer().start(0.001, function(tmr:FlxTimer)	
 		{
 		boyfriend.playAnim('singUPmiss', true);
 		});
-		new FlxTimer().start(0.01, function(tmr:FlxTimer)
-		{
-			health -= 0.005;
-		}, 300);
+
+		var healthDrained:Float = 0;
+
+		new FlxTimer().start(0.0001, function(swagTimer:FlxTimer)
+			{
+				health -= 0.0008;
+				healthDrained += 0.0008;
+				if (healthDrained < 0.5)
+				{
+					swagTimer.reset();
+				} else
+				{
+					kr.visible = false;
+					healthDrained = 0;
+
+					iconP1Prefix = 'bf';
+					grpIcons.remove(iconP1);
+					iconP1 = new HealthIcon('bf', false);
+					iconP1.y = healthBar.y - (iconP1.height / 3.5);
+					iconP1.flipX = true;
+			     	iconP1.cameras = [camHUD];
+			      	grpIcons.add(iconP1);
+			        healthBar.createFilledBar(0xFF999999, 0xFF51d8fb);
+
+				}
+			});
+
 	}
 
 	function resetFastCar():Void

@@ -100,7 +100,7 @@ class Note extends FlxSprite
 				default:
 						frames = Paths.getSparrowAtlas('NOTE_assets');
 						var fuckingSussy = Paths.getSparrowAtlas('NotesKR/NOTE_assets_KR');
-						for(amogus in fuckingSussy.frames)
+						for(amogus in fuckingSussy.frames) 	//STAMPS, WTF IS THIS NAME
 							{
 								this.frames.pushFrame(amogus);
 							}
