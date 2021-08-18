@@ -4092,6 +4092,32 @@ class PlayState extends MusicBeatState
 
 		}
 
+		if (curStep == 954 && curSong.toLowerCase() == 'psychotic-breakdown')
+		{
+			flipCamUp();
+
+		}
+
+
+		if (curStep == 1216 && curSong.toLowerCase() == 'psychotic-breakdown')
+		{
+			flipCamDown();
+
+		}
+
+		if (curStep == 1600 && curSong.toLowerCase() == 'psychotic-breakdown')
+		{
+			flipCamUp();
+
+		}
+
+
+		if (curStep == 1728 && curSong.toLowerCase() == 'psychotic-breakdown')
+		{
+			flipCamDown();
+
+		}
+
 
 
 
