@@ -3913,7 +3913,7 @@ class PlayState extends MusicBeatState
 
 			//impulse tween
 			FlxTween.tween(FlxG.camera, {angle: -30}, 0.15, {ease: FlxEase.quadInOut});
-			FlxTween.tween(camHUD, {angle: -30}, 0.15, {ease: FlxEase.quadInOut});
+			//FlxTween.tween(camHUD, {angle: -30}, 0.15, {ease: FlxEase.quadInOut});
 
 			//animations
 			new FlxTimer().start(0.025, function(tmr:FlxTimer)	
@@ -3926,7 +3926,7 @@ class PlayState extends MusicBeatState
 			new FlxTimer().start(0.15, function(tmr:FlxTimer)	
 			{
 				FlxTween.tween(FlxG.camera, {angle: 180}, 0.15, {ease: FlxEase.quadInOut});
-				FlxTween.tween(camHUD, {angle: 180}, 0.15, {ease: FlxEase.quadInOut});
+				//FlxTween.tween(camHUD, {angle: 180}, 0.15, {ease: FlxEase.quadInOut});
 			});
 
 			//camera shake
@@ -3944,7 +3944,7 @@ class PlayState extends MusicBeatState
 
 			//impulse tween
 			FlxTween.tween(FlxG.camera, {angle: 210}, 0.15, {ease: FlxEase.quadInOut});
-			FlxTween.tween(camHUD, {angle: 210}, 0.15, {ease: FlxEase.quadInOut});
+			//FlxTween.tween(camHUD, {angle: 210}, 0.15, {ease: FlxEase.quadInOut});
 
 			//animations
 			new FlxTimer().start(0.025, function(tmr:FlxTimer)	
@@ -3957,7 +3957,7 @@ class PlayState extends MusicBeatState
 			new FlxTimer().start(0.15, function(tmr:FlxTimer)	
 			{
 				FlxTween.tween(FlxG.camera, {angle: 0}, 0.15, {ease: FlxEase.quadInOut});
-				FlxTween.tween(camHUD, {angle: 0}, 0.15, {ease: FlxEase.quadInOut});
+				//FlxTween.tween(camHUD, {angle: 0}, 0.15, {ease: FlxEase.quadInOut});
 			});
 
 			//camera shake
