@@ -4079,18 +4079,18 @@ class PlayState extends MusicBeatState
 
 
 
-		/*if (curStep == 2)
+		if (curStep == 512 && curSong.toLowerCase() == 'psychotic-breakdown')
 		{
 			flipCamUp();
 
 		}
 
 
-		if (curStep == 48)
+		if (curStep == 635 && curSong.toLowerCase() == 'psychotic-breakdown')
 		{
 			flipCamDown();
 
-		}*/
+		}
 
 
 
