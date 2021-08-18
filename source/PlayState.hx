@@ -1086,8 +1086,9 @@ class PlayState extends MusicBeatState
 	    DustCloud1 = new FlxSprite(0, 0).loadGraphic(Paths.image('Dust_image'));
 		DustCloud1.scrollFactor.set();
 		DustCloud1.antialiasing = true;
-		DustCloud1.visible = false;
+		DustCloud1.visible = true;
 		DustCloud1.setGraphicSize(Std.int(DustCloud1.width * 1));
+		DustCloud1.alpha = 0;
 		
 
 
@@ -2065,6 +2066,9 @@ class PlayState extends MusicBeatState
 			}
 
 
+
+
+
 		
 		#if windows
 		if (executeModchart && luaModchart != null && songStarted)
@@ -2161,6 +2165,48 @@ class PlayState extends MusicBeatState
 					}
 				}
 				// phillyCityLights.members[curLight].alpha -= (Conductor.crochet / 1000) * FlxG.elapsed;
+		}
+
+
+		switch (dustAccumulated)
+		{
+			case 0:
+			DustCloud1.alpha = 0;
+
+			case 1:
+			DustCloud1.alpha = 0.1;
+
+			case 2:
+			DustCloud1.alpha = 0.2;
+
+			case 3:
+			DustCloud1.alpha = 0.3;
+
+			case 4:
+			DustCloud1.alpha = 0.4;
+
+			case 5:
+			DustCloud1.alpha = 0.5;
+
+			case 6:
+			DustCloud1.alpha = 0.6;
+
+			case 7:
+			DustCloud1.alpha = 0.7;
+
+			case 8:
+			DustCloud1.alpha = 0.8;
+
+			case 9:
+			DustCloud1.alpha = 0.9;
+
+			case 10:
+			DustCloud1.alpha = 1;
+		}
+
+		if (DustCloud1.alpha == 1)
+		{
+			health -= 2;
 		}
 
 
@@ -3889,10 +3935,24 @@ class PlayState extends MusicBeatState
 		
 
 	var fastCarCanDrive:Bool = true;
+	var dustAccumulated:Int = 0;
 
 	function DustCloud():Void
 	{
-		DustCloud1.visible = true;
+		dustAccumulated++;
+
+		trace(dustAccumulated);
+
+		new FlxTimer().start(10 , function(tmr:FlxTimer)
+		{
+			dustAccumulated--;
+			trace(dustAccumulated);
+		});
+
+
+	
+
+
 
 
 		dustsound = new FlxSound().loadEmbedded(Paths.sound('bone'));
