@@ -192,6 +192,7 @@ class PlayState extends MusicBeatState
 	var trainSound:FlxSound;
 
 	var kr:FlxSprite;
+	var DustCloud1:FlxSprite;
 
 	var limo:FlxSprite;
 	var grpLimoDancers:FlxTypedGroup<BackgroundDancer>;
@@ -201,6 +202,7 @@ class PlayState extends MusicBeatState
 	var bottomBoppers:FlxSprite;
 	var santa:FlxSprite;
 	var lightflowerbed:FlxSprite;
+	var dustsound:FlxSound;
 
 	var fc:Bool = true;
 
@@ -1080,6 +1082,12 @@ class PlayState extends MusicBeatState
 		kr.antialiasing = true;
 		kr.visible = false;
 		add(kr);
+
+	    DustCloud1 = new FlxSprite(0, 0).loadGraphic(Paths.image('Dust_image'));
+		DustCloud1.scrollFactor.set();
+		DustCloud1.antialiasing = true;
+		DustCloud1.visible = false;
+		add(DustCloud1);
 
 
 
@@ -3010,6 +3018,10 @@ class PlayState extends MusicBeatState
 			switch(daRating)
 			{
 					case 'shit':
+						if (daNote.noteType == 3)
+			          {
+							DustCloud();
+		              }
 						if (daNote.noteType == 2)
 			          {
 							HealthDrain();
@@ -3026,6 +3038,10 @@ class PlayState extends MusicBeatState
 									totalNotesHit += 0.25;
 							}
 					case 'bad':
+						if (daNote.noteType == 3)
+			          {
+							DustCloud();
+		              }
 						if (daNote.noteType == 2)
 			          {
 							HealthDrain();
@@ -3041,6 +3057,10 @@ class PlayState extends MusicBeatState
 									totalNotesHit += 0.50;
 							}
 					case 'good':
+						if (daNote.noteType == 3)
+			          {
+							DustCloud();
+		              }
 						if (daNote.noteType == 2)
 			          {
 							HealthDrain();
@@ -3057,6 +3077,10 @@ class PlayState extends MusicBeatState
 									totalNotesHit += 0.75;
 							}
 					case 'sick':
+						if (daNote.noteType == 3)
+			          {
+							DustCloud();
+		              }
 						if (daNote.noteType == 2)
 			          {
 							HealthDrain();
@@ -3857,6 +3881,20 @@ class PlayState extends MusicBeatState
 		
 
 	var fastCarCanDrive:Bool = true;
+
+	function DustCloud():Void
+	{
+		DustCloud1.visible = true;
+
+
+		dustsound = new FlxSound().loadEmbedded(Paths.sound('bone'));
+		dustsound.play();
+		dustsound.volume = 1;
+		new FlxTimer().start(0.5 , function(tmr:FlxTimer)
+		{
+		dustsound;
+		});
+	}
 
 	function HealthDrain():Void
 	{
