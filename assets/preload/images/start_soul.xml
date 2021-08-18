@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="start_soul.png">
+	<!-- Created with Adobe Animate version 21.0.4.39603 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="soul0000" x="0" y="0" width="1499" height="844" frameX="-3" frameY="-2" frameWidth="1503" frameHeight="846"/>
+	<SubTexture name="soul0001" x="0" y="0" width="1499" height="844" frameX="-1" frameY="0" frameWidth="1503" frameHeight="846"/>
+	<SubTexture name="soul0002" x="0" y="0" width="1499" height="844" frameX="0" frameY="-2" frameWidth="1503" frameHeight="846"/>
+	<SubTexture name="soul0003" x="0" y="0" width="1499" height="844" frameX="-2" frameY="0" frameWidth="1503" frameHeight="846"/>
+	<SubTexture name="soul0004" x="0" y="0" width="1499" height="844" frameX="-4" frameY="-2" frameWidth="1503" frameHeight="846"/>
+</TextureAtlas>

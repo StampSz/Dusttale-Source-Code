@@ -29,8 +29,6 @@
 	<SubTexture name="creditsAnim0023" x="6595" y="742" width="1319" height="742"/>
 	<SubTexture name="creditsAnim0024" x="6595" y="742" width="1319" height="742"/>
 	<SubTexture name="creditsAnim0025" x="6595" y="742" width="1319" height="742"/>
-	<SubTexture name="creditsAnim0026" x="0" y="0" width="1319" height="742"/>
-	<SubTexture name="creditsAnim0027" x="1319" y="0" width="1319" height="742"/>
 	<SubTexture name="freeplay0000" x="0" y="1484" width="1284" height="722"/>
 	<SubTexture name="freeplayAnim0000" x="0" y="1484" width="1284" height="722"/>
 	<SubTexture name="freeplayAnim0001" x="1284" y="1484" width="1284" height="722"/>
@@ -57,11 +55,6 @@
 	<SubTexture name="freeplayAnim0022" x="6420" y="2206" width="1284" height="722"/>
 	<SubTexture name="freeplayAnim0023" x="6420" y="2206" width="1284" height="722"/>
 	<SubTexture name="freeplayAnim0024" x="6420" y="2206" width="1284" height="722"/>
-	<SubTexture name="freeplayAnim0025" x="6420" y="2206" width="1284" height="722"/>
-	<SubTexture name="freeplayAnim0026" x="0" y="1484" width="1284" height="722"/>
-	<SubTexture name="freeplayAnim0027" x="1284" y="1484" width="1284" height="722"/>
-	<SubTexture name="freeplayAnim0028" x="2568" y="1484" width="1284" height="722"/>
-	<SubTexture name="freeplayAnim0029" x="3852" y="1484" width="1284" height="722"/>
 	<SubTexture name="options0000" x="0" y="2928" width="1330" height="748"/>
 	<SubTexture name="optionsAnim0000" x="0" y="2928" width="1330" height="748"/>
 	<SubTexture name="optionsAnim0001" x="1330" y="2928" width="1330" height="748"/>
@@ -89,11 +82,6 @@
 	<SubTexture name="optionsAnim0023" x="6650" y="3676" width="1330" height="748"/>
 	<SubTexture name="optionsAnim0024" x="6650" y="3676" width="1330" height="748"/>
 	<SubTexture name="optionsAnim0025" x="6650" y="3676" width="1330" height="748"/>
-	<SubTexture name="optionsAnim0026" x="0" y="2928" width="1330" height="748"/>
-	<SubTexture name="optionsAnim0027" x="1330" y="2928" width="1330" height="748"/>
-	<SubTexture name="optionsAnim0028" x="2660" y="2928" width="1330" height="748"/>
-	<SubTexture name="optionsAnim0029" x="3990" y="2928" width="1330" height="748"/>
-	<SubTexture name="optionsAnim0030" x="5320" y="2928" width="1330" height="748"/>
 	<SubTexture name="story0000" x="0" y="4424" width="1337" height="744"/>
 	<SubTexture name="storyAnim0000" x="0" y="4424" width="1337" height="744"/>
 	<SubTexture name="storyAnim0001" x="1337" y="4424" width="1337" height="744"/>
