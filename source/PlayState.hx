@@ -58,6 +58,7 @@ import flixel.util.FlxColor;
 import flixel.util.FlxSort;
 import flixel.util.FlxStringUtil;
 import flixel.util.FlxTimer;
+import flixel.util.FlxAxes;
 import haxe.Json;
 import lime.utils.Assets;
 import openfl.display.BlendMode;
@@ -2070,8 +2071,6 @@ class PlayState extends MusicBeatState
 				member.angle = luaModchart.getVar("strum" + i + "Angle", "float");
 			}*/
 
-			FlxG.camera.angle = luaModchart.getVar('cameraAngle', 'float');
-			camHUD.angle = luaModchart.getVar('camHudAngle', 'float');
 
 			if (luaModchart.getVar("showOnlyStrums", 'bool'))
 			{
@@ -3908,6 +3907,68 @@ class PlayState extends MusicBeatState
 
 	}
 
+	function flipCamUp():Void
+	{
+		FlxG.sound.play(Paths.sound('cameraFlip'));
+
+			//impulse tween
+			FlxTween.tween(FlxG.camera, {angle: -30}, 0.15, {ease: FlxEase.quadInOut});
+			FlxTween.tween(camHUD, {angle: -30}, 0.15, {ease: FlxEase.quadInOut});
+
+			//animations
+			new FlxTimer().start(0.025, function(tmr:FlxTimer)	
+			{
+				boyfriend.playAnim('hit', false);
+				dad.playAnim('swingUP', false);
+			});
+
+			//actual rotation tween
+			new FlxTimer().start(0.15, function(tmr:FlxTimer)	
+			{
+				FlxTween.tween(FlxG.camera, {angle: 180}, 0.15, {ease: FlxEase.quadInOut});
+				FlxTween.tween(camHUD, {angle: 180}, 0.15, {ease: FlxEase.quadInOut});
+			});
+
+			//camera shake
+			new FlxTimer().start(0.30, function(tmr:FlxTimer)	
+			{
+				FlxG.camera.shake(0.025, 0.1, null, true, FlxAxes.XY);
+				boyfriend.playAnim('idle');
+				dad.playAnim('idle');
+			});
+	}
+
+	function flipCamDown():Void
+	{
+		FlxG.sound.play(Paths.sound('cameraFlip'));
+
+			//impulse tween
+			FlxTween.tween(FlxG.camera, {angle: 210}, 0.15, {ease: FlxEase.quadInOut});
+			FlxTween.tween(camHUD, {angle: 210}, 0.15, {ease: FlxEase.quadInOut});
+
+			//animations
+			new FlxTimer().start(0.025, function(tmr:FlxTimer)	
+			{
+				boyfriend.playAnim('hit', false);
+				dad.playAnim('swingDOWN', false);
+			});
+
+			//actual rotation tween
+			new FlxTimer().start(0.15, function(tmr:FlxTimer)	
+			{
+				FlxTween.tween(FlxG.camera, {angle: 0}, 0.15, {ease: FlxEase.quadInOut});
+				FlxTween.tween(camHUD, {angle: 0}, 0.15, {ease: FlxEase.quadInOut});
+			});
+
+			//camera shake
+			new FlxTimer().start(0.30, function(tmr:FlxTimer)	
+			{
+				FlxG.camera.shake(0.025, 0.1, null, true, FlxAxes.XY);
+				boyfriend.playAnim('idle');
+				dad.playAnim('idle');
+			});
+	}
+
 	function resetFastCar():Void
 	{
 		if(FlxG.save.data.distractions){
@@ -4015,6 +4076,26 @@ class PlayState extends MusicBeatState
 			resyncVocals();
 		}
 
+
+
+
+		/*if (curStep == 2)
+		{
+			flipCamUp();
+
+		}
+
+
+		if (curStep == 48)
+		{
+			flipCamDown();
+
+		}*/
+
+
+
+
+
 		#if windows
 		if (executeModchart && luaModchart != null)
 		{
@@ -4100,14 +4181,7 @@ class PlayState extends MusicBeatState
 		}
 
 
-		//if (curBeat == 3)
-		//{
-			//trace("started LMAOOOOO");
-
-			//FlxTween.tween(dad, { x: 600, y: 800 }, 2);
-
-		//}
-
+		
 
 		iconP1.setGraphicSize(Std.int(iconP1.width + 30));
 		iconP2.setGraphicSize(Std.int(iconP2.width + 30));
@@ -4135,6 +4209,8 @@ class PlayState extends MusicBeatState
 					iconP2.animation.play('winning');
 				case 'losing':
 					iconP2.animation.play('losing');
+
+			
 			}
 		}
 
