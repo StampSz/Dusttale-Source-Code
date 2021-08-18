@@ -206,6 +206,8 @@ class MainMenuState extends MusicBeatState
 
 
 
+
+
 			var gamepad:FlxGamepad = FlxG.gamepads.lastActive;
 
 			if (gamepad != null)
