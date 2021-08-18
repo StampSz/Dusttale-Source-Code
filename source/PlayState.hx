@@ -4100,6 +4100,15 @@ class PlayState extends MusicBeatState
 		}
 
 
+		//if (curBeat == 3)
+		//{
+			//trace("started LMAOOOOO");
+
+			//FlxTween.tween(dad, { x: 600, y: 800 }, 2);
+
+		//}
+
+
 		iconP1.setGraphicSize(Std.int(iconP1.width + 30));
 		iconP2.setGraphicSize(Std.int(iconP2.width + 30));
 			
