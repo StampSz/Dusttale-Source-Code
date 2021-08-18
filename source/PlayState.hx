@@ -1087,7 +1087,8 @@ class PlayState extends MusicBeatState
 		DustCloud1.scrollFactor.set();
 		DustCloud1.antialiasing = true;
 		DustCloud1.visible = false;
-		add(DustCloud1);
+		DustCloud1.setGraphicSize(Std.int(DustCloud1.width * 1));
+		
 
 
 
@@ -1161,6 +1162,8 @@ class PlayState extends MusicBeatState
 			songPosBar.cameras = [camHUD];
 		}
 		kadeEngineWatermark.cameras = [camHUD];
+		kr.cameras = [camHUD];
+		DustCloud1.cameras = [camHUD];
 		if (loadRep)
 			replayTxt.cameras = [camHUD];
 
@@ -1169,9 +1172,14 @@ class PlayState extends MusicBeatState
 		// UI_camera.zoom = 1;
 
 		// cameras = [FlxG.cameras.list[1]];
+
+		add(DustCloud1);
+
 		startingSong = true;
 
+
 		trace('starting');
+
 
 		if (isStoryMode)
 		{
