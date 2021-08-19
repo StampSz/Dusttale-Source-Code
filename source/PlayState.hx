@@ -4061,23 +4061,6 @@ class PlayState extends MusicBeatState
 			});
 	}
 
-	function gasterBlasters():Void
-    {
-        var blasters:FlxSprite = new FlxSprite(0,0);
-
-        blasters.frames = Paths.getSparrowAtlas('gasterBlaster');
-        blasters.animation.addByPrefix('shoot', 'shoot', 24, false);
-        blasters.setPosition(-1170.1, 346.95);
-
-        add(blasters);
-         blasters.visible = true;
-
-        blasters.animation.play('shoot');
-        {
-        health -= 0.4;
-        }
-    }
-
 
 	function flipCamDown():Void
 	{
@@ -4254,11 +4237,6 @@ class PlayState extends MusicBeatState
 		//psychotic-breakdown
 
 
-		if (curStep == 20 && curSong.toLowerCase() == 'psychotic-breakdown')
-        {
-            gasterBlasters();
-
-        }
 
 		if (curStep == 20 && curSong.toLowerCase() == 'psychotic-breakdown')
 		{
