@@ -1092,9 +1092,12 @@ class PlayState extends MusicBeatState
 		DustCloud1.visible = true;
 		DustCloud1.setGraphicSize(Std.int(DustCloud1.width * 1));
 		DustCloud1.alpha = 0;
-		
 
+		var blasters:FlxSprite = new FlxSprite(0,0);
 
+		blasters.frames = Paths.getSparrowAtlas('gasterBlaster');
+        blasters.animation.addByPrefix('shoot', 'shoot', 24, false);
+        blasters.setPosition(-1170.1, 346.95);
 
 		// Add Kade Engine watermark
 		kadeEngineWatermark = new FlxText(4,healthBarBG.y + 50,0,SONG.song + " - " + CoolUtil.difficultyFromInt(storyDifficulty) + (Main.watermarks ? "" + MainMenuState.kadeEngineVer : ""), 16);
@@ -1166,6 +1169,7 @@ class PlayState extends MusicBeatState
 			songPosBar.cameras = [camHUD];
 		}
 		kadeEngineWatermark.cameras = [camHUD];
+		blasters.cameras = [camHUD];
 		kr.cameras = [camHUD];
 		DustCloud1.cameras = [camHUD];
 		if (loadRep)
@@ -3940,6 +3944,17 @@ class PlayState extends MusicBeatState
 	var fastCarCanDrive:Bool = true;
 	var dustAccumulated:Int = 0;
 
+	function gasterBlasters():Void
+	{
+		add(blasters);
+		 blasters.visible = true;
+
+        blasters.animation.play('shoot');
+	    {
+		health -= 0.4;
+		}
+	}
+
 	function DustCloud():Void
 	{
 		dustAccumulated++;
@@ -4187,6 +4202,11 @@ class PlayState extends MusicBeatState
 
 
 
+		if (curStep == 20 && curSong.toLowerCase() == 'psychotic-breakdown')
+		{
+			gasterBlasters();
+
+		}
 
 		if (curStep == 512 && curSong.toLowerCase() == 'psychotic-breakdown')
 		{
