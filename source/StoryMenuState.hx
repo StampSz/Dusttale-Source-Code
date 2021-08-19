@@ -61,8 +61,6 @@ class StoryMenuState extends MusicBeatState
 	var leftArrow:FlxSprite;
 	var rightArrow:FlxSprite;
 	var HeartSoul:FlxSprite;
-	var yellowBG:FlxSprite;
-	var animatedBG:FlxSprite;
 
 	override function create()
 	{
@@ -96,6 +94,7 @@ class StoryMenuState extends MusicBeatState
 		rankText.screenCenter(X);
 
 		var ui_tex = Paths.getSparrowAtlas('story_mode');
+		var yellowBG:FlxSprite = new FlxSprite(0, 56).makeGraphic(FlxG.width, 400, 0xFFF9CF51);
 		var heart = Paths.getSparrowAtlas('start_soul');
 
 		grpWeekText = new FlxTypedGroup<MenuItem>();
@@ -189,24 +188,24 @@ class StoryMenuState extends MusicBeatState
 
 		trace("Line 150");
 
+		add(grpWeekCharacters);
 
-//delete this whole peice of code to able to go into story mode lmao
-animatedBG = new FlxSprite(-20, 45);
-        animatedBG.frames = Paths.getSparrowAtlas('preload/images/menu');
-        animatedBG.animation.addByPrefix('bg', 'bg', 24, true);
-        animatedBG.antialiasing = true;
-        animatedBG.active = true;
-        animatedBG.scrollFactor.x = 0;
-        animatedBG.scrollFactor.y = 0;
-        animatedBG.setGraphicSize(Std.int(animatedBG.width * 1.1));
-        animatedBG.updateHitbox();
-        animatedBG.screenCenter();
+		txtTracklist = new FlxText(FlxG.width * 0.05, yellowBG.x + yellowBG.height + 100, 0, "Tracks", 32);
+		txtTracklist.alignment = CENTER;
+		txtTracklist.font = rankText.font;
+		txtTracklist.color = 0xFFe55777;
+		add(txtTracklist);
+		// add(rankText);
+		add(scoreText);
+		add(txtWeekTitle);
 
-        animatedBG.animation.play('bg');
+		updateText();
 
-        add(animatedBG);
+		trace("Line 165");
+
+		super.create();
 	}
-//delete up to here
+
 	override function update(elapsed:Float)
 	{
 		// scoreText.setFormat('VCR OSD Mono', 32);
@@ -216,7 +215,6 @@ animatedBG = new FlxSprite(-20, 45);
 
 		txtWeekTitle.text = weekNames[curWeek].toUpperCase();
 		txtWeekTitle.x = FlxG.width - (txtWeekTitle.width + 10);
-		txtWeekTitle.visible = false;
 
 		// FlxG.watch.addQuick('font', scoreText.font);
 

@@ -3946,7 +3946,7 @@ class PlayState extends MusicBeatState
 
 		trace(dustAccumulated);
 
-		new FlxTimer().start(20 , function(tmr:FlxTimer)
+		new FlxTimer().start(35 , function(tmr:FlxTimer)
 		{
 			dustAccumulated--;
 			trace(dustAccumulated);
@@ -4185,7 +4185,41 @@ class PlayState extends MusicBeatState
 			resyncVocals();
 		}
 
+		//the murderer
 
+
+		if (curStep == 442 && curSong == 'the-murderer')
+		{
+			flipCamUp();
+			SONG.speed = 2.8;
+
+		}
+
+
+		if (curStep == 635 && curSong == 'the-murderer')
+		{
+			flipCamDown();
+			SONG.speed = 2.4;
+
+		}
+
+		if (curStep == 1143 && curSong == 'the-murderer')
+		{
+			flipCamUp();
+			SONG.speed = 2.8;
+
+		}
+
+
+		if (curStep == 1337 && curSong.toLowerCase() == 'the-murderer')
+		{
+			flipCamDown();
+			SONG.speed = 2.4;
+
+		}
+
+
+		//psychotic-breakdown
 
 
 		if (curStep == 512 && curSong.toLowerCase() == 'psychotic-breakdown')
@@ -4228,14 +4262,62 @@ class PlayState extends MusicBeatState
 		}
 
 
+		//d.i.e
+
+
 
 		if (curStep == 272 && curSong.toLowerCase() == 'd.i.e')
 		{
 			FlxG.camera.shake(0.010, 16, null, true, FlxAxes.XY);
 			camHUD.shake(0.010, 16, null, true, FlxAxes.XY);
 
-			var epicGlitchEffect = new FlxGlitchEffect(4, 1, 0.05, HORIZONTAL);
+			var epicGlitchEffect = new FlxGlitchEffect(4, 1, 0.05, HORIZONTAL);  //this doesn't work for some reason AAAAAA
 			epicGlitchEffect.active = true;
+		}
+
+
+
+		if (curStep == 528 && curSong.toLowerCase() == 'd.i.e')
+		{
+			flipCamUp();
+		}
+
+		if (curStep == 656 && curSong.toLowerCase() == 'd.i.e')
+		{
+			flipCamDown();
+		}
+
+
+
+
+		if (curStep == 1280 && curSong.toLowerCase() == 'd.i.e')
+		{
+			flipCamUp();
+		}
+
+		if (curStep == 1283 && curSong.toLowerCase() == 'd.i.e')
+		{
+			flipCamDown();
+		}
+
+		if (curStep == 1286 && curSong.toLowerCase() == 'd.i.e')
+		{
+			flipCamUp();
+		}
+
+		if (curStep == 1289 && curSong.toLowerCase() == 'd.i.e')
+		{
+			flipCamDown();
+		}
+
+		if (curStep == 1292 && curSong.toLowerCase() == 'd.i.e')
+		{
+			flipCamUp();
+		}
+
+		if (curStep == 1424 && curSong.toLowerCase() == 'd.i.e')
+		{
+			flipCamDown();
 		}
 
 
