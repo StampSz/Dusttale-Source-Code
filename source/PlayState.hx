@@ -174,6 +174,7 @@ class PlayState extends MusicBeatState
 	var healthBarColor1:FlxColor;
 	var iconP1Prefix:String;
 	var iconP2Prefix:String;
+	public static var blasters:FlxSprite;
 	public static var offsetTesting:Bool = false;
 
 	public var isSMFile:Bool = false;
@@ -193,7 +194,6 @@ class PlayState extends MusicBeatState
 	var trainSound:FlxSound;
 
 	var kr:FlxSprite;
-	var blasters:FlxSprite;
 	var DustCloud1:FlxSprite;
 
 	var limo:FlxSprite;
@@ -1156,11 +1156,9 @@ class PlayState extends MusicBeatState
 
 		blasters.frames = Paths.getSparrowAtlas('gasterBlaster');
         blasters.animation.addByPrefix('shoot', 'shoot', 24, false);
-        blasters.setPosition(-1613.25, -53.5);
-        blasters.visible = true;
-        DustCloud1.setGraphicSize(Std.int(DustCloud1.width * 0.5));
-        blasters.scrollFactor.set();
-		blasters.antialiasing = true;
+        blasters.setPosition(0, 0);
+        blasters.visible = false;
+
 		
 		
 		strumLineNotes.cameras = [camHUD];
@@ -1192,7 +1190,6 @@ class PlayState extends MusicBeatState
 
 		add(kr);
 		add(blasters);
-		blasters.visible = false;
 		add(DustCloud1);
 
 		startingSong = true;
