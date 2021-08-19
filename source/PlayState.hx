@@ -174,6 +174,7 @@ class PlayState extends MusicBeatState
 	var healthBarColor1:FlxColor;
 	var iconP1Prefix:String;
 	var iconP2Prefix:String;
+	public static var blasters:FlxSprite;
 	public static var offsetTesting:Bool = false;
 
 	public var isSMFile:Bool = false;
@@ -1151,7 +1152,7 @@ class PlayState extends MusicBeatState
 		iconP2.y = healthBar.y - (iconP2.height / 3.5);
 		grpIcons.add(iconP2);
 
-		var blasters:FlxSprite = new FlxSprite(0,0);
+		blasters = new FlxSprite(0,0);
 
 		blasters.frames = Paths.getSparrowAtlas('gasterBlaster');
         blasters.animation.addByPrefix('shoot', 'shoot', 24, false);
