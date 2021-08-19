@@ -41,6 +41,7 @@ import flixel.addons.effects.FlxTrail;
 import flixel.addons.effects.FlxTrailArea;
 import flixel.addons.effects.chainable.FlxEffectSprite;
 import flixel.addons.effects.chainable.FlxWaveEffect;
+import flixel.addons.effects.chainable.FlxGlitchEffect;
 import flixel.addons.transition.FlxTransitionableState;
 import flixel.graphics.atlas.FlxAtlas;
 import flixel.graphics.frames.FlxAtlasFrames;
@@ -451,6 +452,8 @@ class PlayState extends MusicBeatState
 				bg.scrollFactor.set(1, 1);
 				bg.active = false;
 				bg.screenCenter(Y);
+				
+
 				add(bg);
 			}
 			case 'halloween': 
@@ -3943,7 +3946,7 @@ class PlayState extends MusicBeatState
 
 		trace(dustAccumulated);
 
-		new FlxTimer().start(10 , function(tmr:FlxTimer)
+		new FlxTimer().start(20 , function(tmr:FlxTimer)
 		{
 			dustAccumulated--;
 			trace(dustAccumulated);
@@ -4222,6 +4225,17 @@ class PlayState extends MusicBeatState
 		{
 			flipCamDown();
 
+		}
+
+
+
+		if (curStep == 272 && curSong.toLowerCase() == 'd.i.e')
+		{
+			FlxG.camera.shake(0.010, 16, null, true, FlxAxes.XY);
+			camHUD.shake(0.010, 16, null, true, FlxAxes.XY);
+
+			var epicGlitchEffect = new FlxGlitchEffect(4, 1, 0.05, HORIZONTAL);
+			epicGlitchEffect.active = true;
 		}
 
 
