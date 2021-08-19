@@ -1093,12 +1093,6 @@ class PlayState extends MusicBeatState
 		DustCloud1.setGraphicSize(Std.int(DustCloud1.width * 1));
 		DustCloud1.alpha = 0;
 
-		var blasters:FlxSprite = new FlxSprite(0,0);
-
-		blasters.frames = Paths.getSparrowAtlas('gasterBlaster');
-        blasters.animation.addByPrefix('shoot', 'shoot', 24, false);
-        blasters.setPosition(-1170.1, 346.95);
-
 		// Add Kade Engine watermark
 		kadeEngineWatermark = new FlxText(4,healthBarBG.y + 50,0,SONG.song + " - " + CoolUtil.difficultyFromInt(storyDifficulty) + (Main.watermarks ? "" + MainMenuState.kadeEngineVer : ""), 16);
 		kadeEngineWatermark.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE,FlxColor.BLACK);
@@ -1169,7 +1163,6 @@ class PlayState extends MusicBeatState
 			songPosBar.cameras = [camHUD];
 		}
 		kadeEngineWatermark.cameras = [camHUD];
-		blasters.cameras = [camHUD];
 		kr.cameras = [camHUD];
 		DustCloud1.cameras = [camHUD];
 		if (loadRep)
@@ -3946,6 +3939,12 @@ class PlayState extends MusicBeatState
 
 	function gasterBlasters():Void
 	{
+		var blasters:FlxSprite = new FlxSprite(0,0);
+
+		blasters.frames = Paths.getSparrowAtlas('gasterBlaster');
+        blasters.animation.addByPrefix('shoot', 'shoot', 24, false);
+        blasters.setPosition(-1170.1, 346.95);
+
 		add(blasters);
 		 blasters.visible = true;
 
