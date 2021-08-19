@@ -1101,6 +1101,8 @@ class PlayState extends MusicBeatState
 
 		add(kadeEngineWatermark);
 
+
+
 		if (PlayStateChangeables.useDownscroll)
 			kadeEngineWatermark.y = FlxG.height * 0.9 + 45;
 
@@ -1148,6 +1150,15 @@ class PlayState extends MusicBeatState
 		iconP2 = new HealthIcon(SONG.player2, false);
 		iconP2.y = healthBar.y - (iconP2.height / 3.5);
 		grpIcons.add(iconP2);
+
+		var blasters:FlxSprite = new FlxSprite(0,0);
+
+		blasters.frames = Paths.getSparrowAtlas('gasterBlaster');
+        blasters.animation.addByPrefix('shoot', 'shoot', 24, false);
+        blasters.setPosition(-1170.1, 346.95);
+        add(blasters);
+        blasters.visible = false;
+		
 		
 		strumLineNotes.cameras = [camHUD];
 		notes.cameras = [camHUD];
@@ -1165,6 +1176,8 @@ class PlayState extends MusicBeatState
 		kadeEngineWatermark.cameras = [camHUD];
 		kr.cameras = [camHUD];
 		DustCloud1.cameras = [camHUD];
+		blasters.cameras = [camHUD];
+
 		if (loadRep)
 			replayTxt.cameras = [camHUD];
 
@@ -3939,13 +3952,7 @@ class PlayState extends MusicBeatState
 
 	function gasterBlasters():Void
 	{
-		var blasters:FlxSprite = new FlxSprite(0,0);
-
-		blasters.frames = Paths.getSparrowAtlas('gasterBlaster');
-        blasters.animation.addByPrefix('shoot', 'shoot', 24, false);
-        blasters.setPosition(-1170.1, 346.95);
-
-		add(blasters);
+		
 		 blasters.visible = true;
 
         blasters.animation.play('shoot');
