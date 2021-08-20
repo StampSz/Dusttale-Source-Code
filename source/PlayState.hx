@@ -4342,18 +4342,6 @@ class PlayState extends MusicBeatState
 
 
 
-		if (curStep == 384 && curSong.toLowerCase() == 'psychotic-breakdown')
-		{
-			gasterBlasters();
-
-		}
-
-		if (curStep == 1472 && curSong.toLowerCase() == 'psychotic-breakdown')
-		{
-			gasterBlasters();
-
-		}
-
 
 
 
