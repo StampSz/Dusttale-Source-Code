@@ -282,6 +282,7 @@ class PlayState extends MusicBeatState
 		0xFFc885e5, // DAD
 		0xFF999999,	// SANS
 		0xFF999999,	// SANSWORRIED
+		0xFFf24444,	// BF-CHARA
 		0xFF0090, // BFKR
 	];
 
@@ -951,7 +952,7 @@ class PlayState extends MusicBeatState
 				gf.x += 180;
 				gf.y += 300;
 			case 'judgementhall':
-				boyfriend.setPosition(1094.05, 458.75);
+				boyfriend.setPosition(1017.75, 458.75);
 				gf.setPosition(642.2, 125.6);
 			case 'snowdin_cave':
 				boyfriend.setPosition(1094.05, 458.75);
@@ -4339,11 +4340,6 @@ class PlayState extends MusicBeatState
 			flipCamDown();
 
 		}
-
-
-
-
-
 
 
 		//d.i.e

@@ -3,3 +3,4 @@ gf
 dad
 sans
 sansWorried
+bf-chara
