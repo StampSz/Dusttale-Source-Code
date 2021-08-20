@@ -282,7 +282,7 @@ class PlayState extends MusicBeatState
 		0xFFc885e5, // DAD
 		0xFF999999,	// SANS
 		0xFF999999,	// SANSWORRIED
-		0xFFf24444,	// BF-CHARA
+		0xFFe81a1a,	// BF-CHARA
 		0xFF0090, // BFKR
 	];
 
@@ -4055,14 +4055,27 @@ class PlayState extends MusicBeatState
 					kr.visible = false;
 					healthDrained = 0;
 
-					iconP1Prefix = 'bf';
-					grpIcons.remove(iconP1);
-					iconP1 = new HealthIcon('bf', false);
-					iconP1.y = healthBar.y - (iconP1.height / 3.5);
-					iconP1.flipX = true;
-			     	iconP1.cameras = [camHUD];
-			      	grpIcons.add(iconP1);
-			        healthBar.createFilledBar(0xFF999999, 0xFF51d8fb);
+					if (boyfriend.curCharacter == 'bf-chara')
+					{
+							iconP1Prefix = 'bf-chara';
+							grpIcons.remove(iconP1);
+							iconP1 = new HealthIcon('bf-chara', false);
+							iconP1.y = healthBar.y - (iconP1.height / 3.5);
+							iconP1.flipX = true;
+					     	iconP1.cameras = [camHUD];
+					      	grpIcons.add(iconP1);
+					        healthBar.createFilledBar(0xFF999999, 0xFFe81a1a);
+				    } else 
+				    {
+				    		iconP1Prefix = 'bf';
+							grpIcons.remove(iconP1);
+							iconP1 = new HealthIcon('bf', false);
+							iconP1.y = healthBar.y - (iconP1.height / 3.5);
+							iconP1.flipX = true;
+					     	iconP1.cameras = [camHUD];
+					      	grpIcons.add(iconP1);
+					        healthBar.createFilledBar(0xFF999999, 0xFF51d8fb);
+				    }
 
 				}
 			});
