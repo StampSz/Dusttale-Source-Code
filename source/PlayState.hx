@@ -1174,7 +1174,8 @@ class PlayState extends MusicBeatState
 
 		blasters.frames = Paths.getSparrowAtlas('gasterBlaster');
         blasters.animation.addByPrefix('shoot', 'shoot', 24, false);
-        blasters.setPosition(0, 0);
+        blasters.setGraphicSize(Std.int(blasters.width * 0.7));
+        blasters.setPosition(-600, 75);
         blasters.visible = false;
 
 		
@@ -3983,9 +3984,12 @@ class PlayState extends MusicBeatState
 		 blasters.visible = true;
 
         blasters.animation.play('shoot');
-	    {
-		health -= 0.4;
-		}
+        FlxG.sound.play(Paths.sound('blaster_shoot'));
+
+		new FlxTimer().start(0.35 , function(tmr:FlxTimer)
+			{
+				health = 0.1;
+			});
 	}
 
 	function DustCloud():Void
@@ -4252,6 +4256,31 @@ class PlayState extends MusicBeatState
 
 		}
 
+		//cam zoom for the calm part
+
+		if (curStep == 894 && curSong == 'the-murderer')
+		{
+			FlxTween.tween(FlxG.camera, {zoom: 1.2}, 4, {ease: FlxEase.quadInOut});
+			new FlxTimer().start(4 , function(tmr:FlxTimer)
+			{
+				defaultCamZoom = 1.2;
+			});
+			
+		}
+
+		if (curStep == 1085 && curSong == 'the-murderer')
+		{
+			FlxTween.tween(FlxG.camera, {zoom: 0.65}, 8, {ease: FlxEase.quadInOut});
+			new FlxTimer().start(8 , function(tmr:FlxTimer)
+			{
+				defaultCamZoom = 0.65;
+			});
+			
+		}
+
+
+		//more flips lol
+
 		if (curStep == 1143 && curSong == 'the-murderer')
 		{
 			flipCamUp();
@@ -4271,12 +4300,6 @@ class PlayState extends MusicBeatState
 		//psychotic-breakdown
 
 
-
-		if (curStep == 20 && curSong.toLowerCase() == 'psychotic-breakdown')
-		{
-			gasterBlasters();
-
-		}
 
 		if (curStep == 512 && curSong.toLowerCase() == 'psychotic-breakdown')
 		{
@@ -4319,6 +4342,101 @@ class PlayState extends MusicBeatState
 
 
 		//d.i.e
+
+
+
+		if (curStep == 11 && curSong.toLowerCase() == 'd.i.e')
+		{
+			gasterBlasters();
+
+		}
+
+		if (curStep == 204 && curSong.toLowerCase() == 'd.i.e')
+		{
+			gasterBlasters();
+
+		}
+
+		if (curStep == 527 && curSong.toLowerCase() == 'd.i.e')
+		{
+			gasterBlasters();
+
+		}
+
+		if (curStep == 652 && curSong.toLowerCase() == 'd.i.e')
+		{
+			gasterBlasters();
+
+		}
+
+		if (curStep == 1165 && curSong.toLowerCase() == 'd.i.e')
+		{
+			gasterBlasters();
+
+		}
+
+		if (curStep == 1165 && curSong.toLowerCase() == 'd.i.e')
+		{
+			gasterBlasters();
+
+		}
+
+		if (curStep == 1216 && curSong.toLowerCase() == 'd.i.e')
+		{
+			gasterBlasters();
+
+		}
+
+		if (curStep == 1220 && curSong.toLowerCase() == 'd.i.e')
+		{
+			gasterBlasters();
+
+		}
+
+		if (curStep == 1224 && curSong.toLowerCase() == 'd.i.e')
+		{
+			gasterBlasters();
+
+		}
+
+		if (curStep == 1228 && curSong.toLowerCase() == 'd.i.e')
+		{
+			gasterBlasters();
+
+		}
+
+		if (curStep == 1280 && curSong.toLowerCase() == 'd.i.e')
+		{
+			gasterBlasters();
+
+		}
+
+		if (curStep == 1284 && curSong.toLowerCase() == 'd.i.e')
+		{
+			gasterBlasters();
+
+		}
+
+		if (curStep == 1288 && curSong.toLowerCase() == 'd.i.e')
+		{
+			gasterBlasters();
+
+		}
+
+		if (curStep == 1282 && curSong.toLowerCase() == 'd.i.e')
+		{
+			gasterBlasters();
+
+		}
+
+		if (curStep == 1440 && curSong.toLowerCase() == 'd.i.e')
+		{
+			gasterBlasters();
+
+		}
+
+
+
 
 
 

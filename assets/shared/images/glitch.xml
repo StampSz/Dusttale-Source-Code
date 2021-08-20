@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="glitch.png">
+	<!-- Created with Adobe Animate version 21.0.4.39603 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="glitch effect0000" x="0" y="0" width="1920" height="1080" frameX="0" frameY="0" frameWidth="1920" frameHeight="1087"/>
+	<SubTexture name="glitch effect0001" x="1920" y="0" width="1920" height="1080" frameX="0" frameY="-7" frameWidth="1920" frameHeight="1087"/>
+	<SubTexture name="glitch effect0002" x="3840" y="0" width="1920" height="1080" frameX="0" frameY="-7" frameWidth="1920" frameHeight="1087"/>
+	<SubTexture name="glitch effect0003" x="5760" y="0" width="1920" height="1080" frameX="0" frameY="-7" frameWidth="1920" frameHeight="1087"/>
+	<SubTexture name="glitch effect0004" x="0" y="1080" width="1920" height="1080" frameX="0" frameY="-7" frameWidth="1920" frameHeight="1087"/>
+	<SubTexture name="glitch effect0005" x="1920" y="1080" width="1920" height="1080" frameX="0" frameY="-7" frameWidth="1920" frameHeight="1087"/>
+	<SubTexture name="glitch effect0006" x="3840" y="1080" width="1920" height="1080" frameX="0" frameY="-7" frameWidth="1920" frameHeight="1087"/>
+	<SubTexture name="glitch effect0007" x="5760" y="1080" width="1920" height="1080" frameX="0" frameY="-7" frameWidth="1920" frameHeight="1087"/>
+	<SubTexture name="glitch effect0008" x="0" y="2160" width="1920" height="1080" frameX="0" frameY="-7" frameWidth="1920" frameHeight="1087"/>
+	<SubTexture name="glitch effect0009" x="1920" y="2160" width="1920" height="1080" frameX="0" frameY="-7" frameWidth="1920" frameHeight="1087"/>
+</TextureAtlas>
