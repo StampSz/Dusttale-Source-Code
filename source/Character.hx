@@ -383,10 +383,10 @@ class Character extends FlxSprite
 				addOffset("singRIGHT", -113, -5);
 				addOffset("singLEFT", -46, -7);
 				addOffset("singDOWN", -96, -50);
-				addOffset("singUPmiss", -29, 27);
-				addOffset("singRIGHTmiss", -30, 21);
-				addOffset("singLEFTmiss", 12, 24);
-				addOffset("singDOWNmiss", -11, -19);
+				addOffset("singUPmiss", -69, 27);
+				addOffset("singRIGHTmiss", -70, 21);
+				addOffset("singLEFTmiss", -32, 24);
+				addOffset("singDOWNmiss", -51, -19);
 				addOffset("hey");
 				addOffset('firstDeath', 37, 11);
 				addOffset('deathLoop', 37, 5);
