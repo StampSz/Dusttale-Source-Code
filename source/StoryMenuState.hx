@@ -49,8 +49,6 @@ class StoryMenuState extends MusicBeatState
 
 	var curWeek:Int = 0;
 
-	var txtTracklist:FlxText;
-
 	var grpWeekText:FlxTypedGroup<MenuItem>;
 	var grpWeekCharacters:FlxTypedGroup<MenuCharacter>;
 
@@ -145,14 +143,22 @@ class StoryMenuState extends MusicBeatState
 
 		trace("Line 124");
 
+	    var	menubg = new FlxSprite(0,0);
+
+		menubg.frames = Paths.getSparrowAtlas('menu');
+        menubg.animation.addByPrefix('bg', 'bg', 24, true);
+        add(menubg);
+        menubg.visible = true;
+
 		leftArrow = new FlxSprite(grpWeekText.members[0].x + grpWeekText.members[0].width + 10, grpWeekText.members[0].y + 10);
 		leftArrow.frames = ui_tex;
-		leftArrow.animation.addByPrefix('idle', "arrowLeft");
+		leftArrow.animation.addByPrefix('idle', "arrowLeft0", 24, false);
 		leftArrow.animation.addByPrefix('press', "arrowLeftAnim");
 		leftArrow.animation.play('idle');
 		leftArrow.y = 145;
 		leftArrow.x = 64;
-		difficultySelectors.add(leftArrow);
+
+		add(leftArrow);
 
 		sprDifficulty = new FlxSprite(leftArrow.x + 130, leftArrow.y);
 		sprDifficulty.frames = ui_tex;
@@ -165,16 +171,17 @@ class StoryMenuState extends MusicBeatState
 		changeDifficulty();
 
 
-		difficultySelectors.add(sprDifficulty);
+		add(sprDifficulty);
 
 		rightArrow = new FlxSprite(sprDifficulty.x + sprDifficulty.width + 50, leftArrow.y);
 		rightArrow.frames = ui_tex;
 		rightArrow.x = 64;
 		rightArrow.y = 145;
-		rightArrow.animation.addByPrefix('idle', 'arrowRight');
-		rightArrow.animation.addByPrefix('press', "arrowRight", 24, false);
+		rightArrow.animation.addByPrefix('idle', 'arrowRight0', 24, false);
+		rightArrow.animation.addByPrefix('press', "arrowRightAnim", 24, false);
 		rightArrow.animation.play('idle');
-		difficultySelectors.add(rightArrow);
+
+		add(rightArrow);
 
 		HeartSoul = new FlxSprite(sprDifficulty.x + sprDifficulty.width + 50, leftArrow.y);
 		HeartSoul.frames = heart;
@@ -185,16 +192,13 @@ class StoryMenuState extends MusicBeatState
 		HeartSoul.animation.play('idle');
 
 		add(HeartSoul);
+        menubg.animation.play('bg');
 
 		trace("Line 150");
 
 		add(grpWeekCharacters);
 
-		txtTracklist = new FlxText(FlxG.width * 0.05, yellowBG.x + yellowBG.height + 100, 0, "Tracks", 32);
-		txtTracklist.alignment = CENTER;
-		txtTracklist.font = rankText.font;
-		txtTracklist.color = 0xFFe55777;
-		add(txtTracklist);
+
 		// add(rankText);
 		add(scoreText);
 		add(txtWeekTitle);
@@ -421,19 +425,6 @@ class StoryMenuState extends MusicBeatState
 		grpWeekCharacters.members[0].setCharacter(weekCharacters[curWeek][0]);
 		grpWeekCharacters.members[1].setCharacter(weekCharacters[curWeek][1]);
 		grpWeekCharacters.members[2].setCharacter(weekCharacters[curWeek][2]);
-
-		txtTracklist.text = "Tracks\n";
-		var stringThing:Array<String> = weekData[curWeek];
-
-		for (i in stringThing)
-			txtTracklist.text += "\n" + i;
-
-		txtTracklist.text = txtTracklist.text.toUpperCase();
-
-		txtTracklist.screenCenter(X);
-		txtTracklist.x -= FlxG.width * 0.35;
-
-		txtTracklist.text += "\n";
 
 		#if !switch
 		intendedScore = Highscore.getWeekScore(curWeek, curDifficulty);
