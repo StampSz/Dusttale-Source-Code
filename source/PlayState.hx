@@ -99,6 +99,8 @@ class PlayState extends MusicBeatState
 	public static var rep:Replay;
 	public static var loadRep:Bool = false;
 
+	public static var judgementIlumination:FlxSprite;
+
 	public static var noteBools:Array<Bool> = [false, false, false, false];
 
 	var halloweenLevel:Bool = false;
@@ -449,11 +451,19 @@ class PlayState extends MusicBeatState
 			{
 				defaultCamZoom = 0.6;
 				curStage = 'judgementhall';
-				var bg:FlxSprite = new FlxSprite(-265, -360).loadGraphic(Paths.image('judgementhall/bg', 'shared'));
+				var bg:FlxSprite = new FlxSprite(-267.35, -370.7).loadGraphic(Paths.image('judgementhall/bg', 'shared'));
 				bg.antialiasing = true;
 				bg.scrollFactor.set(1, 1);
 				bg.active = false;
 				bg.screenCenter(Y);
+
+				judgementIlumination = new FlxSprite(-267.35, -370.7).loadGraphic(Paths.image('judgementhall/ilumination', 'shared'));
+				judgementIlumination.antialiasing = true;
+				judgementIlumination.scrollFactor.set(1, 1);
+				judgementIlumination.active = false;
+				judgementIlumination.screenCenter(Y);
+
+
 				
 
 				add(bg);
@@ -952,8 +962,8 @@ class PlayState extends MusicBeatState
 				gf.x += 180;
 				gf.y += 300;
 			case 'judgementhall':
-				boyfriend.setPosition(1017.75, 458.75);
-				gf.setPosition(642.2, 125.6);
+				boyfriend.setPosition(1080.75, 458.75);
+				gf.setPosition(638.2, 125.6);
 			case 'snowdin_cave':
 				boyfriend.setPosition(1094.05, 458.75);
 				gf.setPosition(642.2, 125.6);
@@ -980,11 +990,12 @@ class PlayState extends MusicBeatState
 			add(gf);
 
 			// Shitty layering but whatev it works LOL
-			if (curStage == 'limo')
-				add(limo);
+			if (curStage == 'judgementhall')
+				add(judgementIlumination);
 
 			add(dad);
 			add(boyfriend);
+
 		}
 
 
@@ -3725,6 +3736,9 @@ class PlayState extends MusicBeatState
 					add(gf);
 					add(boyfriend);
 					add(dad);
+
+					if (curStage == 'judgementhall')
+					add(judgementIlumination);
 			
 					trace('poggers');
 			

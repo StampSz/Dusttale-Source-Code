@@ -140,7 +140,7 @@ class Character extends FlxSprite
 
 				playAnim('idle');
 			case 'sans':
-				tex = Paths.getSparrowAtlas('characters/sans', 'shared');
+				tex = Paths.getSparrowAtlas('characters/sans_dark', 'shared');
 				frames = tex;
 				animation.addByPrefix('idle', 'idle0', 24);
 				animation.addByPrefix('singUP', 'up0', 24);
