@@ -1,9 +1,2 @@
 judgementhall
-stage
-halloween
-philly
-limo
-mall
-mallEvil
-school
-schoolEvil
+snowdin_cave

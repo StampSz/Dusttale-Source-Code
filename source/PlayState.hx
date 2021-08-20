@@ -429,7 +429,6 @@ class PlayState extends MusicBeatState
 		if (SONG.stage == null) {
 			switch(storyWeek)
 			{
-				case 1: stageCheck = 'judgementhall';
 				case 2: stageCheck = 'halloween';
 				case 3: stageCheck = 'philly';
 				case 4: stageCheck = 'limo';
@@ -454,6 +453,18 @@ class PlayState extends MusicBeatState
 				bg.active = false;
 				bg.screenCenter(Y);
 				
+
+				add(bg);
+			}
+
+			case 'snowdin_cave':
+			{
+				defaultCamZoom = 0.65;
+				curStage = 'snowdin_cave';
+				var bg:FlxSprite = new FlxSprite(-182.05, -192.85).loadGraphic(Paths.image('snowdin_cave'));
+				bg.antialiasing = true;
+				bg.scrollFactor.set(1, 1);
+				bg.active = false;			
 
 				add(bg);
 			}
@@ -936,6 +947,9 @@ class PlayState extends MusicBeatState
 				gf.x += 180;
 				gf.y += 300;
 			case 'judgementhall':
+				boyfriend.setPosition(1094.05, 458.75);
+				gf.setPosition(642.2, 125.6);
+			case 'snowdin_cave':
 				boyfriend.setPosition(1094.05, 458.75);
 				gf.setPosition(642.2, 125.6);
 
@@ -2560,6 +2574,9 @@ class PlayState extends MusicBeatState
 						camFollow.y = boyfriend.getMidpoint().y - 200;
 					case 'judgementhall':
 						camFollow.y = boyfriend.getMidpoint().y - 200;
+					case 'snowdin_cave':
+						camFollow.y = boyfriend.getMidpoint().y - 200;
+						camFollow.x = boyfriend.getMidpoint().x - 200;
 				}
 			}
 		}
