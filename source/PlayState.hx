@@ -1195,7 +1195,6 @@ class PlayState extends MusicBeatState
 			songPosBar.cameras = [camHUD];
 		}
 		kadeEngineWatermark.cameras = [camHUD];
-		kr.cameras = [camHUD];
 		DustCloud1.cameras = [camHUD];
 		blasters.cameras = [camHUD];
 
@@ -2202,6 +2201,12 @@ class PlayState extends MusicBeatState
 				}
 				// phillyCityLights.members[curLight].alpha -= (Conductor.crochet / 1000) * FlxG.elapsed;
 		}
+
+
+		//bf slash mechanic in d.i.e
+
+
+
 
 
 		switch (dustAccumulated)
@@ -4011,7 +4016,7 @@ class PlayState extends MusicBeatState
 
 
 
-		dustsound = new FlxSound().loadEmbedded(Paths.sound('bone'));
+		dustsound = new FlxSound().loadEmbedded(Paths.sound('dust'));
 		dustsound.play();
 		dustsound.volume = 1;
 		new FlxTimer().start(0.5 , function(tmr:FlxTimer)
