@@ -4341,6 +4341,23 @@ class PlayState extends MusicBeatState
 		}
 
 
+
+		if (curStep == 384 && curSong.toLowerCase() == 'psychotic-breakdown')
+		{
+			gasterBlasters();
+
+		}
+
+		if (curStep == 1472 && curSong.toLowerCase() == 'psychotic-breakdown')
+		{
+			gasterBlasters();
+
+		}
+
+
+
+
+
 		//d.i.e
 
 
@@ -4387,11 +4404,6 @@ class PlayState extends MusicBeatState
 
 		}
 
-		if (curStep == 1220 && curSong.toLowerCase() == 'd.i.e')
-		{
-			gasterBlasters();
-
-		}
 
 		if (curStep == 1224 && curSong.toLowerCase() == 'd.i.e')
 		{
@@ -4399,12 +4411,7 @@ class PlayState extends MusicBeatState
 
 		}
 
-		if (curStep == 1228 && curSong.toLowerCase() == 'd.i.e')
-		{
-			gasterBlasters();
-
-		}
-
+	
 		if (curStep == 1280 && curSong.toLowerCase() == 'd.i.e')
 		{
 			gasterBlasters();
@@ -4417,11 +4424,7 @@ class PlayState extends MusicBeatState
 
 		}
 
-		if (curStep == 1288 && curSong.toLowerCase() == 'd.i.e')
-		{
-			gasterBlasters();
-
-		}
+	
 
 		if (curStep == 1282 && curSong.toLowerCase() == 'd.i.e')
 		{
@@ -4429,11 +4432,6 @@ class PlayState extends MusicBeatState
 
 		}
 
-		if (curStep == 1440 && curSong.toLowerCase() == 'd.i.e')
-		{
-			gasterBlasters();
-
-		}
 
 
 
