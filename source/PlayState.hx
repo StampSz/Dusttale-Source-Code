@@ -281,6 +281,7 @@ class PlayState extends MusicBeatState
 		0xFFca1f6f, // GF
 		0xFFc885e5, // DAD
 		0xFF999999,	// SANS
+		0xFF999999,	// SANSWORRIED
 		0xFF0090, // BFKR
 	];
 
@@ -915,6 +916,9 @@ class PlayState extends MusicBeatState
 				dad.y += 100;
 				camPos.set(dad.getGraphicMidpoint().x + 300, dad.getGraphicMidpoint().y);
 			case "sans":
+				dad.setPosition(162.4, 76.65);
+				camPos.set(dad.getGraphicMidpoint().x + 300, dad.getGraphicMidpoint().y);
+			case "sansWorried":
 				dad.setPosition(162.4, 76.65);
 				camPos.set(dad.getGraphicMidpoint().x + 300, dad.getGraphicMidpoint().y);
 
@@ -2531,6 +2535,9 @@ class PlayState extends MusicBeatState
 						camFollow.y = dad.getMidpoint().y - 430;
 						camFollow.x = dad.getMidpoint().x - 100;
 					case 'sans':
+						camFollow.y = dad.getMidpoint().y - 50;
+						camFollow.x = dad.getMidpoint().x + 200;
+					case 'sansWorried':
 						camFollow.y = dad.getMidpoint().y - 50;
 						camFollow.x = dad.getMidpoint().x + 200;
 					

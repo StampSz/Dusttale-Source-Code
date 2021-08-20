@@ -160,6 +160,27 @@ class Character extends FlxSprite
 				addOffset("swingUP");
 
 				playAnim('idle');
+			case 'sansWorried':
+				tex = Paths.getSparrowAtlas('characters/sansWorried', 'shared');
+				frames = tex;
+				animation.addByPrefix('idle', 'idle0', 24);
+				animation.addByPrefix('singUP', 'up0', 24);
+				animation.addByPrefix('singRIGHT', 'right0', 24);
+				animation.addByPrefix('singDOWN', 'down0', 24);
+				animation.addByPrefix('singLEFT', 'left0', 24);
+				animation.addByPrefix('swingDOWN', 'swingDown0', 24, false);
+				animation.addByPrefix('swingUP', 'swingUp0', 24, false);
+
+				addOffset("idle");
+				addOffset("singUP");
+				addOffset("singRIGHT");
+				addOffset("singLEFT");
+				addOffset("singDOWN");
+
+				addOffset("swingDOWN");
+				addOffset("swingUP");
+
+				playAnim('idle');
 			case 'spooky':
 				tex = Paths.getSparrowAtlas('characters/spooky_kids_assets');
 				frames = tex;
