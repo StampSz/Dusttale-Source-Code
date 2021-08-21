@@ -246,15 +246,32 @@ class Note extends FlxSprite
 
 				if(FlxG.save.data.scrollSpeed != 1)
 				{
-					prevNote.scale.y *= Conductor.stepCrochet / 100 * 2.8 * FlxG.save.data.scrollSpeed;
-					prevNote.alpha = 0.6;
+					if (FlxG.save.data.downscroll)
+					{
+						prevNote.scale.y *= Conductor.stepCrochet / 120 * 1.9 * FlxG.save.data.scrollSpeed;
+						prevNote.alpha = 0.6;
+					} else
+					{
+						prevNote.scale.y *= Conductor.stepCrochet / 100 * 2.8 * FlxG.save.data.scrollSpeed;
+						prevNote.alpha = 0.6;
+					}
+					
 				}
 				else
 				{
-					prevNote.scale.y *= Conductor.stepCrochet / 100 * 2.8 * PlayState.SONG.speed;
-					prevNote.alpha = 0.6;
-				prevNote.updateHitbox();
-				// prevNote.setGraphicSize();
+					if (FlxG.save.data.downscroll)
+					{
+						prevNote.scale.y *= Conductor.stepCrochet / 120 * 1.9 * PlayState.SONG.speed;
+						prevNote.alpha = 0.6;
+						prevNote.updateHitbox();
+						// prevNote.setGraphicSize();
+					} else {
+						prevNote.scale.y *= Conductor.stepCrochet / 100 * 2.8 * PlayState.SONG.speed;
+						prevNote.alpha = 0.6;
+						prevNote.updateHitbox();
+						// prevNote.setGraphicSize();
+
+					}
 				}
 			}
 		}
