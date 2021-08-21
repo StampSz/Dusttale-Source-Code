@@ -1190,6 +1190,11 @@ class PlayState extends MusicBeatState
         blasters.setPosition(-600, 75);
         blasters.visible = false;
 
+        if (FlxG.save.data.downscroll)
+        {
+        	blasters.setPosition(-600, -500);
+        }
+
 		
 		
 		strumLineNotes.cameras = [camHUD];
