@@ -480,6 +480,18 @@ class PlayState extends MusicBeatState
 
 				add(bg);
 			}
+
+			case 'waterfall':
+			{
+				defaultCamZoom = 0.65;
+				curStage = 'waterfall';
+				var bg:FlxSprite = new FlxSprite(-368.9, -439.8).loadGraphic(Paths.image('waterfall/waterfallBG'));
+				bg.antialiasing = true;
+				bg.scrollFactor.set(1, 1);
+				bg.active = false;			
+
+				add(bg);
+			}
 			case 'halloween': 
 			{
 				curStage = 'spooky';
@@ -965,6 +977,9 @@ class PlayState extends MusicBeatState
 				boyfriend.setPosition(1080.75, 458.75);
 				gf.setPosition(638.2, 125.6);
 			case 'snowdin_cave':
+				boyfriend.setPosition(1094.05, 458.75);
+				gf.setPosition(642.2, 125.6);
+			case 'waterfall':
 				boyfriend.setPosition(1094.05, 458.75);
 				gf.setPosition(642.2, 125.6);
 
@@ -2563,6 +2578,11 @@ class PlayState extends MusicBeatState
 					case 'sansWorried':
 						camFollow.y = dad.getMidpoint().y - 50;
 						camFollow.x = dad.getMidpoint().x + 200;
+						if (curStage == 'waterfall')
+						{
+							camFollow.y = dad.getMidpoint().y - 100;
+							camFollow.x = dad.getMidpoint().x + 200;
+						}
 					
 				}
 
@@ -2606,6 +2626,9 @@ class PlayState extends MusicBeatState
 						camFollow.y = boyfriend.getMidpoint().y - 200;
 					case 'snowdin_cave':
 						camFollow.y = boyfriend.getMidpoint().y - 200;
+						camFollow.x = boyfriend.getMidpoint().x - 200;
+					case 'waterfall':
+						camFollow.y = boyfriend.getMidpoint().y - 270;
 						camFollow.x = boyfriend.getMidpoint().x - 200;
 				}
 			}
