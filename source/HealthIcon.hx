@@ -47,6 +47,15 @@ class HealthIcon extends FlxSprite
 				animation.addByPrefix('default', "normal", 24, false, isPlayer);
 				animation.addByPrefix('losing', "loosing", 24, false, isPlayer);
 				animation.addByPrefix('winning', "winning", 24, false, isPlayer);
+			case 'sansUpset':
+				frames = Paths.getSparrowAtlas('icons/sans_icons');
+				iconScale = 0.5;
+				defaultIconScale = 0.5;
+
+				antialiasing = true;
+				animation.addByPrefix('default', "normal", 24, false, isPlayer);
+				animation.addByPrefix('losing', "loosing", 24, false, isPlayer);
+				animation.addByPrefix('winning', "winning", 24, false, isPlayer);
 			default:
 				frames = Paths.getSparrowAtlas('icons/bf_icons');
 				iconScale = 0.5;
