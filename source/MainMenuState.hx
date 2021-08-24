@@ -243,9 +243,9 @@ class MainMenuState extends MusicBeatState
 
 			if (controls.ACCEPT)
 			{
-				if (optionShit[curSelected] == 'credits')
+				if (optionShit[curSelected] == '')
 				{
-					fancyOpenURL("https://www.youtube.com/watch?v=xvFZjo5PgG0");
+				FlxG.switchState(new CreditState());
 				}
 				else
 				{
@@ -306,6 +306,10 @@ class MainMenuState extends MusicBeatState
 				FlxG.switchState(new FreeplayState());
 
 				trace("Freeplay Menu Selected");
+			case 'credits':
+				FlxG.switchState(new CreditState());
+
+				trace("Credits Menu Selected");
 
 			case 'options':
 				FlxG.switchState(new OptionsMenu());
