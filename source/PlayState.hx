@@ -284,7 +284,6 @@ class PlayState extends MusicBeatState
 		0xFFc885e5, // DAD
 		0xFF999999,	// SANS
 		0xFF999999,	// SANSWORRIED
-		0xFF999999,	// SANSUPSET
 		0xFFe81a1a,	// BF-CHARA
 		0xFF0090, // BFKR
 	];
@@ -943,9 +942,6 @@ class PlayState extends MusicBeatState
 				dad.setPosition(162.4, 76.65);
 				camPos.set(dad.getGraphicMidpoint().x + 300, dad.getGraphicMidpoint().y);
 			case "sansWorried":
-				dad.setPosition(162.4, 76.65);
-				camPos.set(dad.getGraphicMidpoint().x + 300, dad.getGraphicMidpoint().y);
-			case "sansUpset":
 				dad.setPosition(162.4, 76.65);
 				camPos.set(dad.getGraphicMidpoint().x + 300, dad.getGraphicMidpoint().y);
 
@@ -2582,10 +2578,11 @@ class PlayState extends MusicBeatState
 					case 'sansWorried':
 						camFollow.y = dad.getMidpoint().y - 50;
 						camFollow.x = dad.getMidpoint().x + 200;
-					case 'sansUpset':
-						camFollow.y = dad.getMidpoint().y - 100;
-						camFollow.x = dad.getMidpoint().x + 200;
-						
+						if (curStage == 'waterfall')
+						{
+							camFollow.y = dad.getMidpoint().y - 100;
+							camFollow.x = dad.getMidpoint().x + 200;
+						}
 					
 				}
 
@@ -4480,11 +4477,6 @@ class PlayState extends MusicBeatState
 		}
 
 
-
-
-
-
-
 		if (curStep == 272 && curSong.toLowerCase() == 'd.i.e')
 		{
 			FlxG.camera.shake(0.010, 16, null, true, FlxAxes.XY);
@@ -4540,8 +4532,122 @@ class PlayState extends MusicBeatState
 		}
 
 
+		//reality-check
 
 
+		if (curStep == 240 && curSong.toLowerCase() == 'reality-check')
+		{
+			flipCamUp();
+
+		}
+
+		if (curStep == 368 && curSong.toLowerCase() == 'reality-check')
+		{
+			flipCamDown();
+
+		}
+
+		if (curStep == 423 && curSong.toLowerCase() == 'reality-check')
+		{
+			gasterBlasters();
+
+		}
+
+		if (curStep == 503 && curSong.toLowerCase() == 'reality-check')
+		{
+			gasterBlasters();
+
+		}
+
+		if (curStep == 503 && curSong.toLowerCase() == 'reality-check')
+		{
+			flipCamUp();
+
+		}
+
+		if (curStep == 616 && curSong.toLowerCase() == 'reality-check')
+		{
+			flipCamDown();
+
+		}
+	
+		if (curStep == 687 && curSong.toLowerCase() == 'reality-check')
+		{
+			gasterBlasters();
+
+		}
+
+		if (curStep == 752 && curSong.toLowerCase() == 'reality-check')
+		{
+			flipCamUp();
+
+		}
+
+		if (curStep == 880 && curSong.toLowerCase() == 'reality-check')
+		{
+			flipCamDown();
+
+		}
+
+		if (curStep == 880 && curSong.toLowerCase() == 'reality-check')
+		{
+			gasterBlasters();
+
+		}
+
+		if (curStep == 1247 && curSong.toLowerCase() == 'reality-check')
+		{
+			flipCamUp();
+
+		}
+
+		if (curStep == 1247 && curSong.toLowerCase() == 'reality-check')
+		{
+			gasterBlasters();
+
+		}
+
+		if (curStep == 1391 && curSong.toLowerCase() == 'reality-check')
+		{
+			gasterBlasters();
+
+		}
+
+		if (curStep == 1519 && curSong.toLowerCase() == 'reality-check')
+		{
+			flipCamDown();
+
+		}
+
+		if (curStep == 1721 && curSong.toLowerCase() == 'reality-check')
+		{
+			flipCamUp();
+
+		}
+
+		if (curStep == 1769 && curSong.toLowerCase() == 'reality-check')
+		{
+			flipCamDown();
+
+		}
+
+		if (curStep == 1835 && curSong.toLowerCase() == 'reality-check')
+		{
+			gasterBlasters();
+
+		}
+
+		if (curStep == 2220 && curSong.toLowerCase() == 'reality-check')
+		{
+			flipCamUp();
+
+		}
+
+		if (curStep == 2348 && curSong.toLowerCase() == 'reality-check')
+		{
+			flipCamDown();
+
+		}
 
 		#if windows
 		if (executeModchart && luaModchart != null)
