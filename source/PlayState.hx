@@ -908,6 +908,8 @@ class PlayState extends MusicBeatState
 				curGf = 'gf-christmas';
 			case 'gf-pixel':
 				curGf = 'gf-pixel';
+			case 'gf-undyne':
+				curGf = 'gf-undyne';
 			default:
 				curGf = 'gf';
 		}
