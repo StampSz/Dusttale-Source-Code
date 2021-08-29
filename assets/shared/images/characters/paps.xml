@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="paps.png">
+	<!-- Created with Adobe Animate version 21.0.4.39603 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="Pap down0000" x="0" y="0" width="1211" height="1058"/>
+	<SubTexture name="Pap down0001" x="1211" y="0" width="1211" height="1058"/>
+	<SubTexture name="Pap down0002" x="2422" y="0" width="1211" height="1058"/>
+	<SubTexture name="Pap down0003" x="3633" y="0" width="1211" height="1058"/>
+	<SubTexture name="Pap down0004" x="4844" y="0" width="1211" height="1058"/>
+	<SubTexture name="Pap down0005" x="6055" y="0" width="1211" height="1058"/>
+	<SubTexture name="Pap down0006" x="6055" y="0" width="1211" height="1058"/>
+	<SubTexture name="Pap down0007" x="6055" y="0" width="1211" height="1058"/>
+	<SubTexture name="Pap down0008" x="6055" y="0" width="1211" height="1058"/>
+	<SubTexture name="Pap idle0000" x="0" y="1058" width="1210" height="1057"/>
+	<SubTexture name="Pap idle0001" x="0" y="1058" width="1210" height="1057"/>
+	<SubTexture name="Pap idle0002" x="1210" y="1058" width="1210" height="1057"/>
+	<SubTexture name="Pap idle0003" x="1210" y="1058" width="1210" height="1057"/>
+	<SubTexture name="Pap idle0004" x="2420" y="1058" width="1210" height="1057"/>
+	<SubTexture name="Pap idle0005" x="3630" y="1058" width="1210" height="1057"/>
+	<SubTexture name="Pap idle0006" x="4840" y="1058" width="1210" height="1057"/>
+	<SubTexture name="Pap idle0007" x="6050" y="1058" width="1210" height="1057"/>
+	<SubTexture name="Pap idle0008" x="0" y="2115" width="1210" height="1057"/>
+	<SubTexture name="Pap idle0009" x="1210" y="2115" width="1210" height="1057"/>
+	<SubTexture name="Pap idle0010" x="2420" y="2115" width="1210" height="1057"/>
+	<SubTexture name="Pap idle0011" x="3630" y="2115" width="1210" height="1057"/>
+	<SubTexture name="Pap idle0012" x="4840" y="2115" width="1210" height="1057"/>
+	<SubTexture name="Pap idle0013" x="6050" y="2115" width="1210" height="1057"/>
+	<SubTexture name="Pap left0000" x="0" y="3172" width="1210" height="1057"/>
+	<SubTexture name="Pap left0001" x="1210" y="3172" width="1210" height="1057"/>
+	<SubTexture name="Pap left0002" x="2420" y="3172" width="1210" height="1057"/>
+	<SubTexture name="Pap left0003" x="3630" y="3172" width="1210" height="1057"/>
+	<SubTexture name="Pap left0004" x="4840" y="3172" width="1210" height="1057"/>
+	<SubTexture name="Pap left0005" x="4840" y="3172" width="1210" height="1057"/>
+	<SubTexture name="Pap left0006" x="4840" y="3172" width="1210" height="1057"/>
+	<SubTexture name="Pap left0007" x="4840" y="3172" width="1210" height="1057"/>
+	<SubTexture name="Pap left0008" x="4840" y="3172" width="1210" height="1057"/>
+	<SubTexture name="Pap right0000" x="6050" y="3172" width="1210" height="1058"/>
+	<SubTexture name="Pap right0001" x="0" y="4230" width="1210" height="1058"/>
+	<SubTexture name="Pap right0002" x="1210" y="4230" width="1210" height="1058"/>
+	<SubTexture name="Pap right0003" x="1210" y="4230" width="1210" height="1058"/>
+	<SubTexture name="Pap right0004" x="2420" y="4230" width="1210" height="1058"/>
+	<SubTexture name="Pap right0005" x="2420" y="4230" width="1210" height="1058"/>
+	<SubTexture name="Pap right0006" x="2420" y="4230" width="1210" height="1058"/>
+	<SubTexture name="Pap right0007" x="2420" y="4230" width="1210" height="1058"/>
+	<SubTexture name="Pap right0008" x="2420" y="4230" width="1210" height="1058"/>
+	<SubTexture name="Pap up0000" x="3630" y="4230" width="1210" height="1058"/>
+	<SubTexture name="Pap up0001" x="4840" y="4230" width="1210" height="1058"/>
+	<SubTexture name="Pap up0002" x="6050" y="4230" width="1210" height="1058"/>
+	<SubTexture name="Pap up0003" x="0" y="5288" width="1210" height="1058"/>
+	<SubTexture name="Pap up0004" x="1210" y="5288" width="1210" height="1058"/>
+	<SubTexture name="Pap up0005" x="1210" y="5288" width="1210" height="1058"/>
+	<SubTexture name="Pap up0006" x="1210" y="5288" width="1210" height="1058"/>
+	<SubTexture name="Pap up0007" x="1210" y="5288" width="1210" height="1058"/>
+	<SubTexture name="Pap up0008" x="1210" y="5288" width="1210" height="1058"/>
+</TextureAtlas>
