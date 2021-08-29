@@ -93,37 +93,6 @@ class Character extends FlxSprite
 
 				playAnim('danceRight');
 
-			case 'gf-undyne':
-				tex = Paths.getSparrowAtlas('characters/gf_undyne');
-				frames = tex;
-				frames = tex;
-				animation.addByPrefix('cheer', 'GF Cheer', 24, false);
-				animation.addByPrefix('singLEFT', 'GF left note', 24, false);
-				animation.addByPrefix('singRIGHT', 'GF Right Note', 24, false);
-				animation.addByPrefix('singUP', 'GF Up Note', 24, false);
-				animation.addByPrefix('singDOWN', 'GF Down Note', 24, false);
-				animation.addByIndices('sad', 'gf sad', [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], "", 24, false);
-				animation.addByIndices('danceLeft', 'GF Dancing Beat', [30, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], "", 24, false);
-				animation.addByIndices('danceRight', 'GF Dancing Beat', [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29], "", 24, false);
-				animation.addByIndices('hairBlow', "GF Dancing Beat Hair blowing", [0, 1, 2, 3], "", 24);
-				animation.addByIndices('hairFall', "GF Dancing Beat Hair Landing", [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11], "", 24, false);
-				animation.addByPrefix('scared', 'GF FEAR', 24);
-
-				addOffset('cheer');
-				addOffset('sad');
-				addOffset('danceLeft', 0, -9);
-				addOffset('danceRight', 0, -9);
-
-				addOffset("singUP", 0, 4);
-				addOffset("singRIGHT", 0, -20);
-				addOffset("singLEFT", 0, -19);
-				addOffset("singDOWN", 0, -20);
-				addOffset('hairBlow', 45, -8);
-				addOffset('hairFall', 0, -9);
-
-				addOffset('scared', -2, -17);
-
-				playAnim('danceRight');
 			case 'gf-car':
 				tex = Paths.getSparrowAtlas('characters/gfCar');
 				frames = tex;
@@ -220,6 +189,27 @@ class Character extends FlxSprite
 				animation.addByPrefix('singRIGHT', 'right0', 24);
 				animation.addByPrefix('singDOWN', 'down0', 24);
 				animation.addByPrefix('singLEFT', 'left0', 24);
+				animation.addByPrefix('swingDOWN', 'swingDown0', 24, false);
+				animation.addByPrefix('swingUP', 'swingUp0', 24, false);
+
+				addOffset("idle");
+				addOffset("singUP");
+				addOffset("singRIGHT");
+				addOffset("singLEFT");
+				addOffset("singDOWN");
+
+				addOffset("swingDOWN");
+				addOffset("swingUP");
+
+				playAnim('idle');
+			case 'paps':
+				tex = Paths.getSparrowAtlas('characters/paps', 'shared');
+				frames = tex;
+				animation.addByPrefix('idle', 'Pap idle', 24);
+				animation.addByPrefix('singUP', 'Pap up', 24);
+				animation.addByPrefix('singRIGHT', 'Pap right', 24);
+				animation.addByPrefix('singDOWN', 'Pap down', 24);
+				animation.addByPrefix('singLEFT', 'Pap left', 24);
 				animation.addByPrefix('swingDOWN', 'swingDown0', 24, false);
 				animation.addByPrefix('swingUP', 'swingUp0', 24, false);
 
@@ -721,16 +711,6 @@ class Character extends FlxSprite
 					}
 
 				case 'gf-christmas':
-					if (!animation.curAnim.name.startsWith('hair'))
-					{
-						danced = !danced;
-
-						if (danced)
-							playAnim('danceRight');
-						else
-							playAnim('danceLeft');
-					}
-				case 'gf-undyne':
 					if (!animation.curAnim.name.startsWith('hair'))
 					{
 						danced = !danced;
