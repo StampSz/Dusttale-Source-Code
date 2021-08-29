@@ -95,6 +95,7 @@ class PlayState extends MusicBeatState
 
 	public static var songPosBG:FlxSprite;
 	public static var songPosBar:FlxBar;
+	public static var coolGlitch:FlxSprite;
 
 	public static var rep:Replay;
 	public static var loadRep:Bool = false;
@@ -400,6 +401,9 @@ class PlayState extends MusicBeatState
 
 		trace('INFORMATION ABOUT WHAT U PLAYIN WIT:\nFRAMES: ' + PlayStateChangeables.safeFrames + '\nZONE: ' + Conductor.safeZoneOffset + '\nTS: ' + Conductor.timeScale + '\nBotPlay : ' + PlayStateChangeables.botPlay);
 	
+
+
+
 		//dialogue shit
 		switch (songLowercase)
 		{
@@ -468,6 +472,16 @@ class PlayState extends MusicBeatState
 				
 
 				add(bg);
+
+				
+				var glitchEffect = new FlxGlitchEffect(17,16,0.2,FlxGlitchDirection.HORIZONTAL);
+				var glitchSprite = new FlxEffectSprite(bg, [glitchEffect]);
+				coolGlitch = glitchSprite;
+				add(coolGlitch);
+				coolGlitch.x = bg.x;
+				coolGlitch.y = bg.y;
+				coolGlitch.visible = false;
+
 			}
 
 			case 'snowdin_cave':
@@ -888,6 +902,8 @@ class PlayState extends MusicBeatState
 		{
 			case 'gf-car':
 				curGf = 'gf-car';
+			case 'gf-undyne':
+				curGf = 'gf-undyne';
 			case 'gf-christmas':
 				curGf = 'gf-christmas';
 			case 'gf-pixel':
@@ -985,7 +1001,16 @@ class PlayState extends MusicBeatState
 				gf.setPosition(642.2, 125.6);
 			case 'waterfall':
 				boyfriend.setPosition(1094.05, 458.75);
-				gf.setPosition(642.2, 125.6);
+				switch(gf.curCharacter)
+				{
+					case 'gf':
+					gf.setPosition(642.2, 125.6);
+
+					case 'gf-undyne':
+					gf.setPosition(202.55, -150.55);
+				}
+				
+				
 
 			case 'schoolEvil':
 				if(FlxG.save.data.distractions){
@@ -4484,9 +4509,13 @@ class PlayState extends MusicBeatState
 		{
 			FlxG.camera.shake(0.010, 16, null, true, FlxAxes.XY);
 			camHUD.shake(0.010, 16, null, true, FlxAxes.XY);
+			coolGlitch.visible = true;
+			new FlxTimer().start(16, function(tmr:FlxTimer)	
+			{
+				coolGlitch.visible = false;
+			});
 
-			var epicGlitchEffect = new FlxGlitchEffect(4, 1, 0.05, HORIZONTAL);  //this doesn't work for some reason AAAAAA
-			epicGlitchEffect.active = true;
+
 		}
 
 

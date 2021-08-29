@@ -315,31 +315,10 @@ class TitleState extends MusicBeatState
 
 			new FlxTimer().start(2, function(tmr:FlxTimer)
 			{
-				// Get current version of Kade Engine
-				
-				var http = new haxe.Http("https://raw.githubusercontent.com/KadeDev/Kade-Engine/master/version.downloadMe");
-				var returnedData:Array<String> = [];
-				
-				http.onData = function (data:String)
-				{
-					returnedData[0] = data.substring(0, data.indexOf(';'));
-					returnedData[1] = data.substring(data.indexOf('-'), data.length);
-				  	if (!MainMenuState.kadeEngineVer.contains(returnedData[0].trim()) && !OutdatedSubState.leftState && MainMenuState.nightly == "")
-					{
-						FlxG.switchState(new MainMenuState());
-					}
-					else
-					{
-						FlxG.switchState(new MainMenuState());
-					}
-				}
-				
-				http.onError = function (error) {
-				  trace('error: $error');
-				  FlxG.switchState(new MainMenuState()); // fail but we go anyway
-				}
-				
-				http.request();
+		
+				FlxG.switchState(new MainMenuState());
+					
+					
 			});
 			// FlxG.sound.play(Paths.music('titleShoot'), 0.7);
 		}
@@ -359,10 +338,6 @@ class TitleState extends MusicBeatState
 			var money:Alphabet = new Alphabet(0, 0, textArray[i], true, false);
 			money.screenCenter(X);
 			money.y += (i * 60) + 200;
-			if (curBeat < 5)
-			{
-				money.y -= 85;
-			}
 			credGroup.add(money);
 			textGroup.add(money);
 		}
@@ -404,7 +379,7 @@ class TitleState extends MusicBeatState
 		{
 	
 			case 2:
-				createCoolText(['WassabiSoja', 'Gooble', 'Nathan S', 'Lemonemy', 'StampS,', 'IceyDuNoir', 'UndependableNight', 'Goldsebi']);
+				createCoolText(['The', 'FNF DUSTTALE 2.0 TEAM', 'PRESENT']);
 
 			case 4:
 				deleteCoolText();
