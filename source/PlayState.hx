@@ -288,6 +288,7 @@ class PlayState extends MusicBeatState
 		0xFF999999,	// SANSUPSET
 		0xFFe81a1a,	// BF-CHARA
 		0xFF0090, // BFKR
+		0xFFe81a1a, // PAPS
 	];
 
 	// API stuff
@@ -457,6 +458,38 @@ class PlayState extends MusicBeatState
 				defaultCamZoom = 0.6;
 				curStage = 'judgementhall';
 				var bg:FlxSprite = new FlxSprite(-267.35, -370.7).loadGraphic(Paths.image('judgementhall/bg', 'shared'));
+				bg.antialiasing = true;
+				bg.scrollFactor.set(1, 1);
+				bg.active = false;
+				bg.screenCenter(Y);
+
+				judgementIlumination = new FlxSprite(-267.35, -370.7).loadGraphic(Paths.image('judgementhall/ilumination', 'shared'));
+				judgementIlumination.antialiasing = true;
+				judgementIlumination.scrollFactor.set(1, 1);
+				judgementIlumination.active = false;
+				judgementIlumination.screenCenter(Y);
+
+
+				
+
+				add(bg);
+
+				
+				var glitchEffect = new FlxGlitchEffect(17,16,0.2,FlxGlitchDirection.HORIZONTAL);
+				var glitchSprite = new FlxEffectSprite(bg, [glitchEffect]);
+				coolGlitch = glitchSprite;
+				add(coolGlitch);
+				coolGlitch.x = bg.x;
+				coolGlitch.y = bg.y;
+				coolGlitch.visible = false;
+
+			}
+
+			case 'judgementhall-paps':
+			{
+				defaultCamZoom = 0.6;
+				curStage = 'judgementhall';
+				var bg:FlxSprite = new FlxSprite(-267.35, -370.7).loadGraphic(Paths.image('judgementhall/paps', 'shared'));
 				bg.antialiasing = true;
 				bg.scrollFactor.set(1, 1);
 				bg.active = false;
@@ -908,8 +941,6 @@ class PlayState extends MusicBeatState
 				curGf = 'gf-christmas';
 			case 'gf-pixel':
 				curGf = 'gf-pixel';
-			case 'gf-undyne':
-				curGf = 'gf-undyne';
 			default:
 				curGf = 'gf';
 		}
@@ -966,6 +997,9 @@ class PlayState extends MusicBeatState
 			case "sansUpset":
 				dad.setPosition(162.4, 76.65);
 				camPos.set(dad.getGraphicMidpoint().x + 300, dad.getGraphicMidpoint().y);
+			case "paps":
+				dad.setPosition(-29.3, -86);
+				camPos.set(dad.getGraphicMidpoint().x + 300, dad.getGraphicMidpoint().y);
 
 		}
 
@@ -996,6 +1030,9 @@ class PlayState extends MusicBeatState
 				gf.x += 180;
 				gf.y += 300;
 			case 'judgementhall':
+				boyfriend.setPosition(1080.75, 458.75);
+				gf.setPosition(638.2, 125.6);
+			case 'judgementhall-paps':
 				boyfriend.setPosition(1080.75, 458.75);
 				gf.setPosition(638.2, 125.6);
 			case 'snowdin_cave':
@@ -1036,7 +1073,7 @@ class PlayState extends MusicBeatState
 			add(gf);
 
 			// Shitty layering but whatev it works LOL
-			if (curStage == 'judgementhall')
+			if (curStage == 'judgementhall' || curStage == 'judgementhall-paps')
 				add(judgementIlumination);
 
 			add(dad);
@@ -2612,6 +2649,9 @@ class PlayState extends MusicBeatState
 					case 'sansUpset':
 						camFollow.y = dad.getMidpoint().y - 100;
 						camFollow.x = dad.getMidpoint().x + 200;
+					case 'papyrus':
+						camFollow.y = dad.getMidpoint().y - 100;
+						camFollow.x = dad.getMidpoint().x + 200;
 					
 					
 				}
@@ -3795,7 +3835,7 @@ class PlayState extends MusicBeatState
 					add(boyfriend);
 					add(dad);
 
-					if (curStage == 'judgementhall')
+					if (curStage == 'judgementhall' || curStage == 'judgementhall-paps')
 					add(judgementIlumination);
 			
 					trace('poggers');
