@@ -191,6 +191,15 @@ class StoryMenuState extends MusicBeatState
 		HeartSoul.animation.addByPrefix('press', "soul", 24, false);
 		HeartSoul.animation.play('idle');
 
+		var madTime = new FlxSprite(0, 0).loadGraphic(Paths.image("mad_time"));
+		madTime.scrollFactor.set();
+		madTime.antialiasing = true;
+		madTime.visible = true;
+        madTime.x = 64;
+		madTime.y = 144;
+		add(madTime);
+
+
 		add(HeartSoul);
         menubg.animation.play('bg');
 

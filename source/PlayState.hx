@@ -283,12 +283,13 @@ class PlayState extends MusicBeatState
 		0xFF51d8fb, // BF
 		0xFFca1f6f, // GF
 		0xFFc885e5, // DAD
+		0xFFe81a1a, // PAPS
 		0xFF999999,	// SANS
 		0xFF999999,	// SANSWORRIED
 		0xFF999999,	// SANSUPSET
 		0xFFe81a1a,	// BF-CHARA
 		0xFF0090, // BFKR
-		0xFFe81a1a, // PAPS
+		
 	];
 
 	// API stuff
@@ -507,13 +508,13 @@ class PlayState extends MusicBeatState
 				add(bg);
 
 				
-				var glitchEffect = new FlxGlitchEffect(17,16,0.2,FlxGlitchDirection.HORIZONTAL);
+				var glitchEffect = new FlxGlitchEffect(13,10,0.2,FlxGlitchDirection.HORIZONTAL);
 				var glitchSprite = new FlxEffectSprite(bg, [glitchEffect]);
 				coolGlitch = glitchSprite;
 				add(coolGlitch);
 				coolGlitch.x = bg.x;
 				coolGlitch.y = bg.y;
-				coolGlitch.visible = false;
+				coolGlitch.visible = true;
 
 			}
 
@@ -935,8 +936,6 @@ class PlayState extends MusicBeatState
 		{
 			case 'gf-car':
 				curGf = 'gf-car';
-			case 'gf-undyne':
-				curGf = 'gf-undyne';
 			case 'gf-christmas':
 				curGf = 'gf-christmas';
 			case 'gf-pixel':
@@ -1045,8 +1044,6 @@ class PlayState extends MusicBeatState
 					case 'gf':
 					gf.setPosition(642.2, 125.6);
 
-					case 'gf-undyne':
-					gf.setPosition(202.55, -150.55);
 				}
 				
 				
@@ -2649,9 +2646,9 @@ class PlayState extends MusicBeatState
 					case 'sansUpset':
 						camFollow.y = dad.getMidpoint().y - 100;
 						camFollow.x = dad.getMidpoint().x + 200;
-					case 'papyrus':
+					case 'paps':
 						camFollow.y = dad.getMidpoint().y - 100;
-						camFollow.x = dad.getMidpoint().x + 200;
+						camFollow.x = dad.getMidpoint().x + 250;
 					
 					
 				}
