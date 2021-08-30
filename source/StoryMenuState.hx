@@ -92,6 +92,7 @@ class StoryMenuState extends MusicBeatState
 		rankText.screenCenter(X);
 
 		var ui_tex = Paths.getSparrowAtlas('story_mode');
+		var arrow_tex = Paths.getSparrowAtlas('arrow');
 		var yellowBG:FlxSprite = new FlxSprite(0, 56).makeGraphic(FlxG.width, 400, 0xFFF9CF51);
 		var heart = Paths.getSparrowAtlas('start_soul');
 
@@ -151,12 +152,14 @@ class StoryMenuState extends MusicBeatState
         menubg.visible = true;
 
 		leftArrow = new FlxSprite(grpWeekText.members[0].x + grpWeekText.members[0].width + 10, grpWeekText.members[0].y + 10);
-		leftArrow.frames = ui_tex;
-		leftArrow.animation.addByPrefix('idle', "arrowLeft0", 24, false);
-		leftArrow.animation.addByPrefix('press', "arrowLeftAnim");
+		leftArrow.frames = arrow_tex;
+		leftArrow.animation.addByPrefix('idle', "arrow leftarrow0", 24, false);
+		leftArrow.animation.addByPrefix('press', "arrow leftarrowanim");
 		leftArrow.animation.play('idle');
-		leftArrow.y = 145;
-		leftArrow.x = 64;
+		leftArrow.screenCenter();
+		leftArrow.y += 170;
+		leftArrow.x -= 240;
+		leftArrow.antialiasing = true;
 
 		add(leftArrow);
 
@@ -167,19 +170,21 @@ class StoryMenuState extends MusicBeatState
 		sprDifficulty.animation.addByPrefix('hard', 'mad');
 		sprDifficulty.animation.play('easy');
         sprDifficulty.x = 64;
-		sprDifficulty.y = 144;
+		sprDifficulty.y = 110;
+		sprDifficulty.antialiasing = true;
 		changeDifficulty();
-
 
 		add(sprDifficulty);
 
 		rightArrow = new FlxSprite(sprDifficulty.x + sprDifficulty.width + 50, leftArrow.y);
-		rightArrow.frames = ui_tex;
-		rightArrow.x = 64;
-		rightArrow.y = 145;
-		rightArrow.animation.addByPrefix('idle', 'arrowRight0', 24, false);
-		rightArrow.animation.addByPrefix('press', "arrowRightAnim", 24, false);
+		rightArrow.frames = arrow_tex;
+		rightArrow.animation.addByPrefix('idle', 'arrow rightarrow0', 24, false);
+		rightArrow.animation.addByPrefix('press', "arrow rightarrowanim", 24, false);
 		rightArrow.animation.play('idle');
+		rightArrow.screenCenter();
+		rightArrow.y += 170;
+		rightArrow.x += 260;
+		rightArrow.antialiasing = true;
 
 		add(rightArrow);
 
@@ -192,11 +197,12 @@ class StoryMenuState extends MusicBeatState
 		HeartSoul.animation.play('idle');
 
 		var madTime = new FlxSprite(0, 0).loadGraphic(Paths.image("mad_time"));
-		madTime.scrollFactor.set();
 		madTime.antialiasing = true;
 		madTime.visible = true;
         madTime.x = 64;
-		madTime.y = 144;
+		madTime.y = 60;
+		madTime.updateHitbox();
+		madTime.screenCenter(X);
 		add(madTime);
 
 
@@ -256,9 +262,15 @@ class StoryMenuState extends MusicBeatState
 					}
 
 					if (gamepad.pressed.DPAD_RIGHT)
-						rightArrow.animation.play('press')
+					{
+						rightArrow.animation.play('press');
+						rightArrow.centerOffsets();
+					}
 					else
+					{
 						rightArrow.animation.play('idle');
+						rightArrow.centerOffsets();
+					}			
 					if (gamepad.pressed.DPAD_LEFT)
 						leftArrow.animation.play('press');
 					else
@@ -285,9 +297,13 @@ class StoryMenuState extends MusicBeatState
 				}
 
 				if (controls.RIGHT)
-					rightArrow.animation.play('press')
+				{
+					rightArrow.animation.play('press');
+				}
 				else
+				{
 					rightArrow.animation.play('idle');
+				}		
 
 				if (controls.LEFT)
 					leftArrow.animation.play('press');
@@ -377,27 +393,27 @@ class StoryMenuState extends MusicBeatState
 		switch (curDifficulty)
 		{
 			case 0:
+				sprDifficulty.screenCenter(X);
 				sprDifficulty.animation.play('easy');
-				sprDifficulty.offset.x = 20;
 			case 1:
+				sprDifficulty.screenCenter(X);
 				sprDifficulty.animation.play('normal');
-				sprDifficulty.offset.x = 70;
 			case 2:
+				sprDifficulty.screenCenter(X);
 				sprDifficulty.animation.play('hard');
-				sprDifficulty.offset.x = 20;
 		}
 
 		sprDifficulty.alpha = 0;
 
 		// USING THESE WEIRD VALUES SO THAT IT DOESNT FLOAT UP
-		sprDifficulty.y = leftArrow.y - 15;
+		sprDifficulty.y = leftArrow.y - 330;
 		intendedScore = Highscore.getWeekScore(curWeek, curDifficulty);
 
 		#if !switch
 		intendedScore = Highscore.getWeekScore(curWeek, curDifficulty);
 		#end
 
-		FlxTween.tween(sprDifficulty, {y: leftArrow.y + 15, alpha: 1}, 0.07);
+		FlxTween.tween(sprDifficulty, {y: sprDifficulty.y + 22, alpha: 1}, 0.07);
 	}
 
 	var lerpScore:Int = 0;
