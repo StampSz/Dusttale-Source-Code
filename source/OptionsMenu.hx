@@ -77,14 +77,13 @@ class OptionsMenu extends MusicBeatState
 	override function create()
 	{
 		instance = this;
-		var menuBG:FlxSprite = new FlxSprite().loadGraphic(Paths.image("menuDesat"));
+	    var	menubg = new FlxSprite(0,0);
 
-		menuBG.color = 0xFFea71fd;
-		menuBG.setGraphicSize(Std.int(menuBG.width * 1.1));
-		menuBG.updateHitbox();
-		menuBG.screenCenter();
-		menuBG.antialiasing = true;
-		add(menuBG);
+		menubg.frames = Paths.getSparrowAtlas('menu');
+        menubg.animation.addByPrefix('bg', 'bg', 24, true);
+        add(menubg);
+        menubg.visible = true;
+        menubg.animation.play('bg');
 
 		grpControls = new FlxTypedGroup<Alphabet>();
 		add(grpControls);
