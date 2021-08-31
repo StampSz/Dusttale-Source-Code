@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="paps_icons.png">
+	<!-- Created with Adobe Animate version 21.0.4.39603 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="loosing_paps0000" x="0" y="0" width="218" height="269" frameX="-3" frameY="-3" frameWidth="224" frameHeight="275"/>
+	<SubTexture name="loosing_paps0001" x="0" y="0" width="218" height="269" frameX="-6" frameY="-6" frameWidth="224" frameHeight="275"/>
+	<SubTexture name="loosing_paps0002" x="0" y="0" width="218" height="269" frameX="-3" frameY="-3" frameWidth="224" frameHeight="275"/>
+	<SubTexture name="loosing_paps0003" x="0" y="0" width="218" height="269" frameX="-6" frameY="0" frameWidth="224" frameHeight="275"/>
+	<SubTexture name="loosing_paps0004" x="0" y="0" width="218" height="269" frameX="-3" frameY="-3" frameWidth="224" frameHeight="275"/>
+	<SubTexture name="loosing_paps0005" x="0" y="0" width="218" height="269" frameX="0" frameY="0" frameWidth="224" frameHeight="275"/>
+	<SubTexture name="normal_paps0000" x="218" y="0" width="253" height="250" frameX="0" frameY="-19" frameWidth="253" frameHeight="269"/>
+	<SubTexture name="normal_paps0001" x="218" y="0" width="253" height="250" frameX="0" frameY="-19" frameWidth="253" frameHeight="269"/>
+	<SubTexture name="normal_paps0002" x="471" y="0" width="237" height="258" frameX="-8" frameY="-11" frameWidth="253" frameHeight="269"/>
+	<SubTexture name="normal_paps0003" x="471" y="0" width="237" height="258" frameX="-8" frameY="-11" frameWidth="253" frameHeight="269"/>
+	<SubTexture name="normal_paps0004" x="708" y="0" width="218" height="269" frameX="-17" frameY="0" frameWidth="253" frameHeight="269"/>
+	<SubTexture name="normal_paps0005" x="708" y="0" width="218" height="269" frameX="-17" frameY="0" frameWidth="253" frameHeight="269"/>
+	<SubTexture name="winning_paps0000" x="0" y="269" width="259" height="258" frameX="0" frameY="-17" frameWidth="259" frameHeight="276"/>
+	<SubTexture name="winning_paps0001" x="0" y="269" width="259" height="258" frameX="0" frameY="-17" frameWidth="259" frameHeight="276"/>
+	<SubTexture name="winning_paps0002" x="259" y="269" width="236" height="267" frameX="-13" frameY="-8" frameWidth="259" frameHeight="276"/>
+	<SubTexture name="winning_paps0003" x="259" y="269" width="236" height="267" frameX="-13" frameY="-8" frameWidth="259" frameHeight="276"/>
+	<SubTexture name="winning_paps0004" x="495" y="269" width="218" height="276" frameX="-23" frameY="0" frameWidth="259" frameHeight="276"/>
+	<SubTexture name="winning_paps0005" x="495" y="269" width="218" height="276" frameX="-23" frameY="0" frameWidth="259" frameHeight="276"/>
+</TextureAtlas>
