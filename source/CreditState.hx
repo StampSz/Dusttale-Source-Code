@@ -49,21 +49,8 @@ class CreditState extends MusicBeatState
 		icon.scrollFactor.set();
 		icon.antialiasing = true;
 		icon.visible = true;
+		icon.x = -20;
 		add(icon);
-
-		var bottom = new FlxSprite(0, 0).loadGraphic(Paths.image("credits/panelBottom"));
-		bottom.scrollFactor.set();
-		bottom.antialiasing = true;
-		bottom.visible = true;
-		add(bottom);
-
-		var creditsText = new FlxSprite(0, 0).loadGraphic(Paths.image("credits/creditsText"));
-		creditsText.scrollFactor.set();
-		creditsText.antialiasing = true;
-		creditsText.visible = true;
-        creditsText.x = 364.55;
-		creditsText.y = 599.4;
-		add(creditsText);
 
 		super.create();
 
