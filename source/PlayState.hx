@@ -283,7 +283,7 @@ class PlayState extends MusicBeatState
 		0xFF51d8fb, // BF
 		0xFFca1f6f, // GF
 		0xFFc885e5, // DAD
-		0xFFe81a1a, // PAPS
+		0xFFa61f1f, // PAPS
 		0xFF999999,	// SANS
 		0xFF999999,	// SANSWORRIED
 		0xFF999999,	// SANSUPSET
@@ -1074,6 +1074,10 @@ class PlayState extends MusicBeatState
 				add(judgementIlumination);
 
 			add(dad);
+			if (dad.curCharacter == 'paps')
+			{
+				papyrusAlpha();
+			}
 			add(boyfriend);
 
 		}
@@ -2297,6 +2301,10 @@ class PlayState extends MusicBeatState
 				}
 				// phillyCityLights.members[curLight].alpha -= (Conductor.crochet / 1000) * FlxG.elapsed;
 		}
+
+
+
+
 
 
 		//bf slash mechanic in d.i.e
@@ -3832,6 +3840,10 @@ class PlayState extends MusicBeatState
 					add(gf);
 					add(boyfriend);
 					add(dad);
+					if (dad.curCharacter == 'paps')
+					{
+						papyrusAlpha();
+					}
 
 					if (curStage == 'judgementhall' || curStage == 'judgementhall-paps')
 					add(judgementIlumination);
@@ -4093,6 +4105,8 @@ class PlayState extends MusicBeatState
 
 	var fastCarCanDrive:Bool = true;
 	var dustAccumulated:Int = 0;
+	var secondsToLoop:Int = 0;
+	var gouptime:Bool = true;
 
 	function gasterBlasters():Void
 	{
@@ -4196,6 +4210,42 @@ class PlayState extends MusicBeatState
 			});
 
 	}
+
+	function papyrusAlpha():Void
+	{
+		dad.alpha = 0.8;
+	}
+
+	function flipAllShits():Void
+	{
+		
+			new FlxTimer().start(0.0001, function(swagTimer:FlxTimer)
+			{
+				FlxTween.tween(FlxG.camera, {angle: -20}, 1, {ease: FlxEase.quadOut});
+				FlxTween.tween(camHUD, {angle: 20}, 1, {ease: FlxEase.quadOut});
+
+				new FlxTimer().start(1, function(swagTimer:FlxTimer)
+				{
+					FlxTween.tween(FlxG.camera, {angle: 20}, 2, {ease: FlxEase.quadInOut});
+					FlxTween.tween(camHUD, {angle: -20}, 2, {ease: FlxEase.quadInOut});
+
+						new FlxTimer().start(2, function(swagTimer:FlxTimer)
+						{
+							FlxTween.tween(FlxG.camera, {angle: 0}, 1, {ease: FlxEase.quadInOut});
+							FlxTween.tween(camHUD, {angle: 0}, 1, {ease: FlxEase.quadInOut});
+						});
+				});
+
+				
+
+
+			});
+		
+
+		
+	}
+
+
 
 	function flipCamUp():Void
 	{
@@ -4719,6 +4769,106 @@ class PlayState extends MusicBeatState
 		{
 			flipCamDown();
 
+		}
+
+		//hallucinations shits
+
+		if (curStep == 938 && curSong.toLowerCase() == 'hallucinations')
+		{
+			FlxTween.tween(FlxG.camera, {zoom: 1.2}, 1.5, {ease: FlxEase.quadInOut});
+			new FlxTimer().start(1.5 , function(tmr:FlxTimer)
+			{
+				FlxTween.tween(FlxG.camera, {zoom: defaultCamZoom}, 2, {ease: FlxEase.quadInOut});
+			});
+
+		}
+
+		if (curStep == 1231 && curSong.toLowerCase() == 'hallucinations')
+		{
+			FlxTween.tween(FlxG.camera, {zoom: 1.2}, 1.5, {ease: FlxEase.quadInOut});
+			new FlxTimer().start(1.5 , function(tmr:FlxTimer)
+			{
+				FlxTween.tween(FlxG.camera, {zoom: defaultCamZoom}, 2, {ease: FlxEase.quadInOut});
+			});
+
+		}
+
+		if (curStep == 1747 && curSong.toLowerCase() == 'hallucinations')
+		{
+			FlxTween.tween(FlxG.camera, {zoom: 1.2}, 1.5, {ease: FlxEase.quadInOut});
+			new FlxTimer().start(1.5 , function(tmr:FlxTimer)
+			{
+				FlxTween.tween(FlxG.camera, {zoom: defaultCamZoom}, 2, {ease: FlxEase.quadInOut});
+			});
+
+		}
+
+
+
+
+		if (curStep == 570 && curSong.toLowerCase() == 'hallucinations')
+		{
+			flipAllShits();
+			FlxG.camera.shake(0.025, 3.6, null, true, FlxAxes.XY);
+			camHUD.shake(0.005, 3.6, null, true, FlxAxes.XY);
+
+
+
+			new FlxTimer().start(3.6, function(swagTimer:FlxTimer)
+				{
+					if (curStep >= 926)
+					{
+						FlxTween.tween(FlxG.camera, {angle: 0}, 1, {ease: FlxEase.quadInOut});
+						FlxTween.tween(camHUD, {angle: 0}, 1, {ease: FlxEase.quadInOut});
+					}
+					
+					 else
+					{
+						flipAllShits();
+						FlxG.camera.shake(0.025, 3.6, null, true, FlxAxes.XY);
+						camHUD.shake(0.005, 3.6, null, true, FlxAxes.XY);
+					
+						swagTimer.reset();
+					}
+					
+				});
+		}
+
+		if (curStep == 1241 && curSong.toLowerCase() == 'hallucinations')
+		{
+			flipAllShits();
+			FlxG.camera.shake(0.025, 3.6, null, true, FlxAxes.XY);
+			camHUD.shake(0.005, 3.6, null, true, FlxAxes.XY);
+
+
+
+			new FlxTimer().start(3.6, function(swagTimer:FlxTimer)
+				{
+					
+					if (curStep >= 1728)
+					{
+						FlxTween.tween(FlxG.camera, {angle: 0}, 1, {ease: FlxEase.quadInOut});
+						FlxTween.tween(camHUD, {angle: 0}, 1, {ease: FlxEase.quadInOut});
+					}
+					 else
+					{
+						flipAllShits();
+						FlxG.camera.shake(0.025, 3.6, null, true, FlxAxes.XY);
+						camHUD.shake(0.005, 3.6, null, true, FlxAxes.XY);
+						swagTimer.reset();
+					}
+					
+				});
+		}
+
+		if (curStep == 1800 && curSong.toLowerCase() == 'hallucinations')
+		{
+			new FlxTimer().start(0.1, function(swagTimer:FlxTimer)
+				{
+					dad.alpha -= 0.01;
+					iconP2.alpha -= 0.01;
+					swagTimer.reset();
+				});
 		}
 
 		#if windows
