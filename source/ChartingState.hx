@@ -1401,6 +1401,8 @@ class ChartingState extends MusicBeatState
 					noteType = 2;
 				if (FlxG.keys.pressed.TAB)
 					noteType = 3;
+				if (FlxG.keys.pressed.M)
+					noteType = 4;
 				if (n != null)
 					_song.notes[curSection].sectionNotes.push([n.strumTime, n.noteData, n.sustainLength, n.noteType]);
 				else

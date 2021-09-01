@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="NOTE_assets_phantom.png">
+	<!-- Created with Adobe Animate version 21.0.4.39603 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="blue0000" x="0" y="0" width="157" height="154" frameX="0" frameY="0" frameWidth="159" frameHeight="154"/>
+	<SubTexture name="blue0001" x="157" y="0" width="156" height="154" frameX="0" frameY="0" frameWidth="159" frameHeight="154"/>
+	<SubTexture name="blue0002" x="313" y="0" width="158" height="154" frameX="-1" frameY="0" frameWidth="159" frameHeight="154"/>
+	<SubTexture name="green0000" x="471" y="0" width="157" height="154" frameX="0" frameY="0" frameWidth="160" frameHeight="154"/>
+	<SubTexture name="green0001" x="628" y="0" width="156" height="154" frameX="0" frameY="0" frameWidth="160" frameHeight="154"/>
+	<SubTexture name="green0002" x="784" y="0" width="159" height="154" frameX="-1" frameY="0" frameWidth="160" frameHeight="154"/>
+	<SubTexture name="purple0000" x="0" y="154" width="154" height="157" frameX="-3" frameY="0" frameWidth="163" frameHeight="157"/>
+	<SubTexture name="purple0001" x="154" y="154" width="155" height="157" frameX="-3" frameY="0" frameWidth="163" frameHeight="157"/>
+	<SubTexture name="purple0002" x="309" y="154" width="163" height="157"/>
+	<SubTexture name="red0000" x="472" y="154" width="154" height="157" frameX="-4" frameY="0" frameWidth="159" frameHeight="157"/>
+	<SubTexture name="red0001" x="626" y="154" width="156" height="157" frameX="-3" frameY="0" frameWidth="159" frameHeight="157"/>
+	<SubTexture name="red0002" x="782" y="154" width="159" height="157"/>
+</TextureAtlas>

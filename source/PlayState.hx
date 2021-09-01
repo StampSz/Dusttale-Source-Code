@@ -3238,6 +3238,11 @@ class PlayState extends MusicBeatState
 			          {
 							DustCloud();
 		              }
+
+		              if (daNote.noteType == 4)
+			          {
+							PhantomEffect();
+		              }
 						if (daNote.noteType == 2)
 			          {
 							HealthDrain();
@@ -3258,6 +3263,10 @@ class PlayState extends MusicBeatState
 			          {
 							DustCloud();
 		              }
+		              if (daNote.noteType == 4)
+			          {
+							PhantomEffect();
+		              }
 						if (daNote.noteType == 2)
 			          {
 							HealthDrain();
@@ -3276,6 +3285,10 @@ class PlayState extends MusicBeatState
 						if (daNote.noteType == 3)
 			          {
 							DustCloud();
+		              }
+		              if (daNote.noteType == 4)
+			          {
+							PhantomEffect();
 		              }
 						if (daNote.noteType == 2)
 			          {
@@ -3296,6 +3309,11 @@ class PlayState extends MusicBeatState
 						if (daNote.noteType == 3)
 			          {
 							DustCloud();
+		              }
+
+		              if (daNote.noteType == 4)
+			          {
+							PhantomEffect();
 		              }
 						if (daNote.noteType == 2)
 			          {
@@ -4121,6 +4139,41 @@ class PlayState extends MusicBeatState
 				health = 0.1;
 			});
 	}
+
+	function PhantomEffect():Void
+	{
+
+		FlxG.sound.play(Paths.sound('idk'));
+		new FlxTimer().start(0.01, function(swagTimer:FlxTimer)
+				{
+					
+					if (camHUD.alpha <= 0.05)
+					{
+						trace("done");
+						new FlxTimer().start(10, function(swagTimer:FlxTimer)
+						{
+							new FlxTimer().start(0.01, function(swagTimer:FlxTimer)
+							{
+								camHUD.alpha += 0.01;
+								if (camHUD.alpha != 1)
+								{
+									swagTimer.reset();
+								}
+							});
+						});
+
+					} else
+					{
+						camHUD.alpha -= 0.01;
+						swagTimer.reset();
+						trace("repeat");
+					}
+					
+				});
+		
+	}
+
+
 
 	function DustCloud():Void
 	{
