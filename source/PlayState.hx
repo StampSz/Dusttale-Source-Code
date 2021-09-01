@@ -287,6 +287,7 @@ class PlayState extends MusicBeatState
 		0xFF999999,	// SANS
 		0xFF999999,	// SANSWORRIED
 		0xFF999999,	// SANSUPSET
+		0xFF999999,	// SANSMAD
 		0xFFe81a1a,	// BF-CHARA
 		0xFF0090, // BFKR
 		
@@ -938,6 +939,8 @@ class PlayState extends MusicBeatState
 				curGf = 'gf-car';
 			case 'gf-christmas':
 				curGf = 'gf-christmas';
+			case 'gf-undyne':
+				curGf = 'gf-undyne';
 			case 'gf-pixel':
 				curGf = 'gf-pixel';
 			default:
@@ -996,6 +999,9 @@ class PlayState extends MusicBeatState
 			case "sansUpset":
 				dad.setPosition(162.4, 76.65);
 				camPos.set(dad.getGraphicMidpoint().x + 300, dad.getGraphicMidpoint().y);
+			case "sansMad":
+				dad.setPosition(162.4, 76.65);
+				camPos.set(dad.getGraphicMidpoint().x + 300, dad.getGraphicMidpoint().y);
 			case "paps":
 				dad.setPosition(-29.3, -86);
 				camPos.set(dad.getGraphicMidpoint().x + 300, dad.getGraphicMidpoint().y);
@@ -1043,6 +1049,9 @@ class PlayState extends MusicBeatState
 				{
 					case 'gf':
 					gf.setPosition(642.2, 125.6);
+
+					case 'gf-undyne':
+					gf.setPosition(401.9, 40.05);
 
 				}
 				
@@ -2647,6 +2656,9 @@ class PlayState extends MusicBeatState
 						camFollow.y = dad.getMidpoint().y - 430;
 						camFollow.x = dad.getMidpoint().x - 100;
 					case 'sans':
+						camFollow.y = dad.getMidpoint().y - 50;
+						camFollow.x = dad.getMidpoint().x + 200;
+					case 'sansMad':
 						camFollow.y = dad.getMidpoint().y - 50;
 						camFollow.x = dad.getMidpoint().x + 200;
 					case 'sansWorried':
