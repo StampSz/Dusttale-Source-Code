@@ -499,7 +499,7 @@ class PlayState extends MusicBeatState
 
 					add(papyrus);
 
-				blackthing = new FlxSprite(-500, -600).makeGraphic(FlxG.width * 2, FlxG.height * 2.5, FlxColor.BLACK);
+				blackthing = new FlxSprite(-500, -600).makeGraphic(FlxG.width * 2, FlxG.height * 2, FlxColor.BLACK);
 		  	    blackthing.scrollFactor.set();
 		   	
 		  	 	blackthing.visible = false;
