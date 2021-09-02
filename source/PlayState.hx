@@ -545,7 +545,7 @@ class PlayState extends MusicBeatState
 
 
 			
-					papyrus = new FlxSprite(500, 30);
+					papyrus = new FlxSprite(1000, 30);
 					papyrus.frames = Paths.getSparrowAtlas('characters/paps');
 					papyrus.animation.addByPrefix('idle', 'Pap idle', 24, true);
 					papyrus.scrollFactor.set(1, 1);
@@ -4561,9 +4561,10 @@ class PlayState extends MusicBeatState
 
 		if (curStep == 880 && curSong.toLowerCase() == 'red-megalovania')
 		{
+			papyrus.setPosition(-298.7, -275.95);
 			new FlxTimer().start(0.1, function(swagTimer:FlxTimer)
 				{
-					papyrus.alpha += 0.005;
+					papyrus.alpha += 0.1;
 
 					if (papyrus.alpha < 0.4)
 					{
