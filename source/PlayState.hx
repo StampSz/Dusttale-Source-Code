@@ -4583,6 +4583,83 @@ class PlayState extends MusicBeatState
 
 		//red megalo
 
+
+		//red megalovania
+
+		if (curStep == 319 && curSong.toLowerCase() == 'red-megalovania')
+		{
+			flipCamUp();
+
+		}
+
+		if (curStep == 740 && curSong.toLowerCase() == 'red-megalovania')
+		{
+			flipCamDown();
+
+		}
+
+		if (curStep == 1160 && curSong.toLowerCase() == 'red-megalovania')
+		{
+			flipCamUp();
+
+		}
+
+		if (curStep == 1444 && curSong.toLowerCase() == 'red-megalovania')
+		{
+			flipCamDown();
+
+		}	
+
+		if (curStep == 1724 && curSong.toLowerCase() == 'red-megalovania')
+		{
+			flipCamUp();
+
+		}
+
+		if (curStep == 2003 && curSong.toLowerCase() == 'red-megalovania')
+		{
+			flipCamDown();
+
+		}	
+
+		if (curStep == 2148 && curSong.toLowerCase() == 'red-megalovania')
+		{
+			flipCamUp();
+
+		}
+
+		if (curStep == 2288 && curSong.toLowerCase() == 'red-megalovania')
+		{
+			flipCamDown();
+
+		}
+
+		//drowning
+
+		if (curStep == 269 && curSong.toLowerCase() == 'drowning')
+		{
+			flipCamUp();
+
+		}
+
+		if (curStep == 399 && curSong.toLowerCase() == 'drowning')
+		{
+			flipCamDown();
+
+		}
+
+		if (curStep == 1040 && curSong.toLowerCase() == 'drowning')
+		{
+			flipCamUp();
+
+		}
+
+		if (curStep == 1166 && curSong.toLowerCase() == 'drowning')
+		{
+			flipCamDown();
+
+		}
+
 		if (curStep == 880 && curSong.toLowerCase() == 'red-megalovania')
 		{
 			papyrus.setPosition(-298.7, -275.95);
