@@ -178,6 +178,7 @@ class PlayState extends MusicBeatState
 	var iconP1Prefix:String;
 	var iconP2Prefix:String;
 	public static var blasters:FlxSprite;
+	public static var papyrus:FlxSprite;
 	public static var offsetTesting:Bool = false;
 
 	public var isSMFile:Bool = false;
@@ -541,6 +542,22 @@ class PlayState extends MusicBeatState
 				bg.active = false;			
 
 				add(bg);
+
+
+			
+					papyrus = new FlxSprite(500, 30);
+					papyrus.frames = Paths.getSparrowAtlas('characters/paps');
+					papyrus.animation.addByPrefix('idle', 'Pap idle', 24, true);
+					papyrus.scrollFactor.set(1, 1);
+					papyrus.antialiasing = true;
+					papyrus.setPosition(0, 0);
+					papyrus.alpha = 0;
+					papyrus.animation.play('idle');
+
+					add(papyrus);
+				
+
+
 			}
 			case 'halloween': 
 			{
@@ -4537,6 +4554,34 @@ class PlayState extends MusicBeatState
 		{
 			flipCamDown();
 			SONG.speed = 2.4;
+
+		}
+
+		//red megalo
+
+		if (curStep == 880 && curSong.toLowerCase() == 'red-megalovania')
+		{
+			new FlxTimer().start(0.1, function(swagTimer:FlxTimer)
+				{
+					papyrus.alpha += 0.005;
+
+					if (papyrus.alpha < 0.4)
+					{
+						swagTimer.reset();
+					}
+				});
+
+		}
+
+		if (curStep == 1154 && curSong.toLowerCase() == 'red-megalovania')
+		{
+			new FlxTimer().start(0.1, function(swagTimer:FlxTimer)
+				{
+					papyrus.alpha -= 0.1;
+
+					swagTimer.reset();
+					
+				});
 
 		}
 
