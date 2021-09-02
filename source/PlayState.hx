@@ -4954,18 +4954,29 @@ class PlayState extends MusicBeatState
 
 		}
 
-		if (curStep == 1815 && curSong.toLowerCase() == 'reality-check')
+		if (curStep == 1821 && curSong.toLowerCase() == 'reality-check')
 		{
 
 			new FlxTimer().start(0.1, function(swagTimer:FlxTimer)
 				{	
 					if (blackthing.alpha > 0)
 					{
-						blackthing.alpha -= 0.05;
+						blackthing.alpha -= 0.1;
 						swagTimer.reset();
 					}
 					
 				});
+
+		}
+
+		if (curStep == 1821 && curSong.toLowerCase() == 'reality-check')
+		{
+
+			FlxTween.tween(FlxG.camera, {zoom: 1.2}, 0.5, {ease: FlxEase.quadInOut});
+			new FlxTimer().start(2 , function(tmr:FlxTimer)
+			{
+				FlxTween.tween(FlxG.camera, {zoom: defaultCamZoom}, 0.5, {ease: FlxEase.quadInOut});
+			});
 
 		}
 
@@ -4984,7 +4995,7 @@ class PlayState extends MusicBeatState
 		}
 
 
-		if (curStep == 1835 && curSong.toLowerCase() == 'reality-check')
+		if (curStep == 1815 && curSong.toLowerCase() == 'reality-check')
 		{
 			coolGlitch.visible = true;
 			remove(dad);
