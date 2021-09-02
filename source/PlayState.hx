@@ -499,7 +499,7 @@ class PlayState extends MusicBeatState
 
 					add(papyrus);
 
-				blackthing = new FlxSprite(-500, -500).makeGraphic(FlxG.width * 2, FlxG.height * 2, FlxColor.BLACK);
+				blackthing = new FlxSprite(-500, -600).makeGraphic(FlxG.width * 2, FlxG.height * 2.5, FlxColor.BLACK);
 		  	    blackthing.scrollFactor.set();
 		   	
 		  	 	blackthing.visible = false;
@@ -4847,8 +4847,8 @@ class PlayState extends MusicBeatState
 
 		if (curStep == 1648 && curSong.toLowerCase() == 'reality-check')
 		{
-			FlxG.camera.shake(0.025, 10, null, true, FlxAxes.XY);
-			camHUD.shake(0.005, 10, null, true, FlxAxes.XY);
+			FlxG.camera.shake(0.025, 7, null, true, FlxAxes.XY);
+			camHUD.shake(0.005, 7, null, true, FlxAxes.XY);
 
 		}
 
@@ -4864,7 +4864,7 @@ class PlayState extends MusicBeatState
 				{	
 					if (blackthing.alpha < 1)
 					{
-						blackthing.alpha += 0.05;
+						blackthing.alpha += 0.03;
 						swagTimer.reset();
 					}
 					
@@ -4879,7 +4879,7 @@ class PlayState extends MusicBeatState
 				{	
 					if (blackthing.alpha > 0)
 					{
-						blackthing.alpha -= 0.01;
+						blackthing.alpha -= 0.05;
 						swagTimer.reset();
 					}
 					
