@@ -128,6 +128,8 @@ class PlayState extends MusicBeatState
 	public static var gf:Character;
 	public static var boyfriend:Boyfriend;
 
+	public static var blackthing:FlxSprite;
+
 	public var notes:FlxTypedGroup<Note>;
 	private var unspawnNotes:Array<Note> = [];
 
@@ -485,6 +487,23 @@ class PlayState extends MusicBeatState
 				coolGlitch.x = bg.x;
 				coolGlitch.y = bg.y;
 				coolGlitch.visible = false;
+
+				papyrus = new FlxSprite(1000, 30);
+					papyrus.frames = Paths.getSparrowAtlas('characters/paps');
+					papyrus.animation.addByPrefix('idle', 'Pap idle', 24, true);
+					papyrus.scrollFactor.set(1, 1);
+					papyrus.antialiasing = true;
+					papyrus.setPosition(0, 0);
+					papyrus.alpha = 0;
+					papyrus.animation.play('idle');
+
+					add(papyrus);
+
+				blackthing = new FlxSprite(-500, -500).makeGraphic(FlxG.width * 2, FlxG.height * 2, FlxColor.BLACK);
+		  	    blackthing.scrollFactor.set();
+		   	
+		  	 	blackthing.visible = false;
+		  	 	blackthing.alpha = 1;
 
 			}
 
@@ -1105,6 +1124,7 @@ class PlayState extends MusicBeatState
 				papyrusAlpha();
 			}
 			add(boyfriend);
+		   	add(blackthing);
 
 		}
 
@@ -3887,6 +3907,10 @@ class PlayState extends MusicBeatState
 					add(gf);
 					add(boyfriend);
 					add(dad);
+
+		   			add(blackthing);
+
+
 					if (dad.curCharacter == 'paps')
 					{
 						papyrusAlpha();
@@ -4802,6 +4826,106 @@ class PlayState extends MusicBeatState
 
 
 		//reality-check
+
+		
+
+		if (curStep == 1232 && curSong.toLowerCase() == 'reality-check')
+		{
+			
+		    blackthing.visible = true;
+
+
+		}
+
+		if (curStep == 1242 && curSong.toLowerCase() == 'reality-check')
+		{
+			
+			blackthing.visible = false;
+
+
+		}
+
+		if (curStep == 1648 && curSong.toLowerCase() == 'reality-check')
+		{
+			FlxG.camera.shake(0.025, 10, null, true, FlxAxes.XY);
+			camHUD.shake(0.005, 10, null, true, FlxAxes.XY);
+
+		}
+
+		if (curStep == 1768 && curSong.toLowerCase() == 'reality-check')
+		{
+			FlxG.camera.shake(0.03, 5, null, true, FlxAxes.XY);
+			camHUD.shake(0.01, 5, null, true, FlxAxes.XY);
+			blackthing.alpha = 0;
+			blackthing.visible = true;
+
+
+			new FlxTimer().start(0.1, function(swagTimer:FlxTimer)
+				{	
+					if (blackthing.alpha < 1)
+					{
+						blackthing.alpha += 0.05;
+						swagTimer.reset();
+					}
+					
+				});
+
+		}
+
+		if (curStep == 1815 && curSong.toLowerCase() == 'reality-check')
+		{
+
+			new FlxTimer().start(0.1, function(swagTimer:FlxTimer)
+				{	
+					if (blackthing.alpha > 0)
+					{
+						blackthing.alpha -= 0.01;
+						swagTimer.reset();
+					}
+					
+				});
+
+		}
+
+
+
+		if (curStep == 1264 && curSong.toLowerCase() == 'reality-check')
+		{
+			
+			remove(dad);
+			dad = new Character(0, 0, 'sans');
+			dad.setPosition(162.4, 76.65);
+			add(dad);
+
+			
+
+		}
+
+
+		if (curStep == 1835 && curSong.toLowerCase() == 'reality-check')
+		{
+			coolGlitch.visible = true;
+			remove(dad);
+			dad = new Character(0, 0, 'sansMad');
+			dad.setPosition(162.4, 76.65);
+			add(dad);
+
+			papyrus.setPosition(-298.7, -275.95);
+			new FlxTimer().start(0.1, function(swagTimer:FlxTimer)
+				{
+					papyrus.alpha += 0.1;
+
+					if (papyrus.alpha < 0.7)
+					{
+						swagTimer.reset();
+					}
+				});
+
+
+
+		}
+
+
 
 
 		if (curStep == 240 && curSong.toLowerCase() == 'reality-check')
