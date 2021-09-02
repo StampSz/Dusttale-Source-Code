@@ -4574,6 +4574,42 @@ class PlayState extends MusicBeatState
 
 		}
 
+		//drowning
+
+		if (curStep == 252 && curSong.toLowerCase() == 'drowning')
+		{
+			FlxTween.tween(FlxG.camera, {zoom: 1.2}, 1, {ease: FlxEase.quadInOut});
+			new FlxTimer().start(1 , function(tmr:FlxTimer)
+			{
+				FlxTween.tween(FlxG.camera, {zoom: defaultCamZoom}, 2, {ease: FlxEase.quadInOut});
+			});
+
+		}
+
+
+		if (curStep == 528 && curSong == 'drowning')
+		{
+			FlxTween.tween(FlxG.camera, {zoom: 1.2}, 15, {ease: FlxEase.quadInOut});
+			new FlxTimer().start(15 , function(tmr:FlxTimer)
+			{
+				defaultCamZoom = 1.2;
+			});
+			
+		}
+
+		if (curStep == 656 && curSong == 'drowning')
+		{
+			FlxTween.tween(FlxG.camera, {zoom: 0.65}, 15, {ease: FlxEase.quadInOut});
+			new FlxTimer().start(15 , function(tmr:FlxTimer)
+			{
+				defaultCamZoom = 0.65;
+			});
+			
+		}
+
+
+
+
 		if (curStep == 1154 && curSong.toLowerCase() == 'red-megalovania')
 		{
 			new FlxTimer().start(0.1, function(swagTimer:FlxTimer)
