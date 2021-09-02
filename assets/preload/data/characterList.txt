@@ -7,3 +7,4 @@ sansWorried
 sansUpset
 sansMad
 bf-chara
+chara
