@@ -499,7 +499,7 @@ class PlayState extends MusicBeatState
 
 					add(papyrus);
 
-				blackthing = new FlxSprite(-500, -600).makeGraphic(FlxG.width * 2, FlxG.height * 2, FlxColor.BLACK);
+				blackthing = new FlxSprite(-500, -400).makeGraphic(FlxG.width * 2, FlxG.height * 2, FlxColor.BLACK);
 		  	    blackthing.scrollFactor.set();
 		   	
 		  	 	blackthing.visible = false;
@@ -4904,7 +4904,6 @@ class PlayState extends MusicBeatState
 
 		//reality-check
 
-		
 
 		if (curStep == 1232 && curSong.toLowerCase() == 'reality-check')
 		{
@@ -4914,7 +4913,7 @@ class PlayState extends MusicBeatState
 
 		}
 
-		if (curStep == 1242 && curSong.toLowerCase() == 'reality-check')
+		if (curStep == 1248 && curSong.toLowerCase() == 'reality-check')
 		{
 			
 			blackthing.visible = false;
