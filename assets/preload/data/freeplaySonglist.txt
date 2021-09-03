@@ -3,6 +3,7 @@ Red Megalovania:sans:1
 Drowning:sans:1
 Psychotic Breakdown:sans:1
 D.I.E:sans:1
+Anthropophobia:sans:1
 Hallucinations:sans:1
 Last Hope:sans:1
 Reality Check:sans:1
