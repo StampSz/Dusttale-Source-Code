@@ -104,6 +104,9 @@ class PlayState extends MusicBeatState
 
 	public static var pressSpace:FlxSprite;
 
+	public static var miss:FlxSprite;
+	public static var hit:FlxSprite;
+
 	public static var noteBools:Array<Bool> = [false, false, false, false];
 
 	var halloweenLevel:Bool = false;
@@ -183,7 +186,12 @@ class PlayState extends MusicBeatState
 	var iconP2Prefix:String;
 	public static var blasters:FlxSprite;
 	public static var papyrus:FlxSprite;
+	public static var lazySlash:FlxSprite;
+
 	public static var offsetTesting:Bool = false;
+
+	public static var canHit:Bool = false;
+	public static var isAttacking:Bool = false;
 
 	public var isSMFile:Bool = false;
 
@@ -502,6 +510,17 @@ class PlayState extends MusicBeatState
 
 					add(papyrus);
 
+				lazySlash = new FlxSprite(0, 0);
+					lazySlash.frames = Paths.getSparrowAtlas('characters/lazy_slash');
+					lazySlash.animation.addByPrefix('idle', 'slash', 24, false);
+					lazySlash.scrollFactor.set(0, 0);
+					lazySlash.antialiasing = true;
+					lazySlash.setPosition(0, 0);
+					lazySlash.visible = false;
+					
+
+					
+
 				blackthing = new FlxSprite(-500, -400).makeGraphic(FlxG.width * 2, FlxG.height * 2, FlxColor.BLACK);
 		  	    blackthing.scrollFactor.set();
 		   	
@@ -515,6 +534,24 @@ class PlayState extends MusicBeatState
 					pressSpace.active = false;
 					pressSpace.screenCenter(X);
 					pressSpace.visible = false;
+
+					miss = new FlxSprite(0, 0).loadGraphic(Paths.image('miss', 'shared'));
+					miss.antialiasing = true;
+					miss.scrollFactor.set(1, 1);
+					miss.screenCenter(X);
+					miss.screenCenter(Y);
+					miss.updateHitbox();
+					miss.active = false;
+					miss.visible = false;
+
+					hit = new FlxSprite(0, 0).loadGraphic(Paths.image('-20', 'shared'));
+					hit.antialiasing = true;
+					hit.scrollFactor.set(1, 1);
+					hit.screenCenter(X);
+					hit.screenCenter(Y);
+					hit.updateHitbox();
+					hit.active = false;
+					hit.visible = false;
 		  	 	
 
 			}
@@ -1169,11 +1206,14 @@ class PlayState extends MusicBeatState
 				add(judgementIlumination);
 
 			add(dad);
+			add(lazySlash);
 			if (dad.curCharacter == 'paps')
 			{
 				papyrusAlpha();
 			}
 			add(boyfriend);
+			add(miss);
+			add(hit);
 			add(pressSpace);
 		   	add(blackthing);
 
@@ -2409,10 +2449,80 @@ class PlayState extends MusicBeatState
 
 
 		//bf slash mechanic in d.i.e
+		
 
 		if (FlxG.keys.justPressed.SPACE && (SONG.song.toLowerCase() == 'd.i.e'))
 		{
+			lazySlash.visible = true;
+			lazySlash.animation.play('idle');
 			boyfriend.playAnim("slash");
+
+			new FlxTimer().start(1, function(swagTimer:FlxTimer)
+				{
+					isAttacking = false;
+				});
+
+			if (isAttacking == false)
+			{
+				if (canHit == true)
+				{
+					canHit = false;
+					isAttacking = true;
+
+					FlxG.sound.play(Paths.sound('slash_effect'));
+
+					FlxG.camera.shake(0.025, 0.1, null, true, FlxAxes.XY);
+
+					hit.alpha = 1;
+					health += 4;
+					hit.visible = true;
+
+					new FlxTimer().start(0.5, function(swagTimer:FlxTimer)
+					{
+						new FlxTimer().start(0.01, function(swagTimer:FlxTimer)
+						{
+							hit.alpha -= 0.01;
+
+							if (hit.alpha > 0)
+							{
+								swagTimer.reset();
+							}
+							
+						});
+					});
+
+					
+
+				} 
+				else
+				{
+					miss.alpha = 1;
+					miss.visible = true;
+					isAttacking = true;
+
+					new FlxTimer().start(0.5, function(swagTimer:FlxTimer)
+					{
+
+						new FlxTimer().start(0.01, function(swagTimer:FlxTimer)
+						{
+							miss.alpha -= 0.01;
+
+							if (miss.alpha > 0)
+							{
+								swagTimer.reset();
+							}
+							
+						});
+
+					});
+				} 
+			}
+
+				
+
+
+
+
 			if(isStoryMode)
 			{
 				FlxG.save.data.genocide = true;
@@ -3991,7 +4101,14 @@ class PlayState extends MusicBeatState
 					add(boyfriend);
 					add(dad);
 
+					add(lazySlash);
+
 					add(pressSpace);
+
+
+
+					add(miss);
+					add(hit);
 							
 
 		   			add(blackthing);
@@ -4977,6 +5094,20 @@ class PlayState extends MusicBeatState
 
 
 		}
+
+		if (curSong.toLowerCase() == 'd.i.e')
+			{
+				switch(curStep)
+				{
+					case 20:
+						canHit = true;
+					case 30:
+						canHit = false;
+
+
+				}
+			}
+
 
 
 
