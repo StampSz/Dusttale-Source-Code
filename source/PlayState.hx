@@ -4279,6 +4279,21 @@ class PlayState extends MusicBeatState
 			});
 	}
 
+	function charaslash():Void
+	{
+			FlxG.camera.shake(0.0100, 0.35, null, true, FlxAxes.XY);
+			camHUD.shake(0.0100, 0.35, null, true, FlxAxes.XY);
+
+		dad.playAnim('slash', false);
+			{
+				health -= 0.3;
+			}
+		new FlxTimer().start(0.35 , function(tmr:FlxTimer)
+		{
+			dad.playAnim('idle', false);
+		});
+	}
+
 	function PhantomEffect():Void
 	{
 
@@ -4613,7 +4628,6 @@ class PlayState extends MusicBeatState
 		
 
 		//the murderer
-
 
 		if (curStep == 442 && curSong == 'the-murderer')
 		{
