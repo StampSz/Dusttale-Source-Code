@@ -10,6 +10,7 @@ import flixel.group.FlxGroup;
 import flixel.math.FlxMath;
 import flixel.text.FlxText;
 import flixel.tweens.FlxTween;
+import flixel.tweens.FlxEase;
 import flixel.util.FlxColor;
 import flixel.util.FlxTimer;
 import lime.net.curl.CURLCode;
@@ -25,7 +26,7 @@ class StoryMenuState extends MusicBeatState
 	var scoreText:FlxText;
 
 	var weekData:Array<Dynamic> = [
-		['The-murderer'],
+		['The-murderer', 'red-megalovania', 'drowning', 'psychotic-breakdown', 'd.i.e'],
 	];
 	var curDifficulty:Int = 1;
 
@@ -151,6 +152,17 @@ class StoryMenuState extends MusicBeatState
         add(menubg);
         menubg.visible = true;
 
+        var bg2 = new FlxSprite(0, 0).loadGraphic(Paths.image("menu_story_mode"));
+		bg2.antialiasing = true;
+		bg2.visible = true;
+        bg2.x = 0;
+		bg2.y = 0;
+		bg2.updateHitbox();
+		bg2.screenCenter(X);
+		bg2.screenCenter(Y);
+		bg2.alpha = 0.3;
+		add(bg2);
+
 		leftArrow = new FlxSprite(grpWeekText.members[0].x + grpWeekText.members[0].width + 10, grpWeekText.members[0].y + 10);
 		leftArrow.frames = arrow_tex;
 		leftArrow.animation.addByPrefix('idle', "arrow leftarrow0", 24, false);
@@ -204,6 +216,8 @@ class StoryMenuState extends MusicBeatState
 		madTime.updateHitbox();
 		madTime.screenCenter(X);
 		add(madTime);
+
+
 
 
 		add(HeartSoul);
@@ -346,6 +360,8 @@ class StoryMenuState extends MusicBeatState
 
 				grpWeekText.members[curWeek].startFlashing();
 				grpWeekCharacters.members[1].animation.play('bfConfirm');
+				FlxTween.tween(HeartSoul, { y: -400 }, 0.7, {ease: FlxEase.quadInOut});
+				//FlxTween.tween(HeartSoul, {angle: 180}, 1, {ease: FlxEase.quadInOut});
 				stopspamming = true;
 			}
 
@@ -440,7 +456,7 @@ class StoryMenuState extends MusicBeatState
 			bullShit++;
 		}
 
-		FlxG.sound.play(Paths.sound('scrollMenu'));
+		
 
 		updateText();
 	}

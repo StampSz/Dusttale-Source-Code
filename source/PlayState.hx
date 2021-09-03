@@ -102,6 +102,8 @@ class PlayState extends MusicBeatState
 
 	public static var judgementIlumination:FlxSprite;
 
+	public static var pressSpace:FlxSprite;
+
 	public static var noteBools:Array<Bool> = [false, false, false, false];
 
 	var halloweenLevel:Bool = false;
@@ -505,6 +507,15 @@ class PlayState extends MusicBeatState
 		   	
 		  	 	blackthing.visible = false;
 		  	 	blackthing.alpha = 1;
+
+		  	 	
+		  	 		pressSpace = new FlxSprite(0, 600).loadGraphic(Paths.image('press', 'shared'));
+					pressSpace.antialiasing = true;
+					pressSpace.scrollFactor.set();
+					pressSpace.active = false;
+					pressSpace.screenCenter(X);
+					pressSpace.visible = false;
+		  	 	
 
 			}
 
@@ -1163,6 +1174,7 @@ class PlayState extends MusicBeatState
 				papyrusAlpha();
 			}
 			add(boyfriend);
+			add(pressSpace);
 		   	add(blackthing);
 
 		}
@@ -2396,10 +2408,26 @@ class PlayState extends MusicBeatState
 
 
 
-
-
-
 		//bf slash mechanic in d.i.e
+
+		if (FlxG.keys.justPressed.SPACE && (SONG.song.toLowerCase() == 'd.i.e'))
+		{
+			boyfriend.playAnim("slash");
+			if(isStoryMode)
+			{
+				FlxG.save.data.genocide = true;
+				trace("genocide");
+			}
+		}
+
+		//chara drain mechanic in last hope
+
+		if (curSong == 'last-hope' && health > 0.3)
+		{
+			
+			health -= 0.0003;
+
+		}
 
 
 
@@ -3963,6 +3991,9 @@ class PlayState extends MusicBeatState
 					add(boyfriend);
 					add(dad);
 
+					add(pressSpace);
+							
+
 		   			add(blackthing);
 
 
@@ -4577,6 +4608,9 @@ class PlayState extends MusicBeatState
 		{
 			resyncVocals();
 		}
+		
+
+		
 
 		//the murderer
 
@@ -4825,7 +4859,26 @@ class PlayState extends MusicBeatState
 
 		//d.i.e
 
+		if (curStep == 1 && curSong.toLowerCase() == 'd.i.e')
+		{
+			FlxG.save.data.genocide = false;
+			trace('pacifist');
 
+		}
+
+		if (curStep == 1 && curSong.toLowerCase() == 'd.i.e')
+		{
+			pressSpace.visible = true;
+
+			FlxTween.tween(pressSpace, { x: 0, y: -200 }, 1, {ease: FlxEase.quadInOut});
+			new FlxTimer().start(2 , function(tmr:FlxTimer)
+			{
+				FlxTween.tween(pressSpace, { x: 0, y: 600 }, 2, {ease: FlxEase.quadInOut});
+			});
+
+		}
+
+		
 
 		if (curStep == 11 && curSong.toLowerCase() == 'd.i.e')
 		{
@@ -5283,6 +5336,10 @@ class PlayState extends MusicBeatState
 					swagTimer.reset();
 				});
 		}
+
+		
+
+
 
 		#if windows
 		if (executeModchart && luaModchart != null)

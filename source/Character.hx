@@ -494,7 +494,7 @@ class Character extends FlxSprite
 
 				animation.addByPrefix('scared', 'BF idle shaking', 24);
 
-				animation.addByPrefix('slash', 'bf slash', 24, true);
+				animation.addByPrefix('slash', 'bf slash', 24, false);
 
 				addOffset('idle');
 				addOffset("singUP", -109, 30);
@@ -511,6 +511,7 @@ class Character extends FlxSprite
 				addOffset('deathConfirm', 37, 69);
 				addOffset('scared');
 				addOffset('hit');
+				addOffset('slash', 40, 81);
 
 				playAnim('idle');
 

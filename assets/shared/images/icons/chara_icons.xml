@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="chara_icons.png">
+	<!-- Created with Adobe Animate version 21.0.4.39603 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="loosing_chara0000" x="0" y="0" width="335" height="335" frameX="-2" frameY="-2" frameWidth="339" frameHeight="339"/>
+	<SubTexture name="loosing_chara0001" x="0" y="0" width="335" height="335" frameX="-4" frameY="-4" frameWidth="339" frameHeight="339"/>
+	<SubTexture name="loosing_chara0002" x="0" y="0" width="335" height="335" frameX="-2" frameY="-2" frameWidth="339" frameHeight="339"/>
+	<SubTexture name="loosing_chara0003" x="0" y="0" width="335" height="335" frameX="-4" frameY="0" frameWidth="339" frameHeight="339"/>
+	<SubTexture name="loosing_chara0004" x="0" y="0" width="335" height="335" frameX="-2" frameY="-2" frameWidth="339" frameHeight="339"/>
+	<SubTexture name="loosing_chara0005" x="0" y="0" width="335" height="335" frameX="0" frameY="0" frameWidth="339" frameHeight="339"/>
+	<SubTexture name="normal_chara0000" x="335" y="0" width="375" height="325" frameX="0" frameY="-16" frameWidth="375" frameHeight="345"/>
+	<SubTexture name="normal_chara0001" x="335" y="0" width="375" height="325" frameX="0" frameY="-16" frameWidth="375" frameHeight="345"/>
+	<SubTexture name="normal_chara0002" x="710" y="0" width="362" height="336" frameX="-6" frameY="-7" frameWidth="375" frameHeight="345"/>
+	<SubTexture name="normal_chara0003" x="710" y="0" width="362" height="336" frameX="-6" frameY="-7" frameWidth="375" frameHeight="345"/>
+	<SubTexture name="normal_chara0004" x="1072" y="0" width="343" height="345" frameX="-16" frameY="0" frameWidth="375" frameHeight="345"/>
+	<SubTexture name="normal_chara0005" x="1072" y="0" width="343" height="345" frameX="-16" frameY="0" frameWidth="375" frameHeight="345"/>
+	<SubTexture name="winning_chara0000" x="1415" y="0" width="383" height="322" frameX="0" frameY="-21" frameWidth="383" frameHeight="346"/>
+	<SubTexture name="winning_chara0001" x="1415" y="0" width="383" height="322" frameX="0" frameY="-21" frameWidth="383" frameHeight="346"/>
+	<SubTexture name="winning_chara0002" x="0" y="345" width="360" height="335" frameX="-12" frameY="-9" frameWidth="383" frameHeight="346"/>
+	<SubTexture name="winning_chara0003" x="0" y="345" width="360" height="335" frameX="-12" frameY="-9" frameWidth="383" frameHeight="346"/>
+	<SubTexture name="winning_chara0004" x="360" y="345" width="346" height="346" frameX="-20" frameY="0" frameWidth="383" frameHeight="346"/>
+	<SubTexture name="winning_chara0005" x="360" y="345" width="346" height="346" frameX="-20" frameY="0" frameWidth="383" frameHeight="346"/>
+</TextureAtlas>

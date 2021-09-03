@@ -1395,6 +1395,7 @@ class ChartingState extends MusicBeatState
 				var noteData = Math.floor(FlxG.mouse.x / GRID_SIZE);
 				var noteSus = 0;
 				var noteType = 0;
+
 				if (FlxG.keys.pressed.ONE)
 					noteType = 1;
 				if (FlxG.keys.pressed.ALT)
@@ -1403,6 +1404,7 @@ class ChartingState extends MusicBeatState
 					noteType = 3;
 				if (FlxG.keys.pressed.M)
 					noteType = 4;
+
 				if (n != null)
 					_song.notes[curSection].sectionNotes.push([n.strumTime, n.noteData, n.sustainLength, n.noteType]);
 				else
