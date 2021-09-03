@@ -186,7 +186,6 @@ class PlayState extends MusicBeatState
 	var iconP2Prefix:String;
 	public static var blasters:FlxSprite;
 	public static var papyrus:FlxSprite;
-	public static var lazySlash:FlxSprite;
 
 	public static var offsetTesting:Bool = false;
 
@@ -510,14 +509,6 @@ class PlayState extends MusicBeatState
 
 					add(papyrus);
 
-				lazySlash = new FlxSprite(0, 0);
-					lazySlash.frames = Paths.getSparrowAtlas('characters/lazy_slash');
-					lazySlash.animation.addByPrefix('idle', 'slash', 24, false);
-					lazySlash.scrollFactor.set(0, 0);
-					lazySlash.antialiasing = true;
-					lazySlash.setPosition(0, 0);
-					lazySlash.visible = false;
-					
 
 					
 
@@ -1206,7 +1197,6 @@ class PlayState extends MusicBeatState
 				add(judgementIlumination);
 
 			add(dad);
-			add(lazySlash);
 			if (dad.curCharacter == 'paps')
 			{
 				papyrusAlpha();
@@ -1444,7 +1434,6 @@ class PlayState extends MusicBeatState
 
 		// cameras = [FlxG.cameras.list[1]];
 
-		add(kr);
 		add(blasters);
 		add(DustCloud1);
 
@@ -2453,9 +2442,10 @@ class PlayState extends MusicBeatState
 
 		if (FlxG.keys.justPressed.SPACE && (SONG.song.toLowerCase() == 'd.i.e'))
 		{
-			lazySlash.visible = true;
-			lazySlash.animation.play('idle');
+
 			boyfriend.playAnim("slash");
+
+	
 
 			new FlxTimer().start(1, function(swagTimer:FlxTimer)
 				{
@@ -4101,7 +4091,6 @@ class PlayState extends MusicBeatState
 					add(boyfriend);
 					add(dad);
 
-					add(lazySlash);
 
 					add(pressSpace);
 
