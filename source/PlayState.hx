@@ -2440,7 +2440,7 @@ class PlayState extends MusicBeatState
 		//bf slash mechanic in d.i.e
 		
 
-		if (FlxG.keys.justPressed.SPACE && (SONG.song.toLowerCase() == 'anthrophobia'))
+		if (FlxG.keys.justPressed.SPACE && (SONG.song.toLowerCase() == 'anthropophobia'))
 		{
 
 			boyfriend.playAnim("slash");
@@ -4979,14 +4979,14 @@ class PlayState extends MusicBeatState
 
 		//d.i.e
 
-		if (curStep == 1 && curSong.toLowerCase() == 'anthrophobia')
+		if (curStep == 1 && curSong.toLowerCase() == 'anthropophobia')
 		{
 			FlxG.save.data.genocide = false;
 			trace('pacifist');
 
 		}
 
-		if (curStep == 1 && curSong.toLowerCase() == 'anthrophobia')
+		if (curStep == 1 && curSong.toLowerCase() == 'anthropophobia')
 		{
 			pressSpace.visible = true;
 
@@ -5084,7 +5084,7 @@ class PlayState extends MusicBeatState
 
 		}
 
-		if (curSong.toLowerCase() == 'anthrophobia')
+		if (curSong.toLowerCase() == 'anthropophobia')
 			{
 				switch(curStep)
 				{
