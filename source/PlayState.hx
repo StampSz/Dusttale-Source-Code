@@ -4811,13 +4811,13 @@ class PlayState extends MusicBeatState
 
 		if (curStep == 159 && curSong == 'anthropophobia')
 		{
-			ArrowFunnyUp();
+			flipCamUp();
 
 		}	
 
 		if (curStep == 415 && curSong == 'anthropophobia')
 		{
-			ArrowFunnyDown();
+			flipCamDown();
 
 		}	
 
