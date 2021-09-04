@@ -5041,7 +5041,7 @@ class PlayState extends MusicBeatState
 
 		}
 
-		if (curStep == 1523 && curSong == 'anthropophobia')
+		if (curStep == 1517 && curSong == 'anthropophobia')
 		{
 				FlxTween.tween(FlxG.camera, {angle: 0}, 0.15, {ease: FlxEase.quadInOut});
 			new FlxTimer().start(0.15, function(tmr:FlxTimer)	
