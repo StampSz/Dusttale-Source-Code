@@ -400,8 +400,8 @@ class StoryMenuState extends MusicBeatState
 		curDifficulty += change;
 
 		if (curDifficulty < 0)
-			curDifficulty = 2;
-		if (curDifficulty > 2)
+			curDifficulty = 0;
+		if (curDifficulty > 0)
 			curDifficulty = 0;
 
 		sprDifficulty.offset.x = 0;
@@ -409,12 +409,6 @@ class StoryMenuState extends MusicBeatState
 		switch (curDifficulty)
 		{
 			case 0:
-				sprDifficulty.screenCenter(X);
-				sprDifficulty.animation.play('easy');
-			case 1:
-				sprDifficulty.screenCenter(X);
-				sprDifficulty.animation.play('normal');
-			case 2:
 				sprDifficulty.screenCenter(X);
 				sprDifficulty.animation.play('hard');
 		}
