@@ -106,6 +106,7 @@ class PlayState extends MusicBeatState
 
 	public static var miss:FlxSprite;
 	public static var hit:FlxSprite;
+	public static var attack:FlxSprite;
 
 	public static var noteBools:Array<Bool> = [false, false, false, false];
 
@@ -543,6 +544,15 @@ class PlayState extends MusicBeatState
 					hit.updateHitbox();
 					hit.active = false;
 					hit.visible = false;
+
+					attack = new FlxSprite(0, 0).loadGraphic(Paths.image('attack', 'shared'));
+					attack.antialiasing = true;
+					attack.scrollFactor.set(1, 1);
+					attack.screenCenter(X);
+					attack.screenCenter(Y);
+					attack.updateHitbox();
+					attack.active = false;
+					attack.visible = false;
 		  	 	
 
 			}
@@ -1204,6 +1214,7 @@ class PlayState extends MusicBeatState
 			add(boyfriend);
 			add(miss);
 			add(hit);
+			add(attack);
 			add(pressSpace);
 		   	add(blackthing);
 
@@ -2442,6 +2453,7 @@ class PlayState extends MusicBeatState
 
 		if (FlxG.keys.justPressed.SPACE && (SONG.song.toLowerCase() == 'anthropophobia'))
 		{
+			attack.visible = false;
 
 			boyfriend.playAnim("slash");
 
@@ -4387,17 +4399,24 @@ class PlayState extends MusicBeatState
 
 	function charaslash():Void
 	{
+		if (dad.animOffsets.exists('slash'))
+		{
+			dad.playAnim('slash');
+		}
+		
+
+		new FlxTimer().start(0.05 , function(tmr:FlxTimer)
+		{
 			FlxG.camera.shake(0.0100, 0.35, null, true, FlxAxes.XY);
 			camHUD.shake(0.0100, 0.35, null, true, FlxAxes.XY);
+			health -= 0.4;
+			FlxG.sound.play(Paths.sound('slash_effect'));
 
-		dad.playAnim('slash', false);
-			{
-				health -= 0.3;
-			}
-		new FlxTimer().start(0.35 , function(tmr:FlxTimer)
-		{
-			dad.playAnim('idle', false);
+
 		});
+				
+			
+		
 	}
 
 	function PhantomEffect():Void
@@ -5090,9 +5109,10 @@ class PlayState extends MusicBeatState
 				{
 					case 20:
 						canHit = true;
+						attack.visible = true;
 					case 30:
 						canHit = false;
-
+						attack.visible = false;
 
 				}
 			}
@@ -5470,6 +5490,13 @@ class PlayState extends MusicBeatState
 					swagTimer.reset();
 				});
 		}
+
+		//last hope
+
+		/*if (curStep == 10 && curSong.toLowerCase() == 'last-hope')
+		{
+			charaslash();
+		}*/
 
 		
 
