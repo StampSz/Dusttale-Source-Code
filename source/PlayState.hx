@@ -4610,6 +4610,63 @@ class PlayState extends MusicBeatState
 			});
 	}
 
+	function ArrowFunnyUp():Void
+	{
+		FlxG.sound.play(Paths.sound('cameraFlip'));
+
+			//impulse tween
+			FlxTween.tween(camHUD, {angle: -30}, 0.15, {ease: FlxEase.quadInOut});
+
+			//animations
+			new FlxTimer().start(0.025, function(tmr:FlxTimer)	
+			{
+				boyfriend.playAnim('hit', false);
+				dad.playAnim('swingUP', false);
+			});
+
+			//actual rotation tween
+			new FlxTimer().start(0.15, function(tmr:FlxTimer)	
+			{
+				FlxTween.tween(camHUD, {angle: 180}, 0.15, {ease: FlxEase.quadInOut});
+			});
+
+			//camera shake
+			new FlxTimer().start(0.30, function(tmr:FlxTimer)	
+			{
+				FlxG.camera.shake(0.025, 0.1, null, true, FlxAxes.XY);
+				boyfriend.playAnim('idle');
+				dad.playAnim('idle');
+			});
+	}
+
+	function ArrowFunnyDown():Void
+	{
+		FlxG.sound.play(Paths.sound('cameraFlip'));
+
+			//impulse tween
+			FlxTween.tween(camHUD, {angle: 210}, 0.15, {ease: FlxEase.quadInOut});
+
+			//animations
+			new FlxTimer().start(0.025, function(tmr:FlxTimer)	
+			{
+				boyfriend.playAnim('hit', false);
+				dad.playAnim('swingDOWN', false);
+			});
+
+			//actual rotation tween
+			new FlxTimer().start(0.15, function(tmr:FlxTimer)	
+			{
+				FlxTween.tween(camHUD, {angle: 0}, 0.15, {ease: FlxEase.quadInOut});
+			});
+
+			//camera shake
+			new FlxTimer().start(0.30, function(tmr:FlxTimer)	
+			{
+				FlxG.camera.shake(0.025, 0.1, null, true, FlxAxes.XY);
+				boyfriend.playAnim('idle');
+				dad.playAnim('idle');
+			});
+	}
 
 	function flipCamDown():Void
 	{
@@ -4750,7 +4807,423 @@ class PlayState extends MusicBeatState
 		}
 		
 
-		
+		//anthropophobia	
+
+		if (curStep == 159 && curSong == 'anthropophobia')
+		{
+			ArrowFunnyUp();
+
+		}	
+
+		if (curStep == 415 && curSong == 'anthropophobia')
+		{
+			ArrowFunnyDown();
+
+		}	
+
+		if (curStep == 544 && curSong == 'anthropophobia')
+		{
+			FlxG.camera.shake(0.010, 8.35, null, true, FlxAxes.XY);
+			camHUD.shake(0.010, 8.35, null, true, FlxAxes.XY);
+
+		}	
+
+		if (curStep == 672 && curSong == 'anthropophobia')
+		{
+			flipCamUp();
+
+		}	
+
+		if (curStep == 672 && curSong == 'anthropophobia')
+		{
+			gasterBlasters();
+
+		}	
+
+		if (curStep == 816 && curSong == 'anthropophobia')
+		{
+			gasterBlasters();
+
+		}	
+
+		if (curStep == 816 && curSong == 'anthropophobia')
+		{
+			flipCamDown();
+
+		}		
+
+		if (curStep == 828 && curSong == 'anthropophobia')
+		{
+			flipCamUp();
+
+		}
+
+		if (curStep == 840 && curSong == 'anthropophobia')
+		{
+			flipCamDown();
+
+		}	
+
+		if (curStep == 859 && curSong == 'anthropophobia')
+		{
+			flipCamUp();
+
+		}
+
+		if (curStep == 868 && curSong == 'anthropophobia')
+		{
+			flipCamDown();
+
+		}	
+
+		if (curStep == 877 && curSong == 'anthropophobia')
+		{
+			flipCamUp();
+
+		}
+
+		if (curStep == 884 && curSong == 'anthropophobia')
+		{
+			flipCamDown();
+
+		}	
+
+		if (curStep == 895 && curSong == 'anthropophobia')
+		{
+			flipCamUp();
+
+		}
+
+		if (curStep == 928 && curSong == 'anthropophobia')
+		{
+			flipCamDown();
+
+		}
+
+		if (curStep == 991 && curSong == 'anthropophobia')
+		{
+			gasterBlasters();
+
+		}	
+
+		if (curStep == 1118 && curSong == 'anthropophobia')
+		{
+			flipCamUp();
+
+		}
+
+		if (curStep == 1118 && curSong == 'anthropophobia')
+		{
+			gasterBlasters();
+
+		}	
+
+		if (curStep == 1184 && curSong == 'anthropophobia')
+		{
+			flipCamDown();
+
+		}
+
+		if (curStep == 1184 && curSong == 'anthropophobia')
+		{
+			gasterBlasters();
+
+		}	
+
+		if (curStep == 1216 && curSong == 'anthropophobia')
+		{
+			gasterBlasters();
+
+		}	
+
+		if (curStep == 1247 && curSong == 'anthropophobia')
+		{
+			gasterBlasters();
+
+		}	
+
+		if (curStep == 1280 && curSong == 'anthropophobia')
+		{
+			gasterBlasters();
+
+		}	
+
+		if (curStep == 1312 && curSong == 'anthropophobia')
+		{
+			flipCamUp();
+
+		}
+
+		if (curStep == 1312 && curSong == 'anthropophobia')
+		{
+			gasterBlasters();
+
+		}	
+
+		if (curStep == 1344 && curSong == 'anthropophobia')
+		{
+			gasterBlasters();
+
+		}	
+
+		if (curStep == 1376 && curSong == 'anthropophobia')
+		{
+			gasterBlasters();
+
+		}	
+
+		if (curStep == 1408 && curSong == 'anthropophobia')
+		{
+			gasterBlasters();
+
+		}	
+
+		if (curStep == 1439 && curSong == 'anthropophobia')
+		{
+			flipCamDown();
+
+		}
+
+		if (curStep == 1472 && curSong == 'anthropophobia')
+		{
+			FlxTween.tween(FlxG.camera, {angle: -30}, 0.15, {ease: FlxEase.quadInOut});
+
+			new FlxTimer().start(0.15, function(tmr:FlxTimer)	
+			{
+				FlxTween.tween(FlxG.camera, {angle: 180}, 0.15, {ease: FlxEase.quadInOut});
+			});
+			ArrowFunnyUp();
+
+		}
+
+		if (curStep == 1488 && curSong == 'anthropophobia')
+		{
+			FlxTween.tween(FlxG.camera, {angle: 210}, 0.15, {ease: FlxEase.quadInOut});
+
+			new FlxTimer().start(0.15, function(tmr:FlxTimer)	
+			{
+				FlxTween.tween(FlxG.camera, {angle: 0}, 0.15, {ease: FlxEase.quadInOut});
+			});
+			ArrowFunnyDown();
+
+		}
+
+		if (curStep == 1496 && curSong == 'anthropophobia')
+		{
+			FlxTween.tween(FlxG.camera, {angle: -30}, 0.15, {ease: FlxEase.quadInOut});
+			new FlxTimer().start(0.15, function(tmr:FlxTimer)	
+			{
+				FlxTween.tween(FlxG.camera, {angle: 180}, 0.15, {ease: FlxEase.quadInOut});
+			});
+			ArrowFunnyUp();
+
+		}
+
+		if (curStep == 1504 && curSong == 'anthropophobia')
+		{
+				FlxTween.tween(FlxG.camera, {angle: 0}, 0.15, {ease: FlxEase.quadInOut});
+			new FlxTimer().start(0.15, function(tmr:FlxTimer)	
+			{
+				FlxTween.tween(FlxG.camera, {angle: 0}, 0.15, {ease: FlxEase.quadInOut});
+			});
+			ArrowFunnyDown();
+
+		}
+
+		if (curStep == 1519 && curSong == 'anthropophobia')
+		{
+			FlxTween.tween(FlxG.camera, {angle: -30}, 0.15, {ease: FlxEase.quadInOut});
+			new FlxTimer().start(0.15, function(tmr:FlxTimer)	
+			{
+				FlxTween.tween(FlxG.camera, {angle: 180}, 0.15, {ease: FlxEase.quadInOut});
+			});
+			ArrowFunnyUp();
+
+		}
+
+		if (curStep == 1523 && curSong == 'anthropophobia')
+		{
+				FlxTween.tween(FlxG.camera, {angle: 0}, 0.15, {ease: FlxEase.quadInOut});
+			new FlxTimer().start(0.15, function(tmr:FlxTimer)	
+			{
+				FlxTween.tween(FlxG.camera, {angle: 0}, 0.15, {ease: FlxEase.quadInOut});
+			});
+			ArrowFunnyDown();
+
+		}
+
+		if (curStep == 1532 && curSong == 'anthropophobia')
+		{
+			FlxTween.tween(FlxG.camera, {angle: -30}, 0.15, {ease: FlxEase.quadInOut});
+			new FlxTimer().start(0.15, function(tmr:FlxTimer)	
+			{
+				FlxTween.tween(FlxG.camera, {angle: 180}, 0.15, {ease: FlxEase.quadInOut});
+			});
+			ArrowFunnyUp();
+
+		}
+
+		if (curStep == 1532 && curSong == 'anthropophobia')
+		{
+			gasterBlasters();
+
+		}	
+
+		if (curStep == 1536 && curSong == 'anthropophobia')
+		{
+			gasterBlasters();
+
+		}	
+
+		if (curStep == 1536 && curSong == 'anthropophobia')
+		{
+			ArrowFunnyDown();
+
+		}
+
+		if (curStep == 1542 && curSong == 'anthropophobia')
+		{
+			ArrowFunnyUp();
+
+		}
+
+		if (curStep == 1568 && curSong == 'anthropophobia')
+		{
+			ArrowFunnyDown();
+
+		}
+
+		if (curStep == 1568 && curSong == 'anthropophobia')
+		{
+			gasterBlasters();
+
+		}	
+
+		if (curStep == 1600 && curSong == 'anthropophobia')
+		{
+			flipCamUp();
+
+		}
+
+		if (curStep == 1632 && curSong == 'anthropophobia')
+		{
+			flipCamDown();
+
+		}
+
+		if (curStep == 1632 && curSong == 'anthropophobia')
+		{
+			gasterBlasters();
+
+		}	
+
+		if (curStep == 1657 && curSong == 'anthropophobia')
+		{
+			flipCamUp();
+
+		}
+
+		if (curStep == 1664 && curSong == 'anthropophobia')
+		{
+			flipCamDown();
+
+		}
+
+		if (curStep == 1672 && curSong == 'anthropophobia')
+		{
+			flipCamUp();
+
+		}
+
+		if (curStep == 1678 && curSong == 'anthropophobia')
+		{
+			gasterBlasters();
+
+		}	
+
+		if (curStep == 1680 && curSong == 'anthropophobia')
+		{
+			flipCamDown();
+
+		}
+
+		if (curStep == 1684 && curSong == 'anthropophobia')
+		{
+			flipCamUp();
+
+		}
+
+		if (curStep == 1688 && curSong == 'anthropophobia')
+		{
+			flipCamDown();
+
+		}
+
+		if (curStep == 1692 && curSong == 'anthropophobia')
+		{
+			flipCamUp();
+
+		}
+
+		if (curStep == 1696 && curSong == 'anthropophobia')
+		{
+			gasterBlasters();
+
+		}	
+
+		if (curStep == 1711 && curSong == 'anthropophobia')
+		{
+			gasterBlasters();
+
+		}	
+
+		if (curStep == 1728 && curSong == 'anthropophobia')
+		{
+			gasterBlasters();
+
+		}	
+
+		if (curStep == 1744 && curSong == 'anthropophobia')
+		{
+			gasterBlasters();
+
+		}	
+
+		if (curStep == 1776 && curSong == 'anthropophobia')
+		{
+			gasterBlasters();
+
+		}	
+
+		if (curStep == 1791 && curSong == 'anthropophobia')
+		{
+			flipCamDown();
+
+		}
+
+		if (curStep == 1824 && curSong == 'anthropophobia')
+		{
+			gasterBlasters();
+
+		}	
+
+		if (curStep == 1887 && curSong == 'anthropophobia')
+		{
+			flipCamUp();
+
+		}
+
+		if (curStep == 1903 && curSong == 'anthropophobia')
+		{
+			gasterBlasters();
+
+		}	
+
+		if (curStep == 1951 && curSong == 'anthropophobia')
+		{
+			flipCamDown();
+
+		}
 
 		//the murderer
 
