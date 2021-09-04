@@ -4815,39 +4815,53 @@ class PlayState extends MusicBeatState
 			{
 				switch(curStep)
 				{
+					case 114:
+						canHit = true;
+						attack.visible = true;
+						FlxG.sound.play(Paths.sound('warning'));
+					case 134:
+						canHit = false;
+						attack.visible = false;
+					case 452:
+						canHit = true;
+						attack.visible = true;
+						FlxG.sound.play(Paths.sound('warning'));
+					case 472:
+						canHit = false;
+						attack.visible = false;
 					case 681:
 						canHit = true;
 						attack.visible = true;
 						FlxG.sound.play(Paths.sound('warning'));
-					case 691:
+					case 701:
 						canHit = false;
 						attack.visible = false;
 					case 1184:
 						canHit = true;
 						attack.visible = true;
 						FlxG.sound.play(Paths.sound('warning'));
-					case 1194:
+					case 1204:
 						canHit = false;
 						attack.visible = false;
 					case 1216:
 						canHit = true;
 						attack.visible = true;
 						FlxG.sound.play(Paths.sound('warning'));
-					case 1226:
+					case 1236:
 						canHit = false;
 						attack.visible = false;
 					case 1280:
 						canHit = true;
 						attack.visible = true;
 						FlxG.sound.play(Paths.sound('warning'));
-					case 1290:
+					case 1300:
 						canHit = false;
 						attack.visible = false;
 					case 2080:
 						canHit = true;
 						attack.visible = true;
 						FlxG.sound.play(Paths.sound('warning'));
-					case 2090:
+					case 2100:
 						canHit = false;
 						attack.visible = false;
 
@@ -4886,11 +4900,7 @@ class PlayState extends MusicBeatState
 
 		}	
 
-		if (curStep == 816 && curSong == 'anthropophobia')
-		{
-			gasterBlasters();
-
-		}	
+		
 
 		if (curStep == 816 && curSong == 'anthropophobia')
 		{
@@ -4994,42 +5004,6 @@ class PlayState extends MusicBeatState
 
 		}	
 
-		if (curStep == 1312 && curSong == 'anthropophobia')
-		{
-			flipCamUp();
-
-		}
-
-		if (curStep == 1312 && curSong == 'anthropophobia')
-		{
-			gasterBlasters();
-
-		}	
-
-		if (curStep == 1344 && curSong == 'anthropophobia')
-		{
-			gasterBlasters();
-
-		}	
-
-		if (curStep == 1376 && curSong == 'anthropophobia')
-		{
-			gasterBlasters();
-
-		}	
-
-		if (curStep == 1408 && curSong == 'anthropophobia')
-		{
-			gasterBlasters();
-
-		}	
-
-		if (curStep == 1439 && curSong == 'anthropophobia')
-		{
-			flipCamDown();
-
-		}
-
 		if (curStep == 1472 && curSong == 'anthropophobia')
 		{
 			FlxTween.tween(FlxG.camera, {angle: -30}, 0.15, {ease: FlxEase.quadInOut});
@@ -5112,38 +5086,19 @@ class PlayState extends MusicBeatState
 		if (curStep == 1532 && curSong == 'anthropophobia')
 		{
 			gasterBlasters();
+			ArrowFunnyDown();
+			flipCamDown();
 
 		}	
 
-		if (curStep == 1536 && curSong == 'anthropophobia')
-		{
-			gasterBlasters();
+		
 
-		}	
-
-		if (curStep == 1536 && curSong == 'anthropophobia')
+		if (curStep == 1526 && curSong == 'anthropophobia')
 		{
 			ArrowFunnyDown();
 
 		}
 
-		if (curStep == 1542 && curSong == 'anthropophobia')
-		{
-			ArrowFunnyUp();
-
-		}
-
-		if (curStep == 1568 && curSong == 'anthropophobia')
-		{
-			ArrowFunnyDown();
-
-		}
-
-		if (curStep == 1568 && curSong == 'anthropophobia')
-		{
-			gasterBlasters();
-
-		}	
 
 		if (curStep == 1600 && curSong == 'anthropophobia')
 		{
@@ -5151,7 +5106,7 @@ class PlayState extends MusicBeatState
 
 		}
 
-		if (curStep == 1632 && curSong == 'anthropophobia')
+		if (curStep == 1632 && curSong == 'anthr opophobia')
 		{
 			flipCamDown();
 
@@ -6022,6 +5977,7 @@ class PlayState extends MusicBeatState
 		#end
 
 	}
+}
 
 	var lightningStrikeBeat:Int = 0;
 	var lightningOffset:Int = 8;
