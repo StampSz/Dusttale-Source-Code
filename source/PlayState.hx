@@ -4818,6 +4818,7 @@ class PlayState extends MusicBeatState
 					case 681:
 						canHit = true;
 						attack.visible = true;
+						FlxG.sound.play(Paths.sound('warning'));
 					case 691:
 						canHit = false;
 						attack.visible = false;
