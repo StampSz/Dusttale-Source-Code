@@ -5575,6 +5575,55 @@ class PlayState extends MusicBeatState
 			});
 
 
+		}
+
+		if (curSong.toLowerCase() == 'anthropophobia')
+			{
+				switch(curStep)
+                {
+                    case 681:
+                        canHit = true;
+                        attack.visible = true;
+                        FlxG.sound.play(Paths.sound('warning'));
+                    case 691:
+                        canHit = false;
+                        attack.visible = false;
+                    case 1184:
+                        canHit = true;
+                        attack.visible = true;
+                        FlxG.sound.play(Paths.sound('warning'));
+                    case 1194:
+                        canHit = false;
+                        attack.visible = false;
+                    case 1216:
+                        canHit = true;
+                        attack.visible = true;
+                        FlxG.sound.play(Paths.sound('warning'));
+                    case 1226:
+                        canHit = false;
+                        attack.visible = false;
+                    case 1280:
+                        canHit = true;
+                        attack.visible = true;
+                        FlxG.sound.play(Paths.sound('warning'));
+                    case 1290:
+                        canHit = false;
+                        attack.visible = false;
+                    case 2080:
+                        canHit = true;
+                        attack.visible = true;
+                        FlxG.sound.play(Paths.sound('warning'));
+                    case 2090:
+                        canHit = false;
+                        attack.visible = false;
+						
+
+				}
+			}
+
+
+
+
 		if (curStep == 528 && curSong.toLowerCase() == 'd.i.e')
 		{
 			flipCamUp();
