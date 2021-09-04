@@ -6026,7 +6026,7 @@ class PlayState extends MusicBeatState
 		#end
 
 	}
-}
+
 
 	var lightningStrikeBeat:Int = 0;
 	var lightningOffset:Int = 8;
