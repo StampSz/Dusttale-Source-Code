@@ -4809,7 +4809,7 @@ class PlayState extends MusicBeatState
 
 		//anthropophobia	
 
-		}
+		
 
 		if (curSong.toLowerCase() == 'anthropophobia')
 			{
