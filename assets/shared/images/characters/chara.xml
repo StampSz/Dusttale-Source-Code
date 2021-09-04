@@ -16,4 +16,16 @@
 	<SubTexture name="idle0011" x="0" y="1720" width="1098" height="750" frameX="-349" frameY="-11" frameWidth="1611" frameHeight="937"/>
 	<SubTexture name="idle0012" x="0" y="1720" width="1098" height="750" frameX="-349" frameY="-11" frameWidth="1611" frameHeight="937"/>
 	<SubTexture name="idle0013" x="0" y="1720" width="1098" height="750" frameX="-349" frameY="-11" frameWidth="1611" frameHeight="937"/>
+	<SubTexture name="slash0000" x="1098" y="1720" width="774" height="647"/>
+	<SubTexture name="slash0001" x="1872" y="1720" width="774" height="647"/>
+	<SubTexture name="slash0002" x="2646" y="1720" width="774" height="647"/>
+	<SubTexture name="slash0003" x="0" y="2470" width="774" height="647"/>
+	<SubTexture name="slash0004" x="774" y="2470" width="774" height="647"/>
+	<SubTexture name="slash0005" x="1548" y="2470" width="774" height="647"/>
+	<SubTexture name="slash0006" x="2322" y="2470" width="774" height="647"/>
+	<SubTexture name="slash0007" x="3096" y="2470" width="774" height="647"/>
+	<SubTexture name="slash0008" x="0" y="3117" width="774" height="647"/>
+	<SubTexture name="slash0009" x="774" y="3117" width="774" height="647"/>
+	<SubTexture name="slash0010" x="1548" y="3117" width="774" height="647"/>
+	<SubTexture name="slash0011" x="2322" y="3117" width="774" height="647"/>
 </TextureAtlas>
