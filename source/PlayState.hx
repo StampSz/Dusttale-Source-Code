@@ -5085,12 +5085,10 @@ class PlayState extends MusicBeatState
 
 		if (curStep == 1532 && curSong == 'anthropophobia')
 		{
-			gasterBlasters();
 			ArrowFunnyDown();
 			flipCamDown();
 
 		}	
-
 		
 
 		if (curStep == 1526 && curSong == 'anthropophobia')
@@ -5111,12 +5109,6 @@ class PlayState extends MusicBeatState
 			flipCamDown();
 
 		}
-
-		if (curStep == 1632 && curSong == 'anthropophobia')
-		{
-			gasterBlasters();
-
-		}	
 
 		if (curStep == 1657 && curSong == 'anthropophobia')
 		{
