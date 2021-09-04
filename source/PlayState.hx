@@ -4809,6 +4809,78 @@ class PlayState extends MusicBeatState
 
 		//anthropophobia	
 
+		}
+
+		if (curSong.toLowerCase() == 'anthropophobia')
+			{
+				switch(curStep)
+				{
+					case 681:
+						canHit = true;
+						attack.visible = true;
+					case 691:
+						canHit = false;
+						attack.visible = false;
+
+				}
+			}
+
+		if (curSong.toLowerCase() == 'anthropophobia')
+			{
+				switch(curStep)
+				{
+					case 1184:
+						canHit = true;
+						attack.visible = true;
+					case 1194:
+						canHit = false;
+						attack.visible = false;
+
+				}
+			}
+
+		if (curSong.toLowerCase() == 'anthropophobia')
+			{
+				switch(curStep)
+				{
+					case 1216:
+						canHit = true;
+						attack.visible = true;
+					case 1226:
+						canHit = false;
+						attack.visible = false;
+
+				}
+			}
+
+		if (curSong.toLowerCase() == 'anthropophobia')
+			{
+				switch(curStep)
+				{
+					case 1280:
+						canHit = true;
+						attack.visible = true;
+					case 1290:
+						canHit = false;
+						attack.visible = false;
+
+				}
+			}
+
+		if (curSong.toLowerCase() == 'anthropophobia')
+			{
+				switch(curStep)
+				{
+					case 2080:
+						canHit = true;
+						attack.visible = true;
+					case 2090:
+						canHit = false;
+						attack.visible = false;
+
+				}
+			}
+
 		if (curStep == 159 && curSong == 'anthropophobia')
 		{
 			flipCamUp();
@@ -5572,25 +5644,6 @@ class PlayState extends MusicBeatState
 			{
 				coolGlitch.visible = false;
 			});
-
-
-		}
-
-		if (curSong.toLowerCase() == 'anthropophobia')
-			{
-				switch(curStep)
-				{
-					case 20:
-						canHit = true;
-						attack.visible = true;
-					case 30:
-						canHit = false;
-						attack.visible = false;
-
-				}
-			}
-
-
 
 
 		if (curStep == 528 && curSong.toLowerCase() == 'd.i.e')
