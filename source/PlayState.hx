@@ -1163,7 +1163,7 @@ class PlayState extends MusicBeatState
 				gf.setPosition(638.2, 125.6);
 			case 'judgementhall-chara':
 				boyfriend.setPosition(1080.75, 458.75);
-				gf.setPosition(638.2, 125.6);
+				gf.setPosition(6638.2, 6125.6);
 			case 'snowdin_cave':
 				boyfriend.setPosition(1094.05, 458.75);
 				gf.setPosition(642.2, 125.6);
