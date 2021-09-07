@@ -535,6 +535,7 @@ class PlayState extends MusicBeatState
 					pressSpace.scrollFactor.set();
 					pressSpace.active = false;
 					pressSpace.screenCenter(X);
+					pressSpace.screenCenter(Y);
 					pressSpace.visible = false;
 
 					miss = new FlxSprite(0, 0).loadGraphic(Paths.image('miss', 'shared'));
@@ -4762,6 +4763,10 @@ class PlayState extends MusicBeatState
 			{
 				switch(curStep)
 				{
+					case 1:
+						pressSpace.visible = true;
+					case 90:
+						pressSpace.visible = false;
 					case 114:
 						canHit = true;
 						attack.visible = true;
@@ -5090,6 +5095,8 @@ class PlayState extends MusicBeatState
 					flipCamUp();
 		
 				}
+
+
 		
 				if (curStep == 1688 && curSong == 'anthropophobia')
 				{
