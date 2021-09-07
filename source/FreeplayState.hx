@@ -10,7 +10,9 @@ import flixel.math.FlxMath;
 import flixel.text.FlxText;
 import flixel.util.FlxColor;
 import lime.utils.Assets;
-
+import flixel.tweens.FlxTween;
+import flixel.tweens.FlxEase;
+import flixel.util.FlxTimer;
 
 #if windows
 import Discord.DiscordClient;
@@ -33,13 +35,20 @@ class FreeplayState extends MusicBeatState
 	var intendedScore:Int = 0;
 	var combo:String = '';
 
+	var blackBox:FlxSprite;
+    var infoText:FlxText;
+	var ableToPress:Bool = true;
+
 	private var grpSongs:FlxTypedGroup<Alphabet>;
 	private var curPlaying:Bool = false;
 
-	private var iconArray:Array<HealthIcon> = [];
+	private var iconArray:FlxTypedGroup<HealthIcon>;
 
 	override function create()
 	{
+		if (FlxG.save.data.pacifistEnding && FlxG.save.data.genocideEnding && !FlxG.save.data.unlockedWoundedShooting)
+			FlxG.save.data.unlockedWoundedShooting = true;
+
 		var initSonglist = CoolUtil.coolTextFile(Paths.txt('freeplaySonglist'));
 
 		for (i in 0...initSonglist.length)
@@ -47,14 +56,6 @@ class FreeplayState extends MusicBeatState
 			var data:Array<String> = initSonglist[i].split(':');
 			songs.push(new SongMetadata(data[0], Std.parseInt(data[2]), data[1]));
 		}
-
-		/* 
-			if (FlxG.sound.music != null)
-			{
-				if (!FlxG.sound.music.playing)
-					FlxG.sound.playMusic(Paths.music('freakyMenu'));
-			}
-		 */
 
 		 #if windows
 		 // Updating Discord Rich Presence
@@ -69,6 +70,8 @@ class FreeplayState extends MusicBeatState
 
 		// LOAD MUSIC
 
+
+
 		// LOAD CHARACTERS
 
 	    var	menubg = new FlxSprite(0,0);
@@ -82,6 +85,8 @@ class FreeplayState extends MusicBeatState
 		grpSongs = new FlxTypedGroup<Alphabet>();
 		add(grpSongs);
 
+		iconArray = new FlxTypedGroup<HealthIcon>();
+		add(iconArray);
 		for (i in 0...songs.length)
 		{
 			var songText:Alphabet = new Alphabet(0, (70 * i) + 30, songs[i].songName, true, false, true);
@@ -90,11 +95,15 @@ class FreeplayState extends MusicBeatState
 			grpSongs.add(songText);
 
 			var icon:HealthIcon = new HealthIcon(songs[i].songCharacter);
+
+			if (!FlxG.save.data.unlockedRealityCheck && songs[i].songName == 'Reality Check' || !FlxG.save.data.genocideEnding && songs[i].songName == 'Hallucinations' || !FlxG.save.data.pacifistEnding && songs[i].songName == 'Last Hope' || !FlxG.save.data.unlockedWoundedShooting && songs[i].songName == 'Wounded Shooting')
+				icon = new HealthIcon('lock');
+
 			icon.sprTracker = songText;
 
 			// using a FlxGroup is too much fuss!
-			iconArray.push(icon);
-			
+			iconArray.add(icon);
+			icon.animation.play('default', true);
 
 			// songText.x += 40;
 			// DONT PUT X IN THE FIRST PARAMETER OF new ALPHABET() !!
@@ -177,9 +186,22 @@ class FreeplayState extends MusicBeatState
 	{
 		super.update(elapsed);
 
-		if (FlxG.sound.music.volume < 0.7)
+		iconArray.members[curSelected].animation.play('default', false);
+
+		if (songs[curSelected].songName == 'Last Hope' && !FlxG.save.data.pacifistEnding)
+			FlxG.sound.music.volume = 0;
+		else if (songs[curSelected].songName == 'Hallucinations' && !FlxG.save.data.genocideEnding)
+			FlxG.sound.music.volume = 0;
+		else if (songs[curSelected].songName == 'Reality Check' && !FlxG.save.data.unlockedRealityCheck)
+			FlxG.sound.music.volume = 0;
+		else if (songs[curSelected].songName == 'Wounded Shooting' && !FlxG.save.data.unlockedWoundedShooting)
+			FlxG.sound.music.volume = 0;
+		else
 		{
-			FlxG.sound.music.volume += 0.5 * FlxG.elapsed;
+			if (FlxG.sound.music.volume < 0.7)
+			{
+				FlxG.sound.music.volume += 0.5 * FlxG.elapsed;
+			}
 		}
 
 		lerpScore = Math.floor(FlxMath.lerp(lerpScore, intendedScore, 0.4));
@@ -196,7 +218,7 @@ class FreeplayState extends MusicBeatState
 
 		var gamepad:FlxGamepad = FlxG.gamepads.lastActive;
 
-		if (gamepad != null)
+		if (gamepad != null && ableToPress)
 		{
 			if (gamepad.justPressed.DPAD_UP)
 			{
@@ -216,26 +238,39 @@ class FreeplayState extends MusicBeatState
 			}
 		}
 
-		if (upP)
+		if (upP && ableToPress)
 		{
 			changeSelection(-1);
 		}
-		if (downP)
+		if (downP && ableToPress)
 		{
 			changeSelection(1);
 		}
 
-		if (FlxG.keys.justPressed.LEFT)
+		if (FlxG.keys.justPressed.LEFT && ableToPress)
 			changeDiff(-1);
-		if (FlxG.keys.justPressed.RIGHT)
+		if (FlxG.keys.justPressed.RIGHT && ableToPress)
 			changeDiff(1);
 
-		if (controls.BACK)
+		if (controls.BACK && ableToPress)
 		{
 			FlxG.switchState(new MainMenuState());
 		}
 
-		if (accepted)
+		if (FlxG.keys.justPressed.P && ableToPress)
+		{
+			var songFormat = StringTools.replace('Cringe', " ", "-");
+			var poop:String = Highscore.formatSong('Cringe', curDifficulty);
+
+			trace(poop);
+			
+			PlayState.SONG = Song.loadFromJson(poop, 'Cringe');
+			PlayState.isStoryMode = false;
+			PlayState.storyDifficulty = curDifficulty;
+			LoadingState.loadAndSwitchState(new PlayState());
+		}
+
+		if (accepted && ableToPress)
 		{
 			// adjusting the song name to be compatible
 			var songFormat = StringTools.replace(songs[curSelected].songName, " ", "-");
@@ -246,16 +281,139 @@ class FreeplayState extends MusicBeatState
 			
 			trace(songs[curSelected].songName);
 
-			var poop:String = Highscore.formatSong(songFormat, curDifficulty);
+			if (songs[curSelected].songName == 'Last Hope' && FlxG.save.data.pacifistEnding == false)
+			{
+				ableToPress = false;
+				blackBox = new FlxSprite(0,0).makeGraphic(FlxG.width,FlxG.height,FlxColor.BLACK);
+				blackBox.alpha = 0;
+				blackBox.antialiasing = true;
+				add(blackBox);
 
-			trace(poop);
-			
-			PlayState.SONG = Song.loadFromJson(poop, songs[curSelected].songName);
-			PlayState.isStoryMode = false;
-			PlayState.storyDifficulty = curDifficulty;
-			PlayState.storyWeek = songs[curSelected].week;
-			trace('CUR WEEK' + PlayState.storyWeek);
-			LoadingState.loadAndSwitchState(new PlayState());
+				infoText = new FlxText(-10, 580, 1280, 'You need to unlock the Pacifist Ending first.', 72);
+				infoText.scrollFactor.set(0, 0);
+				infoText.setFormat("VCR OSD Mono", 30, FlxColor.WHITE, FlxTextAlign.CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+				infoText.borderSize = 2;
+				infoText.borderQuality = 3;
+				infoText.alpha = 0;
+				infoText.antialiasing = true;
+				infoText.screenCenter();
+				add(infoText);
+
+				FlxTween.tween(infoText, {alpha: 1}, 1.4, {ease: FlxEase.expoInOut});
+				FlxTween.tween(blackBox, {alpha: 0.7}, 1, {ease: FlxEase.expoInOut});
+
+				new FlxTimer().start(2, function(tmr:FlxTimer)
+				{
+					FlxTween.tween(blackBox, {alpha: 0}, 1.1, {ease: FlxEase.expoInOut, onComplete: function(tween:FlxTween)
+					{
+						ableToPress = true;
+					}});
+					FlxTween.tween(infoText, {alpha: 0}, 1, {ease: FlxEase.expoInOut});
+				});
+			}
+			else if (songs[curSelected].songName == 'Hallucinations' && FlxG.save.data.genocideEnding == false)
+			{
+				ableToPress = false;
+				blackBox = new FlxSprite(0,0).makeGraphic(FlxG.width,FlxG.height,FlxColor.BLACK);
+				blackBox.alpha = 0;
+				blackBox.antialiasing = true;
+				add(blackBox);
+
+				infoText = new FlxText(-10, 580, 1280, 'You need to unlock the Genocide Ending first.', 72);
+				infoText.scrollFactor.set(0, 0);
+				infoText.setFormat("VCR OSD Mono", 30, FlxColor.WHITE, FlxTextAlign.CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+				infoText.borderSize = 2;
+				infoText.borderQuality = 3;
+				infoText.alpha = 0;
+				infoText.antialiasing = true;
+				infoText.screenCenter();
+				add(infoText);
+
+				FlxTween.tween(infoText, {alpha: 1}, 1.4, {ease: FlxEase.expoInOut});
+				FlxTween.tween(blackBox, {alpha: 0.7}, 1, {ease: FlxEase.expoInOut});
+
+				new FlxTimer().start(2, function(tmr:FlxTimer)
+				{
+					FlxTween.tween(blackBox, {alpha: 0}, 1.1, {ease: FlxEase.expoInOut, onComplete: function(tween:FlxTween)
+						{
+							ableToPress = true;
+						}});
+					FlxTween.tween(infoText, {alpha: 0}, 1, {ease: FlxEase.expoInOut});
+				});
+			}
+			else if (songs[curSelected].songName == 'Reality Check' && FlxG.save.data.unlockedRealityCheck == false)
+			{
+				ableToPress = false;
+				blackBox = new FlxSprite(0,0).makeGraphic(FlxG.width,FlxG.height,FlxColor.BLACK);
+				blackBox.alpha = 0;
+				blackBox.antialiasing = true;
+				add(blackBox);
+
+				infoText = new FlxText(-10, 580, 1280, 'Beat Story Mode first!', 72);
+				infoText.scrollFactor.set(0, 0);
+				infoText.setFormat("VCR OSD Mono", 30, FlxColor.WHITE, FlxTextAlign.CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+				infoText.borderSize = 2;
+				infoText.borderQuality = 3;
+				infoText.alpha = 0;
+				infoText.antialiasing = true;
+				infoText.screenCenter();
+				add(infoText);
+
+				FlxTween.tween(infoText, {alpha: 1}, 1.4, {ease: FlxEase.expoInOut});
+				FlxTween.tween(blackBox, {alpha: 0.7}, 1, {ease: FlxEase.expoInOut});
+
+				new FlxTimer().start(2, function(tmr:FlxTimer)
+				{
+					FlxTween.tween(blackBox, {alpha: 0}, 1.1, {ease: FlxEase.expoInOut, onComplete: function(tween:FlxTween)
+						{
+							ableToPress = true;
+						}});
+					FlxTween.tween(infoText, {alpha: 0}, 1, {ease: FlxEase.expoInOut});
+				});
+			}
+			else if (songs[curSelected].songName == 'Wounded Shooting' && FlxG.save.data.unlockedWoundedShooting == false)
+			{
+				ableToPress = false;
+				blackBox = new FlxSprite(0,0).makeGraphic(FlxG.width,FlxG.height,FlxColor.BLACK);
+				blackBox.alpha = 0;
+				blackBox.antialiasing = true;
+				add(blackBox);
+
+				infoText = new FlxText(-10, 580, 1280, 'Unlock the Genocide and Pacifist Endings!', 72);
+				infoText.scrollFactor.set(0, 0);
+				infoText.setFormat("VCR OSD Mono", 30, FlxColor.WHITE, FlxTextAlign.CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+				infoText.borderSize = 2;
+				infoText.borderQuality = 3;
+				infoText.alpha = 0;
+				infoText.antialiasing = true;
+				infoText.screenCenter();
+				add(infoText);
+
+				FlxTween.tween(infoText, {alpha: 1}, 1.4, {ease: FlxEase.expoInOut});
+				FlxTween.tween(blackBox, {alpha: 0.7}, 1, {ease: FlxEase.expoInOut});
+
+				new FlxTimer().start(2, function(tmr:FlxTimer)
+				{
+					FlxTween.tween(blackBox, {alpha: 0}, 1.1, {ease: FlxEase.expoInOut, onComplete: function(tween:FlxTween)
+					{
+						ableToPress = true;
+					}});
+					FlxTween.tween(infoText, {alpha: 0}, 1, {ease: FlxEase.expoInOut});
+				});
+			}
+			else
+			{
+				var poop:String = Highscore.formatSong(songFormat, curDifficulty);
+
+				trace(poop);
+				
+				PlayState.SONG = Song.loadFromJson(poop, songs[curSelected].songName);
+				PlayState.isStoryMode = false;
+				PlayState.storyDifficulty = curDifficulty;
+				PlayState.storyWeek = songs[curSelected].week;
+				trace('CUR WEEK' + PlayState.storyWeek);
+				LoadingState.loadAndSwitchState(new PlayState());
+			}
 		}
 	}
 
@@ -290,6 +448,7 @@ class FreeplayState extends MusicBeatState
 		#end
 
 		// NGio.logEvent('Fresh');
+		FlxG.sound.music.stop();
 		FlxG.sound.play(Paths.sound('scrollMenu'), 0.4);
 
 		curSelected += change;
@@ -315,33 +474,49 @@ class FreeplayState extends MusicBeatState
 		// lerpScore = 0;
 		#end
 
-		#if PRELOAD_ALL
-		FlxG.sound.playMusic(Paths.inst(songs[curSelected].songName), 0);
-		#end
-
 		var bullShit:Int = 0;
 
-		for (i in 0...iconArray.length)
+		for (i in iconArray.members)
 		{
-			iconArray[i].alpha = 0.6;
+			i.alpha = 0.6;
 		}
 
-		iconArray[curSelected].alpha = 1;
+		iconArray.members[curSelected].alpha = 1;
+
+		#if PRELOAD_ALL
+			FlxG.sound.playMusic(Paths.inst(songs[curSelected].songName), 0);
+		#end
 
 		for (item in grpSongs.members)
-		{
-			item.targetY = bullShit - curSelected;
-			bullShit++;
-
-			item.alpha = 0.6;
-			// item.setGraphicSize(Std.int(item.width * 0.8));
-
-			if (item.targetY == 0)
 			{
-				item.alpha = 1;
-				// item.setGraphicSize(Std.int(item.width));
+				item.targetY = bullShit - curSelected;
+				bullShit++;
+				if (item.text == 'Last Hope' && !FlxG.save.data.pacifistEnding)
+				{
+					item.alpha = 0.1;
+				}
+				else if (item.text == 'Hallucinations' && !FlxG.save.data.genocideEnding)
+				{
+					item.alpha = 0.1;
+				}
+				else if (item.text == 'Reality Check' && !FlxG.save.data.unlockedRealityCheck)
+				{
+					item.alpha = 0.1;
+				}
+				else if (item.text == 'Wounded Shooting' && !FlxG.save.data.unlockedWoundedShooting)
+				{
+					item.alpha = 0.1;
+				}
+				else
+				{
+					item.alpha = 0.6;
+				}
+					
+				if (item.targetY == 0)
+				{
+					item.alpha = 1;
+				}
 			}
-		}
 	}
 }
 

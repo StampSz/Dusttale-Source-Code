@@ -139,7 +139,7 @@ class ChartingState extends MusicBeatState
 		curRenderedSustains = new FlxTypedGroup<FlxSprite>();
 
 		FlxG.mouse.visible = true;
-		FlxG.save.bind('funkin', 'ninjamuffin99');
+		FlxG.save.bind('funkindusttale', 'wassabisoja');
 
 		tempBpm = _song.bpm;
 
@@ -1027,7 +1027,9 @@ class ChartingState extends MusicBeatState
 			+ "\nSection: "
 			+ curSection 
 			+ "\nCurStep: " 
-			+ curStep;
+			+ curStep
+			+ "\nCurBeat: "
+			+ curBeat;
 		super.update(elapsed);
 	}
 

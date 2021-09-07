@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="dialogue_sans_snowdin.png">
+	<!-- Created with Adobe Animate version 21.0.4.39603 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="mad0000" x="0" y="0" width="939" height="805"/>
+	<SubTexture name="mad0001" x="0" y="0" width="939" height="805"/>
+	<SubTexture name="mad0002" x="939" y="0" width="939" height="805"/>
+	<SubTexture name="mad0003" x="939" y="0" width="939" height="805"/>
+	<SubTexture name="mad0004" x="1878" y="0" width="939" height="805"/>
+	<SubTexture name="mad0005" x="1878" y="0" width="939" height="805"/>
+	<SubTexture name="mad0006" x="2817" y="0" width="939" height="805"/>
+	<SubTexture name="mad0007" x="2817" y="0" width="939" height="805"/>
+	<SubTexture name="mad0008" x="0" y="805" width="939" height="805"/>
+	<SubTexture name="mad0009" x="0" y="805" width="939" height="805"/>
+	<SubTexture name="mad0010" x="0" y="805" width="939" height="805"/>
+	<SubTexture name="mad0011" x="0" y="805" width="939" height="805"/>
+	<SubTexture name="mad0012" x="0" y="805" width="939" height="805"/>
+	<SubTexture name="mad0013" x="0" y="805" width="939" height="805"/>
+	<SubTexture name="normal0000" x="939" y="805" width="939" height="805"/>
+	<SubTexture name="normal0001" x="939" y="805" width="939" height="805"/>
+	<SubTexture name="normal0002" x="1878" y="805" width="939" height="805"/>
+	<SubTexture name="normal0003" x="1878" y="805" width="939" height="805"/>
+	<SubTexture name="normal0004" x="2817" y="805" width="939" height="805"/>
+	<SubTexture name="normal0005" x="2817" y="805" width="939" height="805"/>
+	<SubTexture name="normal0006" x="0" y="1610" width="939" height="805"/>
+	<SubTexture name="normal0007" x="0" y="1610" width="939" height="805"/>
+	<SubTexture name="normal0008" x="939" y="1610" width="939" height="805"/>
+	<SubTexture name="normal0009" x="939" y="1610" width="939" height="805"/>
+	<SubTexture name="normal0010" x="939" y="1610" width="939" height="805"/>
+	<SubTexture name="normal0011" x="939" y="1610" width="939" height="805"/>
+	<SubTexture name="normal0012" x="939" y="1610" width="939" height="805"/>
+	<SubTexture name="normal0013" x="939" y="1610" width="939" height="805"/>
+	<SubTexture name="worry0000" x="1878" y="1610" width="939" height="805"/>
+	<SubTexture name="worry0001" x="1878" y="1610" width="939" height="805"/>
+	<SubTexture name="worry0002" x="2817" y="1610" width="939" height="805"/>
+	<SubTexture name="worry0003" x="2817" y="1610" width="939" height="805"/>
+	<SubTexture name="worry0004" x="0" y="2415" width="939" height="805"/>
+	<SubTexture name="worry0005" x="0" y="2415" width="939" height="805"/>
+	<SubTexture name="worry0006" x="939" y="2415" width="939" height="805"/>
+	<SubTexture name="worry0007" x="939" y="2415" width="939" height="805"/>
+	<SubTexture name="worry0008" x="1878" y="2415" width="939" height="805"/>
+	<SubTexture name="worry0009" x="1878" y="2415" width="939" height="805"/>
+	<SubTexture name="worry0010" x="1878" y="2415" width="939" height="805"/>
+	<SubTexture name="worry0011" x="1878" y="2415" width="939" height="805"/>
+	<SubTexture name="worry0012" x="1878" y="2415" width="939" height="805"/>
+	<SubTexture name="worry0013" x="1878" y="2415" width="939" height="805"/>
+</TextureAtlas>

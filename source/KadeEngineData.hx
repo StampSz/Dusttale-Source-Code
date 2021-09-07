@@ -94,8 +94,17 @@ class KadeEngineData
 		if (FlxG.save.data.optimize == null)
 			FlxG.save.data.optimize = false;
 
-		if (FlxG.save.data.genocide == null)
-			FlxG.save.data.genocide = false;
+		if (FlxG.save.data.genocideEnding == null)
+			FlxG.save.data.genocideEnding = false;
+
+		if (FlxG.save.data.pacifistEnding == null)
+			FlxG.save.data.pacifistEnding = false;
+
+		if (FlxG.save.data.unlockedRealityCheck == null)
+			FlxG.save.data.unlockedRealityCheck = false;
+
+		if (FlxG.save.data.unlockedWoundedShooting == null)
+			FlxG.save.data.unlockedWoundedShooting = false;
 		
 		var gamepad:FlxGamepad = FlxG.gamepads.lastActive;
 		

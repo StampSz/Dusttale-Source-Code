@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TextureAtlas imagePath="wassabiSoja.png"><SubTexture name="wassabiSoja sojatwerk0000" x="0" y="0" width="1004" height="1004" frameX="0" frameY="0" frameWidth="1004" frameHeight="1004" />
+<SubTexture name="wassabiSoja sojatwerk0001" x="1004" y="0" width="1004" height="1004" frameX="0" frameY="0" frameWidth="1004" frameHeight="1004" />
+<SubTexture name="wassabiSoja sojatwerk0002" x="2008" y="0" width="1004" height="1004" frameX="0" frameY="0" frameWidth="1004" frameHeight="1004" />
+<SubTexture name="wassabiSoja sojatwerk0003" x="3012" y="0" width="1004" height="1004" frameX="0" frameY="0" frameWidth="1004" frameHeight="1004" />
+<SubTexture name="wassabiSoja sojatwerk0004" x="0" y="1004" width="1004" height="1004" frameX="0" frameY="0" frameWidth="1004" frameHeight="1004" />
+<SubTexture name="wassabiSoja sojatwerk0005" x="1004" y="1004" width="1004" height="1004" frameX="0" frameY="0" frameWidth="1004" frameHeight="1004" />
+</TextureAtlas>

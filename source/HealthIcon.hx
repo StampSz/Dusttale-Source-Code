@@ -29,8 +29,8 @@ class HealthIcon extends FlxSprite
 		}
 		switch(char)
 		{
-			case 'sans':
-				frames = Paths.getSparrowAtlas('icons/sans_icons');
+			case 'sans' | 'sansWorried' | 'sansUpset' | 'sansMad':
+				frames = Paths.getSparrowAtlas('icons/sans_icons', 'shared');
 				iconScale = 0.5;
 				defaultIconScale = 0.5;
 
@@ -38,35 +38,38 @@ class HealthIcon extends FlxSprite
 				animation.addByPrefix('default', "normal", 24, false, isPlayer);
 				animation.addByPrefix('losing', "loosing", 24, false, isPlayer);
 				animation.addByPrefix('winning', "winning", 24, false, isPlayer);
-			case 'sansWorried':
-				frames = Paths.getSparrowAtlas('icons/sans_icons');
+			case 'sansTired': //only for freeplay
+				frames = Paths.getSparrowAtlas('icons/sans_icons', 'shared');
 				iconScale = 0.5;
 				defaultIconScale = 0.5;
 
 				antialiasing = true;
-				animation.addByPrefix('default', "normal", 24, false, isPlayer);
-				animation.addByPrefix('losing', "loosing", 24, false, isPlayer);
-				animation.addByPrefix('winning', "winning", 24, false, isPlayer);
-			case 'sansUpset':
-				frames = Paths.getSparrowAtlas('icons/sans_icons');
+				animation.addByPrefix('default', "loosing", 24, false, isPlayer);
+			case 'sansWinning': //only for freeplay
+				frames = Paths.getSparrowAtlas('icons/sans_icons', 'shared');
 				iconScale = 0.5;
 				defaultIconScale = 0.5;
 
 				antialiasing = true;
-				animation.addByPrefix('default', "normal", 24, false, isPlayer);
-				animation.addByPrefix('losing', "loosing", 24, false, isPlayer);
-				animation.addByPrefix('winning', "winning", 24, false, isPlayer);
-			case 'sansMad':
-				frames = Paths.getSparrowAtlas('icons/sans_icons');
+				animation.addByPrefix('default', "winning", 24, false, isPlayer);
+			case 'lock': //only for freeplay
+				frames = Paths.getSparrowAtlas('campaign_menu_UI_assets');
 				iconScale = 0.5;
 				defaultIconScale = 0.5;
+
+				antialiasing = true;
+				animation.addByPrefix('default', "lock", 24, false, isPlayer);
+			case 'pico':
+				frames = Paths.getSparrowAtlas('icons/pico_icons', 'shared');
+				iconScale = 0.4;
+				defaultIconScale = 0.4;
 
 				antialiasing = true;
 				animation.addByPrefix('default', "normal", 24, false, isPlayer);
 				animation.addByPrefix('losing', "loosing", 24, false, isPlayer);
 				animation.addByPrefix('winning', "winning", 24, false, isPlayer);
 			case 'paps':
-				frames = Paths.getSparrowAtlas('icons/paps_icons');
+				frames = Paths.getSparrowAtlas('icons/paps_icons', 'shared');
 				iconScale = 0.5;
 				defaultIconScale = 0.5;
 
@@ -75,7 +78,7 @@ class HealthIcon extends FlxSprite
 				animation.addByPrefix('losing', "loosing_paps", 24, false, isPlayer);
 				animation.addByPrefix('winning', "winning_paps", 24, false, isPlayer);
 			default:
-				frames = Paths.getSparrowAtlas('icons/bf_icons');
+				frames = Paths.getSparrowAtlas('icons/bf_icons', 'shared');
 				iconScale = 0.5;
 				defaultIconScale = 0.5;
 
@@ -84,7 +87,7 @@ class HealthIcon extends FlxSprite
 				animation.addByPrefix('losing', "loosing_bf", 24, false, isPlayer);
 				animation.addByPrefix('winning', "winning_bf", 24, false, isPlayer);
 			case 'bfKR':
-				frames = Paths.getSparrowAtlas('icons/iconsKR');
+				frames = Paths.getSparrowAtlas('icons/iconsKR', 'shared');
 				iconScale = 0.5;
 				defaultIconScale = 0.5;
 
@@ -94,7 +97,7 @@ class HealthIcon extends FlxSprite
 				animation.addByPrefix('winning', "winning_bf", 24, false, isPlayer);
 
 			case 'bf-chara':
-				frames = Paths.getSparrowAtlas('icons/bf_chara');
+				frames = Paths.getSparrowAtlas('icons/bf_chara', 'shared');
 				iconScale = 0.5;
 				defaultIconScale = 0.5;
 
@@ -103,7 +106,7 @@ class HealthIcon extends FlxSprite
 				animation.addByPrefix('losing', "loosing_bf", 24, false, isPlayer);
 				animation.addByPrefix('winning', "winning_bf", 24, false, isPlayer);
 			case 'chara':
-				frames = Paths.getSparrowAtlas('icons/chara_icons');
+				frames = Paths.getSparrowAtlas('icons/chara_icons', 'shared');
 				iconScale = 0.5;
 				defaultIconScale = 0.5;
 

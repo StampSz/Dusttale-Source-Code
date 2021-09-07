@@ -1,0 +1,5 @@
+:sansnormal:normal
+:sansmad:mad
+:sansworried:worried
+:bfnormal:normal
+:bfchara:chara

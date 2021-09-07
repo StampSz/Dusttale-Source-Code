@@ -8,3 +8,4 @@ sansUpset
 sansMad
 bf-chara
 chara
+pico

@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="pico_icons.png">
+	<!-- Created with Adobe Animate version 21.0.4.39603 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="loosing_pico0000" x="0" y="0" width="271" height="233" frameX="-5" frameY="-4" frameWidth="278" frameHeight="240"/>
+	<SubTexture name="loosing_pico0001" x="0" y="0" width="271" height="233" frameX="-7" frameY="-6" frameWidth="278" frameHeight="240"/>
+	<SubTexture name="loosing_pico0002" x="0" y="0" width="271" height="233" frameX="-4" frameY="-3" frameWidth="278" frameHeight="240"/>
+	<SubTexture name="loosing_pico0003" x="0" y="0" width="271" height="233" frameX="-5" frameY="0" frameWidth="278" frameHeight="240"/>
+	<SubTexture name="loosing_pico0004" x="0" y="0" width="271" height="233" frameX="-3" frameY="-4" frameWidth="278" frameHeight="240"/>
+	<SubTexture name="loosing_pico0005" x="0" y="0" width="271" height="233" frameX="0" frameY="-5" frameWidth="278" frameHeight="240"/>
+	<SubTexture name="normal_pico0000" x="271" y="0" width="298" height="217" frameX="0" frameY="-16" frameWidth="298" frameHeight="233"/>
+	<SubTexture name="normal_pico0001" x="271" y="0" width="298" height="217" frameX="0" frameY="-16" frameWidth="298" frameHeight="233"/>
+	<SubTexture name="normal_pico0002" x="569" y="0" width="286" height="226" frameX="-6" frameY="-7" frameWidth="298" frameHeight="233"/>
+	<SubTexture name="normal_pico0003" x="569" y="0" width="286" height="226" frameX="-6" frameY="-7" frameWidth="298" frameHeight="233"/>
+	<SubTexture name="normal_pico0004" x="0" y="233" width="271" height="233" frameX="-13" frameY="0" frameWidth="298" frameHeight="233"/>
+	<SubTexture name="normal_pico0005" x="0" y="233" width="271" height="233" frameX="-13" frameY="0" frameWidth="298" frameHeight="233"/>
+	<SubTexture name="winning_pico0000" x="271" y="233" width="298" height="217" frameX="0" frameY="-10" frameWidth="298" frameHeight="227"/>
+	<SubTexture name="winning_pico0001" x="271" y="233" width="298" height="217" frameX="0" frameY="-10" frameWidth="298" frameHeight="227"/>
+	<SubTexture name="winning_pico0002" x="569" y="233" width="281" height="222" frameX="-8" frameY="-5" frameWidth="298" frameHeight="227"/>
+	<SubTexture name="winning_pico0003" x="569" y="233" width="281" height="222" frameX="-8" frameY="-5" frameWidth="298" frameHeight="227"/>
+	<SubTexture name="winning_pico0004" x="0" y="466" width="274" height="227" frameX="-12" frameY="0" frameWidth="298" frameHeight="227"/>
+	<SubTexture name="winning_pico0005" x="0" y="466" width="274" height="227" frameX="-12" frameY="0" frameWidth="298" frameHeight="227"/>
+</TextureAtlas>

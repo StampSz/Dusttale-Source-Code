@@ -9,6 +9,8 @@ import flixel.input.FlxKeyManager;
 import flixel.text.FlxText;
 import flixel.util.FlxColor;
 import flixel.util.FlxTimer;
+import flixel.tweens.FlxTween;
+import flixel.tweens.FlxEase;
 
 using StringTools;
 
@@ -23,8 +25,7 @@ class DialogueBox extends FlxSpriteGroup
 
 	// SECOND DIALOGUE FOR THE PIXEL SHIT INSTEAD???
 	var swagDialogue:FlxTypeText;
-
-	var dropText:FlxText;
+	var starThing:FlxText;
 
 	public var finishThing:Void->Void;
 
@@ -34,59 +35,28 @@ class DialogueBox extends FlxSpriteGroup
 	var handSelect:FlxSprite;
 	var bgFade:FlxSprite;
 
+	var dialogueOpened:Bool = false;
+	var dialogueStarted:Bool = false;
+	var currentLeftPortraitAnim:String = "normal";
+	var currentRightPortraitAnim:String = "normal";
+
 	public function new(talkingRight:Bool = true, ?dialogueList:Array<String>)
 	{
 		super();
 
-		switch (PlayState.SONG.song.toLowerCase())
-		{
-			case 'senpai':
-				FlxG.sound.playMusic(Paths.music('Lunchbox'), 0);
-				FlxG.sound.music.fadeIn(1, 0, 0.8);
-			case 'thorns':
-				FlxG.sound.playMusic(Paths.music('LunchboxScary'), 0);
-				FlxG.sound.music.fadeIn(1, 0, 0.8);
-		}
-
-		bgFade = new FlxSprite(-200, -200).makeGraphic(Std.int(FlxG.width * 1.3), Std.int(FlxG.height * 1.3), 0xFFB3DFd8);
+		bgFade = new FlxSprite(-200, -200).makeGraphic(Std.int(FlxG.width * 1.3), Std.int(FlxG.height * 1.3), 0xFF000000);
 		bgFade.scrollFactor.set();
-		bgFade.alpha = 0;
+		bgFade.alpha = 1;
 		add(bgFade);
-
-		new FlxTimer().start(0.83, function(tmr:FlxTimer)
-		{
-			bgFade.alpha += (1 / 5) * 0.7;
-			if (bgFade.alpha > 0.7)
-				bgFade.alpha = 0.7;
-		}, 5);
 
 		box = new FlxSprite(-20, 45);
 		
 		var hasDialog = false;
 		switch (PlayState.SONG.song.toLowerCase())
 		{
-			case 'senpai':
+			case 'the-murderer' | 'red-megalovania' | 'drowning' | 'anthropophobia' | 'd.i.e' | 'psychotic-breakdown':
 				hasDialog = true;
-				box.frames = Paths.getSparrowAtlas('weeb/pixelUI/dialogueBox-pixel');
-				box.animation.addByPrefix('normalOpen', 'Text Box Appear', 24, false);
-				box.animation.addByIndices('normal', 'Text Box Appear', [4], "", 24);
-			case 'roses':
-				hasDialog = true;
-				FlxG.sound.play(Paths.sound('ANGRY_TEXT_BOX'));
-
-				box.frames = Paths.getSparrowAtlas('weeb/pixelUI/dialogueBox-senpaiMad');
-				box.animation.addByPrefix('normalOpen', 'SENPAI ANGRY IMPACT SPEECH', 24, false);
-				box.animation.addByIndices('normal', 'SENPAI ANGRY IMPACT SPEECH', [4], "", 24);
-
-			case 'thorns':
-				hasDialog = true;
-				box.frames = Paths.getSparrowAtlas('weeb/pixelUI/dialogueBox-evil');
-				box.animation.addByPrefix('normalOpen', 'Spirit Textbox spawn', 24, false);
-				box.animation.addByIndices('normal', 'Spirit Textbox spawn', [11], "", 24);
-
-				var face:FlxSprite = new FlxSprite(320, 170).loadGraphic(Paths.image('weeb/spiritFaceForward'));
-				face.setGraphicSize(Std.int(face.width * 6));
-				add(face);
+				box.loadGraphic(Paths.image('dialogue/box', 'shared'));
 		}
 
 		this.dialogueList = dialogueList;
@@ -95,87 +65,100 @@ class DialogueBox extends FlxSpriteGroup
 			return;
 		
 		portraitLeft = new FlxSprite(-20, 40);
-		portraitLeft.frames = Paths.getSparrowAtlas('weeb/senpaiPortrait');
-		portraitLeft.animation.addByPrefix('enter', 'Senpai Portrait Enter', 24, false);
-		portraitLeft.setGraphicSize(Std.int(portraitLeft.width * PlayState.daPixelZoom * 0.9));
+		portraitLeft.antialiasing = true;
+
+		switch (PlayState.SONG.song.toLowerCase())
+		{
+			case 'the-murderer':
+				portraitLeft.frames = Paths.getSparrowAtlas('dialogue/dialogue_sans_snowdin', 'shared');
+				portraitLeft.animation.addByPrefix('mad', 'mad', 24, false);
+				portraitLeft.animation.addByPrefix('normal', 'normal', 24, false);
+				portraitLeft.animation.addByPrefix('worried', 'worry', 24, false);
+			case 'red-megalovania' | 'drowning':
+				portraitLeft.frames = Paths.getSparrowAtlas('dialogue/dialogue_sans_waterfall', 'shared');
+				portraitLeft.animation.addByPrefix('mad', 'mad', 24, false);
+				portraitLeft.animation.addByPrefix('normal', 'normal', 24, false);
+				portraitLeft.animation.addByPrefix('worried', 'worry', 24, false);
+			case 'anthropophobia':
+				portraitLeft.frames = Paths.getSparrowAtlas('dialogue/dialogue_sans_mad', 'shared');
+				portraitLeft.animation.addByPrefix('mad', 'mad', 24, false);
+				portraitLeft.animation.addByPrefix('normal', 'normal', 24, false);
+				portraitLeft.animation.addByPrefix('worried', 'worry', 24, false);
+			default:
+				portraitLeft.frames = Paths.getSparrowAtlas('dialogue/sans_dia', 'shared');
+				portraitLeft.animation.addByPrefix('angry', 'angry', 24, false);
+				portraitLeft.animation.addByPrefix('mad', 'mad', 24, false);
+				portraitLeft.animation.addByPrefix('normal', 'normal', 24, false);
+				portraitLeft.animation.addByPrefix('strange', 'strange', 24, false);
+				portraitLeft.animation.addByPrefix('worried', 'worry', 24, false);
+		}
+
+		portraitLeft.setGraphicSize(Std.int(portraitLeft.width * 0.9));
 		portraitLeft.updateHitbox();
 		portraitLeft.scrollFactor.set();
+		portraitLeft.alpha = 0.25;
 		add(portraitLeft);
-		portraitLeft.visible = false;
 
 		portraitRight = new FlxSprite(0, 40);
-		portraitRight.frames = Paths.getSparrowAtlas('weeb/bfPortrait');
-		portraitRight.animation.addByPrefix('enter', 'Boyfriend portrait enter', 24, false);
-		portraitRight.setGraphicSize(Std.int(portraitRight.width * PlayState.daPixelZoom * 0.9));
+		portraitRight.frames = Paths.getSparrowAtlas('dialogue/bf_dia', 'shared');
+		portraitRight.antialiasing = true;
+		portraitRight.animation.addByPrefix('normal', 'BF_normal', 24, false);
+		portraitRight.animation.addByPrefix('chara', 'bf_chara', 24, false);
+		portraitRight.setGraphicSize(Std.int(portraitRight.width * 0.9));
 		portraitRight.updateHitbox();
 		portraitRight.scrollFactor.set();
+		portraitRight.alpha = 0.25;
 		add(portraitRight);
-		portraitRight.visible = false;
 		
-		box.animation.play('normalOpen');
-		box.setGraphicSize(Std.int(box.width * PlayState.daPixelZoom * 0.9));
+		box.setGraphicSize(Std.int(box.width * 1));
 		box.updateHitbox();
 		add(box);
 
-		box.screenCenter(X);
-		portraitLeft.screenCenter(X);
+		box.screenCenter();
+		portraitLeft.screenCenter();
+		portraitRight.screenCenter();
 
-		handSelect = new FlxSprite(FlxG.width * 0.9, FlxG.height * 0.9).loadGraphic(Paths.image('weeb/pixelUI/hand_textbox'));
-		add(handSelect);
+		portraitLeft.x -= 170;
+		portraitLeft.y += 595;
+		portraitRight.x += 200;
+		portraitRight.y += 600;
 
+		box.y += 800;
 
-		if (!talkingRight)
-		{
-			// box.flipX = true;
-		}
+		starThing = new FlxText(260, 1050, Std.int(FlxG.width * 0.6), "*", 32);
+		starThing.antialiasing = true;
+		starThing.setFormat(Paths.font('DTM-Mono.otf'), 40, FlxColor.WHITE);
+		add(starThing);
 
-		dropText = new FlxText(242, 502, Std.int(FlxG.width * 0.6), "", 32);
-		dropText.font = 'Pixel Arial 11 Bold';
-		dropText.color = 0xFFD89494;
-		add(dropText);
-
-		swagDialogue = new FlxTypeText(240, 500, Std.int(FlxG.width * 0.6), "", 32);
-		swagDialogue.font = 'Pixel Arial 11 Bold';
-		swagDialogue.color = 0xFF3F2021;
-		swagDialogue.sounds = [FlxG.sound.load(Paths.sound('pixelText'), 0.6)];
+		swagDialogue = new FlxTypeText(300, 450, Std.int(FlxG.width * 0.6), "", 32);
+		swagDialogue.antialiasing = true;
+		swagDialogue.setFormat(Paths.font('comic.ttf'), 40, FlxColor.WHITE);
 		add(swagDialogue);
 
 		dialogue = new Alphabet(0, 80, "", false, true);
+
+		FlxTween.tween(bgFade, {alpha: 0.7}, 0.7, {ease: FlxEase.smootherStepIn});
+		FlxTween.tween(portraitLeft, {y: portraitLeft.y - 590}, 1, {ease: FlxEase.expoIn, startDelay: 1});
+		FlxTween.tween(portraitRight, {y: portraitRight.y - 640}, 1, {ease: FlxEase.expoIn, startDelay: 1});
+		FlxTween.tween(starThing, {y: starThing.y - 600}, 1, {ease: FlxEase.expoIn, startDelay: 1});
+		FlxTween.tween(box, {y: box.y - 600}, 1, {ease: FlxEase.expoIn, startDelay: 1, onComplete: function(tween:FlxTween)
+		{
+			dialogueOpened = true;
+		}});
 		// dialogue.x = 90;
 		// add(dialogue);
 	}
 
-	var dialogueOpened:Bool = false;
-	var dialogueStarted:Bool = false;
-
 	override function update(elapsed:Float)
 	{
-		// HARD CODING CUZ IM STUPDI
-		if (PlayState.SONG.song.toLowerCase() == 'roses')
-			portraitLeft.visible = false;
-		if (PlayState.SONG.song.toLowerCase() == 'thorns')
-		{
-			portraitLeft.color = FlxColor.BLACK;
-			swagDialogue.color = FlxColor.WHITE;
-			dropText.color = FlxColor.BLACK;
-		}
-
-		dropText.text = swagDialogue.text;
-
-		if (box.animation.curAnim != null)
-		{
-			if (box.animation.curAnim.name == 'normalOpen' && box.animation.curAnim.finished)
-			{
-				box.animation.play('normal');
-				dialogueOpened = true;
-			}
-		}
-
 		if (dialogueOpened && !dialogueStarted)
 		{
 			startDialogue();
 			dialogueStarted = true;
 		}
+
+		portraitLeft.animation.play(currentLeftPortraitAnim);
+		portraitRight.animation.play(currentRightPortraitAnim);
 
 		if (PlayerSettings.player1.controls.ACCEPT && dialogueStarted == true)
 		{
@@ -189,18 +172,15 @@ class DialogueBox extends FlxSpriteGroup
 				{
 					isEnding = true;
 
-					if (PlayState.SONG.song.toLowerCase() == 'senpai' || PlayState.SONG.song.toLowerCase() == 'thorns')
-						FlxG.sound.music.fadeOut(2.2, 0);
-
 					new FlxTimer().start(0.2, function(tmr:FlxTimer)
 					{
-						box.alpha -= 1 / 5;
-						bgFade.alpha -= 1 / 5 * 0.7;
-						portraitLeft.visible = false;
-						portraitRight.visible = false;
-						swagDialogue.alpha -= 1 / 5;
-						dropText.alpha = swagDialogue.alpha;
-					}, 5);
+						FlxTween.tween(bgFade, {alpha: 0}, 0.5, {ease: FlxEase.smootherStepIn});
+						FlxTween.tween(box, {alpha: 0}, 0.5, {ease: FlxEase.smootherStepIn});
+						FlxTween.tween(portraitLeft, {alpha: 0}, 0.5, {ease: FlxEase.smootherStepIn});
+						FlxTween.tween(portraitRight, {alpha: 0}, 0.5, {ease: FlxEase.smootherStepIn});
+						FlxTween.tween(swagDialogue, {alpha: 0}, 0.5, {ease: FlxEase.smootherStepIn});
+						FlxTween.tween(starThing, {alpha: 0}, 0.5, {ease: FlxEase.smootherStepIn});
+					});
 
 					new FlxTimer().start(1.2, function(tmr:FlxTimer)
 					{
@@ -232,22 +212,107 @@ class DialogueBox extends FlxSpriteGroup
 		swagDialogue.resetText(dialogueList[0]);
 		swagDialogue.start(0.04, true);
 
+		if (curCharacter.contains('sans'))
+		{
+			swagDialogue.sounds = [FlxG.sound.load(Paths.sound('voice_sans'), 0.6)];
+			swagDialogue.setFormat(Paths.font('comic.ttf'), 40, FlxColor.WHITE);
+			swagDialogue.y = 450;
+		}
+		else
+		{
+			swagDialogue.sounds = [FlxG.sound.load(Paths.sound('bf'), 0.6)];
+
+			if (curCharacter == 'bfchararedtext')
+				swagDialogue.setFormat(Paths.font('vcr.ttf'), 40, FlxColor.RED);
+			else
+				swagDialogue.setFormat(Paths.font('vcr.ttf'), 40, FlxColor.WHITE);
+
+			swagDialogue.y = 460;
+		}
+
 		switch (curCharacter)
 		{
-			case 'dad':
-				portraitRight.visible = false;
-				if (!portraitLeft.visible)
+			case 'sansnormal':
+				currentLeftPortraitAnim = 'normal';
+				if (portraitLeft.alpha != 1)
+					FlxTween.tween(portraitLeft, {alpha: 1}, 0.5, {ease: FlxEase.smootherStepIn});		
+				
+				if (portraitRight.alpha == 1)
 				{
-					portraitLeft.visible = true;
-					portraitLeft.animation.play('enter');
+					FlxTween.tween(portraitRight, {alpha: 0.25}, 0.5, {ease: FlxEase.smootherStepIn});
 				}
-			case 'bf':
-				portraitLeft.visible = false;
-				if (!portraitRight.visible)
+				portraitLeft.animation.play('normal');
+			case 'sansmad':
+				currentLeftPortraitAnim = 'mad';
+				if (portraitLeft.alpha != 1)
+					FlxTween.tween(portraitLeft, {alpha: 1}, 0.5, {ease: FlxEase.smootherStepIn});		
+
+				if (portraitRight.alpha == 1)
 				{
-					portraitRight.visible = true;
-					portraitRight.animation.play('enter');
+					FlxTween.tween(portraitRight, {alpha: 0.25}, 0.5, {ease: FlxEase.smootherStepIn});
 				}
+				portraitLeft.animation.play('mad');
+			case 'sansworried':
+				currentLeftPortraitAnim = 'worried';
+				if (portraitLeft.alpha != 1)
+					FlxTween.tween(portraitLeft, {alpha: 1}, 0.5, {ease: FlxEase.smootherStepIn});
+						
+
+				if (portraitRight.alpha == 1)
+				{
+					FlxTween.tween(portraitRight, {alpha: 0.25}, 0.5, {ease: FlxEase.smootherStepIn});
+				}
+				portraitLeft.animation.play('worried');
+			case 'sansstrange':
+				currentLeftPortraitAnim = 'strange';
+				if (portraitLeft.alpha != 1)
+					FlxTween.tween(portraitLeft, {alpha: 1}, 0.5, {ease: FlxEase.smootherStepIn});
+						
+				if (portraitRight.alpha == 1)
+				{
+					FlxTween.tween(portraitRight, {alpha: 0.25}, 0.5, {ease: FlxEase.smootherStepIn});
+				}
+				portraitLeft.animation.play('strange');
+			case 'sansangry':
+				currentLeftPortraitAnim = 'angry';
+				if (portraitLeft.alpha != 1)
+					FlxTween.tween(portraitLeft, {alpha: 1}, 0.5, {ease: FlxEase.smootherStepIn});
+				
+				if (portraitRight.alpha == 1)
+				{
+					FlxTween.tween(portraitRight, {alpha: 0.25}, 0.5, {ease: FlxEase.smootherStepIn});
+				}
+				portraitLeft.animation.play('angry');
+			case 'bfnormal':
+				currentRightPortraitAnim = 'normal';
+				if (portraitRight.alpha != 1)
+					FlxTween.tween(portraitRight, {alpha: 1}, 0.5, {ease: FlxEase.smootherStepIn});
+				
+				if (portraitLeft.alpha == 1)
+				{
+					FlxTween.tween(portraitLeft, {alpha: 0.25}, 0.5, {ease: FlxEase.smootherStepIn});
+				}
+				portraitRight.animation.play('normal');
+			case 'bfchara':
+				currentRightPortraitAnim = 'chara';
+				if (portraitRight.alpha != 1)
+					FlxTween.tween(portraitRight, {alpha: 1}, 0.5, {ease: FlxEase.smootherStepIn});
+				
+				if (portraitLeft.alpha == 1)
+				{
+					FlxTween.tween(portraitLeft, {alpha: 0.25}, 0.5, {ease: FlxEase.smootherStepIn});
+				}
+				portraitRight.animation.play('chara');
+			case 'bfchararedtext':
+				currentRightPortraitAnim = 'chara';
+				if (portraitRight.alpha != 1)
+					FlxTween.tween(portraitRight, {alpha: 1}, 0.5, {ease: FlxEase.smootherStepIn});
+				
+				if (portraitLeft.alpha == 1)
+				{
+					FlxTween.tween(portraitLeft, {alpha: 0.25}, 0.5, {ease: FlxEase.smootherStepIn});
+				}
+				portraitRight.animation.play('chara');
 		}
 	}
 
