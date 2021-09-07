@@ -1171,7 +1171,7 @@ class PlayState extends MusicBeatState
 				gf.setPosition(638.2, 125.6);
 			case 'judgementhall-chara':
 				boyfriend.setPosition(1080.75, 458.75);
-				gf.setPosition(638.2, 125.6);
+				gf.setPosition(6638.2, 6125.6);
 			case 'snowdin_cave':
 				if (boyfriend.curCharacter == 'pico')
 					boyfriend.setPosition(1094.05, 408.75);
