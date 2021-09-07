@@ -5196,6 +5196,25 @@ class PlayState extends MusicBeatState
 			case 'red-megalovania':
 				switch (curStep)
 				{
+					case 880:
+						papyrus.setPosition(-298.7, -275.95);
+						new FlxTimer().start(0.1, function(swagTimer:FlxTimer)
+						{
+							papyrus.alpha += 0.1;
+		
+							if (papyrus.alpha < 0.4)
+							{
+								swagTimer.reset();
+							}
+						});
+					case 1154:
+						new FlxTimer().start(0.1, function(swagTimer:FlxTimer)
+						{
+							papyrus.alpha -= 0.1;
+		
+							swagTimer.reset();
+							
+						});
 					case 319,1160,1724,2148:
 						flipCamUp();
 					case 740,1444,2003,2288:
@@ -5214,17 +5233,6 @@ class PlayState extends MusicBeatState
 						{
 							FlxTween.tween(FlxG.camera, {zoom: defaultCamZoom}, 2, {ease: FlxEase.quadInOut});
 						});
-					case 880:
-						papyrus.setPosition(-298.7, -275.95);
-						new FlxTimer().start(0.1, function(swagTimer:FlxTimer)
-						{
-							papyrus.alpha += 0.1;
-		
-							if (papyrus.alpha < 0.4)
-							{
-								swagTimer.reset();
-							}
-						});
 					case 528:
 						FlxTween.tween(FlxG.camera, {zoom: 1.2}, 15, {ease: FlxEase.quadInOut});
 						new FlxTimer().start(15 , function(tmr:FlxTimer)
@@ -5236,14 +5244,6 @@ class PlayState extends MusicBeatState
 						new FlxTimer().start(15 , function(tmr:FlxTimer)
 						{
 							defaultCamZoom = 0.65;
-						});
-					case 1154:
-						new FlxTimer().start(0.1, function(swagTimer:FlxTimer)
-						{
-							papyrus.alpha -= 0.1;
-		
-							swagTimer.reset();
-							
 						});
 				}
 			case 'psychotic-breakdown':
