@@ -304,7 +304,7 @@ class PlayState extends MusicBeatState
 		0xFF999999,	// SANSMAD
 		0xFFe81a1a,	// BF-CHARA
 		0xFFe81a1a,	// CHARA
-		0xFF0090, // BFKR
+		0xFF66CC66, // PICO
 		
 	];
 
@@ -2578,44 +2578,6 @@ class PlayState extends MusicBeatState
 			playerTwoState = "winning";
 		}
 
-		//#if debug
-		if (FlxG.keys.justPressed.SIX)
-		{
-			if (useVideo)
-				{
-					GlobalVideo.get().stop();
-					remove(videoSprite);
-					FlxG.stage.window.onFocusOut.remove(focusOut);
-					FlxG.stage.window.onFocusIn.remove(focusIn);
-					removedVideo = true;
-				}
-
-			FlxG.switchState(new AnimationDebug(SONG.player2));
-			FlxG.stage.removeEventListener(KeyboardEvent.KEY_DOWN,handleInput);
-			#if windows
-			if (luaModchart != null)
-			{
-				luaModchart.die();
-				luaModchart = null;
-			}
-			#end
-		}
-
-		if (FlxG.keys.justPressed.ZERO)
-		{
-			FlxG.switchState(new AnimationDebug(SONG.player1));
-			FlxG.stage.removeEventListener(KeyboardEvent.KEY_DOWN,handleInput);
-			#if windows
-			if (luaModchart != null)
-			{
-				luaModchart.die();
-				luaModchart = null;
-			}
-			#end
-		}
-
-		//#end
-
 		if(FlxG.keys.justPressed.TWO && songStarted) { //Go 10 seconds into the future, credit: Shadow Mario#9396
 			if (!usedTimeTravel && Conductor.songPosition + 10000 < FlxG.sound.music.length) 
 			{
@@ -3211,12 +3173,6 @@ class PlayState extends MusicBeatState
 
 		if (!inCutscene)
 			keyShit();
-
-
-		//#if debug
-		if (FlxG.keys.justPressed.ONE)
-			endSong();
-		//#end
 	}
 
 	function endSong():Void

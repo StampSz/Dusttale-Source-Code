@@ -411,14 +411,21 @@ class Character extends FlxSprite
 				addOffset("singRIGHT", -145, 9);
 				addOffset("singDOWN", -20, -70);
 				addOffset("singUPmiss", -74, 72);
-				addOffset("singRIGHTmiss", -30, 31);
-				addOffset("singLEFTmiss", -148, 54);
+				addOffset("singLEFTmiss", -30, 31);
+				addOffset("singRIGHTmiss", -148, 54);
 				addOffset("singDOWNmiss", -20, -33);
 
 				playAnim('idle');
 
 				flipX = true;
+			case 'pico-gameover':
+				tex = Paths.getSparrowAtlas('characters/pico_dies');
+				frames = tex;
+				animation.addByPrefix('firstDeath', "BF dies", 24, false);
+				animation.addByPrefix('deathLoop', "BF Dead Loop", 24, true);
+				animation.addByPrefix('deathConfirm', "BF Dead confirm", 24, false);
 
+				playAnim('firstDeath');
 			case 'bf':
 				var tex = Paths.getSparrowAtlas('characters/BOYFRIEND', 'shared');
 				frames = tex;
