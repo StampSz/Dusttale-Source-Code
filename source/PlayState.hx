@@ -93,6 +93,7 @@ class PlayState extends MusicBeatState
 	public static var bads:Int = 0;
 	public static var goods:Int = 0;
 	public static var sicks:Int = 0;
+	public static var deathCounter:Int = 0;
 
 	public static var songPosBG:FlxSprite;
 	public static var songPosBar:FlxBar;
@@ -1473,20 +1474,27 @@ class PlayState extends MusicBeatState
 
 		if (isStoryMode)
 		{
-			switch (StringTools.replace(curSong," ", "-").toLowerCase())
+			if (deathCounter <= 0)
 			{
-				case 'drowning' | 'd.i.e':
-					dialogueShit(doof);
-				case 'the-murderer':
-					playCutscene('themurderer', 112, doof);
-				case 'red-megalovania':
-					playCutscene('redmegalovania', 16, doof);
-				case 'psychotic-breakdown':
-					playCutscene('psychoticbreakdown', 22, doof);
-				case 'anthropophobia':
-					playCutscene('anthropophobia', 18, doof);
-			default:
-					startCountdown();
+				switch (StringTools.replace(curSong," ", "-").toLowerCase())
+				{
+					case 'drowning' | 'd.i.e':
+						dialogueShit(doof);
+					case 'the-murderer':
+						playCutscene('themurderer', 112, doof);
+					case 'red-megalovania':
+						playCutscene('redmegalovania', 16, doof);
+					case 'psychotic-breakdown':
+						playCutscene('psychoticbreakdown', 22, doof);
+					case 'anthropophobia':
+						playCutscene('anthropophobia', 18, doof);
+					default:
+						startCountdown();
+				}
+			}
+			else
+			{
+				startCountdown();
 			}
 		}
 		else
@@ -2891,6 +2899,7 @@ class PlayState extends MusicBeatState
 		if (health <= 0)
 		{
 			boyfriend.stunned = true;
+			deathCounter++;
 
 			persistentUpdate = false;
 			persistentDraw = false;
@@ -3209,7 +3218,7 @@ class PlayState extends MusicBeatState
 			luaModchart = null;
 		}
 		#end
-
+		deathCounter = 0;
 		canPause = false;
 		FlxG.sound.music.volume = 0;
 		vocals.volume = 0;
